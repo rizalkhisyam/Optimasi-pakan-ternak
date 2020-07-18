@@ -5,6 +5,14 @@
  */
 package View;
 
+import java.awt.Image;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseListener;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JLabel;
 /**
  *
  * @author Muhammad Rizal
@@ -28,7 +36,7 @@ public class HomeView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnOptimasi = new javax.swing.JButton();
+        Button_Optimasi = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         inputPopulasi = new javax.swing.JTextField();
@@ -39,9 +47,9 @@ public class HomeView extends javax.swing.JFrame {
         jTextField4 = new javax.swing.JTextField();
         inputAlgoritma = new javax.swing.JLabel();
         header = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        Button_Pakan = new javax.swing.JButton();
+        Button_Algo = new javax.swing.JButton();
+        Button_Hasil = new javax.swing.JButton();
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -51,11 +59,12 @@ public class HomeView extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(1100, 720));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnOptimasi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Button/btn-optimasi.png"))); // NOI18N
-        btnOptimasi.setBorderPainted(false);
-        btnOptimasi.setContentAreaFilled(false);
-        btnOptimasi.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(btnOptimasi, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 550, 160, -1));
+        Button_Optimasi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Button/btn-optimasi.png"))); // NOI18N
+        Button_Optimasi.setBorder(null);
+        Button_Optimasi.setBorderPainted(false);
+        Button_Optimasi.setContentAreaFilled(false);
+        Button_Optimasi.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(Button_Optimasi, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 550, 160, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -121,30 +130,80 @@ public class HomeView extends javax.swing.JFrame {
         header.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Home/header.png"))); // NOI18N
         getContentPane().add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1100, 110));
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Button/btn-feed.png"))); // NOI18N
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 110, 200, -1));
+        Button_Pakan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Button/btn-feed.png"))); // NOI18N
+        Button_Pakan.setBorderPainted(false);
+        Button_Pakan.setContentAreaFilled(false);
+        Button_Pakan.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(Button_Pakan, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 110, 200, -1));
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Button/btn-calculate.png"))); // NOI18N
-        jButton2.setBorderPainted(false);
-        jButton2.setContentAreaFilled(false);
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 110, -1, -1));
+        Button_Algo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Button/btn-calculate.png"))); // NOI18N
+        Button_Algo.setBorderPainted(false);
+        Button_Algo.setContentAreaFilled(false);
+        Button_Algo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(Button_Algo, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 110, -1, -1));
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Button/btn-result.png"))); // NOI18N
-        jButton3.setBorderPainted(false);
-        jButton3.setContentAreaFilled(false);
-        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 110, -1, -1));
+        Button_Hasil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Button/btn-result.png"))); // NOI18N
+        Button_Hasil.setBorderPainted(false);
+        Button_Hasil.setContentAreaFilled(false);
+        Button_Hasil.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(Button_Hasil, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 110, -1, -1));
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Home/bg-home.png"))); // NOI18N
         getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1100, 720));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    //button menu Optimasi=========================
+    public void OptimasiMouseListener(MouseListener l){
+        this.Button_Optimasi.addMouseListener(l);
+    }
+    
+    public JButton getButton_Optimasi() {
+        return Button_Optimasi;
+    }
 
+    public void setButton_Optimasi(JButton Button_Optimasi) {
+        this.Button_Optimasi = Button_Optimasi;
+    }
+    
+    //button pakan============================
+    public void PakanMouseListener(MouseListener l){
+        this.Button_Pakan.addMouseListener(l);
+    }
+    
+    public JButton getButton_Pakan() {
+        return Button_Pakan;
+    }
+
+    public void setButton_pakan(JButton Button_Optimasi) {
+        this.Button_Pakan = Button_Pakan;
+    }
+    
+    //button algoritma=============================
+    public void AlgoMouseListener(MouseListener l){
+        this.Button_Algo.addMouseListener(l);
+    }
+    
+    public JButton getButton_Algo() {
+        return Button_Algo;
+    }
+
+    public void setButton_Algo(JButton Button_Optimasi) {
+        this.Button_Algo = Button_Algo;
+    }
+    
+    //Button hasil optimasi===========================
+    public void HasilMouseListener(MouseListener l){
+        this.Button_Hasil.addMouseListener(l);
+    }
+    
+    public JButton getButton_Hasil() {
+        return Button_Hasil;
+    }
+
+    public void setButton_Hasil(JButton Button_Optimasi) {
+        this.Button_Hasil = Button_Hasil;
+    }
     private void inputPopulasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputPopulasiActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_inputPopulasiActionPerformed
@@ -185,15 +244,15 @@ public class HomeView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Button_Algo;
+    private javax.swing.JButton Button_Hasil;
+    private javax.swing.JButton Button_Optimasi;
+    private javax.swing.JButton Button_Pakan;
     private javax.swing.JLabel background;
-    private javax.swing.JButton btnOptimasi;
     private javax.swing.JLabel header;
     private javax.swing.JLabel inputAlgoritma;
     private javax.swing.JTextField inputGenerasi;
     private javax.swing.JTextField inputPopulasi;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;

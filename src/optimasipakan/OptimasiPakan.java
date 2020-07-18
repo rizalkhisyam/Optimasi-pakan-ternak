@@ -5,6 +5,8 @@
  */
 package optimasipakan;
 
+import Controller.GenetikController;
+import View.HomeView;
 /**
  *
  * @author Muhammad Rizal
@@ -15,7 +17,8 @@ public class OptimasiPakan {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        HomeView home = new HomeView();
+        new GenetikController(home);
     }
     
 }
