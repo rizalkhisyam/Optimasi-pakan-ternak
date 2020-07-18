@@ -13,6 +13,7 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 /**
  *
  * @author Muhammad Rizal
@@ -37,6 +38,7 @@ public class HomeView extends javax.swing.JFrame {
     private void initComponents() {
 
         Button_Optimasi = new javax.swing.JButton();
+        DynamicPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         inputPopulasi = new javax.swing.JTextField();
@@ -65,19 +67,11 @@ public class HomeView extends javax.swing.JFrame {
         Button_Optimasi.setContentAreaFilled(false);
         Button_Optimasi.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(Button_Optimasi, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 550, 160, -1));
+        getContentPane().add(DynamicPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 160, 690, 470));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+
             },
             new String [] {
                 "No", "Nama Pakan", "Protein", "Kalsium", "Fosfor", "Lemak", "Serat"
@@ -93,7 +87,7 @@ public class HomeView extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 160, 690, 190));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 160, 690, 470));
 
         inputPopulasi.setBorder(null);
         inputPopulasi.setOpaque(false);
@@ -204,6 +198,16 @@ public class HomeView extends javax.swing.JFrame {
     public void setButton_Hasil(JButton Button_Optimasi) {
         this.Button_Hasil = Button_Hasil;
     }
+    
+    //set get panel
+    
+    public void setDynamicPanel(JPanel DynamicPanel) {
+        this.DynamicPanel = DynamicPanel;
+    }
+    
+    public JPanel getDynamicPanel(){
+        return DynamicPanel;
+    }
     private void inputPopulasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputPopulasiActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_inputPopulasiActionPerformed
@@ -248,6 +252,7 @@ public class HomeView extends javax.swing.JFrame {
     private javax.swing.JButton Button_Hasil;
     private javax.swing.JButton Button_Optimasi;
     private javax.swing.JButton Button_Pakan;
+    private javax.swing.JPanel DynamicPanel;
     private javax.swing.JLabel background;
     private javax.swing.JLabel header;
     private javax.swing.JLabel inputAlgoritma;

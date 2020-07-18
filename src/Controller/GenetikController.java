@@ -6,6 +6,9 @@
 package Controller;
 
 import View.HomeView;
+import View.PanelOptimasi;
+import View.PanelPakan;
+import java.awt.GridBagLayout;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.ImageIcon;
@@ -17,10 +20,18 @@ import javax.swing.JButton;
  */
 public class GenetikController {
     private HomeView home = new HomeView();
+    static GridBagLayout layout = new GridBagLayout();
+    static PanelPakan feed = new PanelPakan();
+    static PanelOptimasi result = new PanelOptimasi();
     
     public GenetikController(HomeView home){
     this.home = home;
     home.setVisible(true);
+    
+    home.getDynamicPanel().setLayout(layout);
+    home.getDynamicPanel().add(feed);
+    home.getDynamicPanel().add(result);
+    home.getDynamicPanel().setVisible(false);
     
     home.OptimasiMouseListener(new OptimasiMouseListener());
     home.AlgoMouseListener(new AlgoMouseListener());
@@ -39,6 +50,7 @@ public class GenetikController {
 
         @Override
         public void mouseClicked(MouseEvent e) {
+            home.getDynamicPanel().setVisible(false);
             }
 
         @Override
@@ -65,6 +77,9 @@ public class GenetikController {
 
         @Override
         public void mouseClicked(MouseEvent e) {
+            home.getDynamicPanel().setVisible(true);
+            feed.setVisible(false);
+            result.setVisible(true);
             }
 
         @Override
@@ -88,6 +103,9 @@ public class GenetikController {
 
         @Override
         public void mouseClicked(MouseEvent e) {
+            home.getDynamicPanel().setVisible(true);
+            feed.setVisible(true);
+            result.setVisible(false);
             }
 
         @Override
