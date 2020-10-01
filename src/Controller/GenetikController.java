@@ -5,29 +5,61 @@
  */
 package Controller;
 
+import Model.GenetikModel;
 import View.HomeView;
 import View.PanelOptimasi;
 import View.PanelPakan;
 import java.awt.GridBagLayout;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.sql.SQLException;
+import java.text.DecimalFormat;
+import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author Muhammad Rizal
  */
 public class GenetikController {
+    Random r = new Random();
+    DecimalFormat df = new DecimalFormat("#.######");
+    
     private HomeView home = new HomeView();
     static GridBagLayout layout = new GridBagLayout();
     static PanelPakan feed = new PanelPakan();
     static PanelOptimasi result = new PanelOptimasi();
     
-    public GenetikController(HomeView home){
-    this.home = home;
-    home.setVisible(true);
+    private GenetikModel genModel;
+    private DefaultTableModel model;
     
+    private static int popSize;
+    private static int individu = 5;
+    private double popAwal[][];
+    
+    public GenetikController(HomeView home, GenetikModel genModel)throws SQLException{
+    this.home = home;
+    this.genModel = genModel;
+    
+    
+    genModel.getData();
+    
+    genModel.getKebNut();
+    genModel.getAlgo();
+    
+    genModel.getKedelai();
+    genModel.getKelapa();
+    genModel.getKacang();
+    genModel.getIkan();
+    genModel.getUdang();
+//    String s = Double.toString(genModel.getMe());
+//    home.getData().setText(s);
+    home.setVisible(true);
     home.getDynamicPanel().setLayout(layout);
     home.getDynamicPanel().add(feed);
     home.getDynamicPanel().add(result);
@@ -37,6 +69,26 @@ public class GenetikController {
     home.AlgoMouseListener(new AlgoMouseListener());
     home.HasilMouseListener(new HasilMouseListener());
     home.PakanMouseListener(new PakanMouseListener());
+    }
+    
+    public void individu(){
+        System.out.println("ini individu");
+        popSize = genModel.getPopSize();
+        System.out.println(popSize);
+        try{
+            for (int i = 0; i < popSize; i++) {
+            System.out.println("== Kromosm P"+(i+1)+" ==");
+            for (int j = 0; j < 5; j++) {
+            int random = r.nextInt(10)+1;
+            this.popAwal[i][j] = 1;
+                System.out.println(random);
+//                System.out.println("Kromosom :"+(j+1)+": "+popAwal[i][j]); 
+            }
+        }
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        
     }
     
     private void setIcon(JButton button, String resource) {
@@ -106,6 +158,16 @@ public class GenetikController {
             home.getDynamicPanel().setVisible(true);
             feed.setVisible(true);
             result.setVisible(false);
+            
+            String s = Double.toString(genModel.getMe());
+            home.getData().setText(s);
+            
+            individu();
+            try {
+                genModel.getKebNut();
+            } catch (SQLException ex) {
+                Logger.getLogger(GenetikController.class.getName()).log(Level.SEVERE, null, ex);
+            }
             }
 
         @Override
@@ -131,7 +193,20 @@ public class GenetikController {
 
         @Override
         public void mouseClicked(MouseEvent e) {
-//            dialogKeluar.setVisible(true);
+            System.out.println("tes bisa");
+            int popSize = Integer.parseInt(home.getInputPopulasi());
+            int iterasi = Integer.parseInt(home.getInputIterasi());
+            double pc = Double.parseDouble(home.getInputProbCross());
+            double pm = Double.parseDouble(home.getInputProbMut());
+            int konsumsi = Integer.parseInt(home.getInputKonsumsi());
+            int ayam = Integer.parseInt(home.getInputAyam());
+   
+            try {
+                genModel.insertDataAlgo(popSize, iterasi, pc, pm, konsumsi, ayam);
+                JOptionPane.showMessageDialog(home, "Berhasil disimpan, klik Perhitungan Algoritma");
+            } catch (SQLException ex) {
+                Logger.getLogger(GenetikController.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
 
         @Override

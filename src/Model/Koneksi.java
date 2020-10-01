@@ -21,9 +21,8 @@ public class Koneksi {
         String url = "jdbc:mysql://localhost:3306/" + database;
         koneksi = DriverManager.getConnection(url, user, password);
         stm = koneksi.createStatement();
-
     }
-
+    
     public ResultSet getResult(String sql) throws SQLException {
         ResultSet rs = stm.executeQuery(sql);
         return rs;

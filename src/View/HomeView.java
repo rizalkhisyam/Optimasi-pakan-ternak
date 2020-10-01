@@ -14,6 +14,12 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import com.mysql.jdbc.Util;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 /**
  *
  * @author Muhammad Rizal
@@ -26,8 +32,8 @@ public class HomeView extends javax.swing.JFrame {
     public HomeView() {
         initComponents();
         this.setLocationRelativeTo(this);
+        
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -39,14 +45,15 @@ public class HomeView extends javax.swing.JFrame {
 
         Button_Optimasi = new javax.swing.JButton();
         DynamicPanel = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tesData = new javax.swing.JLabel();
+        scrollPane = new javax.swing.JScrollPane();
+        tableBahan = new javax.swing.JTable();
         inputPopulasi = new javax.swing.JTextField();
         inputGenerasi = new javax.swing.JTextField();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
+        inputProbCross = new javax.swing.JTextField();
+        inputProbMut = new javax.swing.JTextField();
+        konsumsi = new javax.swing.JTextField();
+        ayam = new javax.swing.JTextField();
         inputAlgoritma = new javax.swing.JLabel();
         header = new javax.swing.JLabel();
         Button_Pakan = new javax.swing.JButton();
@@ -56,7 +63,6 @@ public class HomeView extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
-        setMaximumSize(new java.awt.Dimension(1100, 720));
         setMinimumSize(new java.awt.Dimension(1100, 720));
         setSize(new java.awt.Dimension(1100, 720));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -69,25 +75,23 @@ public class HomeView extends javax.swing.JFrame {
         getContentPane().add(Button_Optimasi, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 550, 160, -1));
         getContentPane().add(DynamicPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 160, 690, 470));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tesData.setText("jLabel1");
+        getContentPane().add(tesData, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 660, -1, -1));
+
+        scrollPane.setFont(new java.awt.Font("Poppins", 1, 11)); // NOI18N
+
+        tableBahan.setFont(new java.awt.Font("Poppins", 0, 11)); // NOI18N
+        tableBahan.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "No", "Nama Pakan", "Protein", "Kalsium", "Fosfor", "Lemak", "Serat"
+                "Nama Bahan", "Energi Metabolis", "Protein", "Lemak", "Serat", "Kalsium", "Fosfor"
             }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
-            };
+        ));
+        scrollPane.setViewportView(tableBahan);
 
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        jScrollPane1.setViewportView(jTable1);
-
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 160, 690, 470));
+        getContentPane().add(scrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 160, 690, 470));
 
         inputPopulasi.setBorder(null);
         inputPopulasi.setOpaque(false);
@@ -102,23 +106,23 @@ public class HomeView extends javax.swing.JFrame {
         inputGenerasi.setOpaque(false);
         getContentPane().add(inputGenerasi, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 200, 80, 30));
 
-        jTextField1.setBorder(null);
-        jTextField1.setOpaque(false);
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 260, 80, 20));
+        inputProbCross.setBorder(null);
+        inputProbCross.setOpaque(false);
+        getContentPane().add(inputProbCross, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 260, 80, 20));
 
-        jTextField2.setBorder(null);
-        jTextField2.setOpaque(false);
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 310, 80, 30));
+        inputProbMut.setBorder(null);
+        inputProbMut.setOpaque(false);
+        getContentPane().add(inputProbMut, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 310, 80, 30));
 
-        jTextField3.setBorder(null);
-        jTextField3.setOpaque(false);
-        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 420, 60, 30));
+        konsumsi.setBorder(null);
+        konsumsi.setOpaque(false);
+        getContentPane().add(konsumsi, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 420, 60, 30));
 
-        jTextField4.setBorder(null);
-        jTextField4.setOpaque(false);
-        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 480, 60, 20));
+        ayam.setBorder(null);
+        ayam.setOpaque(false);
+        getContentPane().add(ayam, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 480, 60, 20));
 
-        inputAlgoritma.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Home/menu-input.png"))); // NOI18N
+        inputAlgoritma.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Home/menu-ga-1.png"))); // NOI18N
         getContentPane().add(inputAlgoritma, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 330, 600));
 
         header.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Home/header.png"))); // NOI18N
@@ -148,6 +152,22 @@ public class HomeView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     //button menu Optimasi=========================
+    public JScrollPane getScroll(){
+        return scrollPane;
+    }
+    
+    public JLabel getData(){
+        return tesData;
+    }
+    
+    public JTable getTable(){
+        return tableBahan;
+    }
+    
+    public void setTable_Bahan(JTable tableBahan){
+        this.tableBahan = tableBahan;
+    }
+    
     public void OptimasiMouseListener(MouseListener l){
         this.Button_Optimasi.addMouseListener(l);
     }
@@ -208,6 +228,25 @@ public class HomeView extends javax.swing.JFrame {
     public JPanel getDynamicPanel(){
         return DynamicPanel;
     }
+    
+    public String getInputPopulasi(){
+        return inputPopulasi.getText();
+    }
+    public String getInputIterasi(){
+        return inputGenerasi.getText();
+    }
+    public String getInputProbCross(){
+        return inputProbCross.getText();
+    }
+    public String getInputProbMut(){
+        return inputProbMut.getText();
+    }
+    public String getInputKonsumsi(){
+        return konsumsi.getText();
+    }
+    public String getInputAyam(){
+        return ayam.getText();
+    }
     private void inputPopulasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputPopulasiActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_inputPopulasiActionPerformed
@@ -253,16 +292,17 @@ public class HomeView extends javax.swing.JFrame {
     private javax.swing.JButton Button_Optimasi;
     private javax.swing.JButton Button_Pakan;
     private javax.swing.JPanel DynamicPanel;
+    private javax.swing.JTextField ayam;
     private javax.swing.JLabel background;
     private javax.swing.JLabel header;
     private javax.swing.JLabel inputAlgoritma;
     private javax.swing.JTextField inputGenerasi;
     private javax.swing.JTextField inputPopulasi;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField inputProbCross;
+    private javax.swing.JTextField inputProbMut;
+    private javax.swing.JTextField konsumsi;
+    private javax.swing.JScrollPane scrollPane;
+    private javax.swing.JTable tableBahan;
+    private javax.swing.JLabel tesData;
     // End of variables declaration//GEN-END:variables
 }
