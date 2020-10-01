@@ -10,23 +10,29 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.table.DefaultTableModel;
 import View.HomeView;
+import java.text.DecimalFormat;
+import java.util.Random;
 /**
  *
  * @author Muhammad Rizal
  */
 public class GenetikModel {
     
+    Random r = new Random();
+    DecimalFormat df = new DecimalFormat("#.######");
+    
     public Koneksi koneksi;
     private int result = 0;
-    private static Double bahan[][] = new Double[1][7];
+    private static double bahan[][] = new double[1][7];
     private double kebNut[];
     private static String data[];
     private static DefaultTableModel model;
     private HomeView home = new HomeView();
     private String nama;
     
+    private static double popAwal[][];
+    
     private double me;
-    private String me2;
     private double protein;
     private double lemak;
     private double serat;
@@ -39,6 +45,12 @@ public class GenetikModel {
     private double pm;
     private int konsumsi;
     private int ayam;
+    
+    private double hargaKedelai;
+    private double hargaKelapa;
+    private double hargaKacang;
+    private double hargaIkan;
+    private double hargaUdang;
     
     private double meKedelai;
     private double proKedelai;
@@ -84,6 +96,16 @@ public class GenetikModel {
 //        home.getTable().getModel();
 //        getData();
 //    }
+    public void populasiAwal(){
+        int popSize = this.getPopSize();
+        for (int i = 0; i < popSize; i++) {
+            System.out.println("Kromosom P"+(i+1));
+            for (int j = 0; j < 5; j++) {
+                popAwal[i][j] = r.nextInt(10)+1;
+                System.out.println(popAwal[i][j]);
+            }
+        }
+    }
     
     public void getData(){
         try{
@@ -128,7 +150,6 @@ public class GenetikModel {
             
             while(rs.next()){
                 me = rs.getDouble("energi_metabolis");
-                me2 = String.valueOf(rs.getDouble("energi_metabolis"));
                 protein = rs.getDouble("protein");
                 lemak = rs.getDouble("lemak");
                 serat = rs.getDouble("serat");
@@ -203,6 +224,7 @@ public class GenetikModel {
                 serKedelai = rs.getDouble("serat_kasar");
                 kalKedelai = rs.getDouble("kalsium");
                 fosKedelai = rs.getDouble("fosfor");
+                hargaKedelai = rs.getDouble("harga");
                 
                 System.out.println("");
                 System.out.println("ini ME kedelai : "+meKedelai);
@@ -211,6 +233,7 @@ public class GenetikModel {
                 System.out.println("ini se kedelai : "+serKedelai);
                 System.out.println("ini ka kedelai : "+kalKedelai);
                 System.out.println("ini fo kedelai : "+fosKedelai);
+                System.out.println("harga : "+hargaKedelai);
                 
             }
             rs.close();
@@ -231,6 +254,7 @@ public class GenetikModel {
                 serKelapa = rs.getDouble("serat_kasar");
                 kalKelapa = rs.getDouble("kalsium");
                 fosKelapa = rs.getDouble("fosfor");
+                hargaKelapa = rs.getDouble("harga");
                 
                 System.out.println("");
                 System.out.println("ini ME kelapa : "+meKelapa);
@@ -239,7 +263,7 @@ public class GenetikModel {
                 System.out.println("ini se kelapa : "+serKelapa);
                 System.out.println("ini ka kelapa : "+kalKelapa);
                 System.out.println("ini fo kelapa : "+fosKelapa);
-                
+                System.out.println("harga : "+hargaKelapa);
             }
             rs.close();
         }catch (Exception e){
@@ -259,6 +283,7 @@ public class GenetikModel {
                 serKacang = rs.getDouble("serat_kasar");
                 kalKacang = rs.getDouble("kalsium");
                 fosKacang = rs.getDouble("fosfor");
+                hargaKacang = rs.getDouble("harga");
                 
                 System.out.println("");
                 System.out.println("ini ME kacang : "+meKacang);
@@ -267,7 +292,7 @@ public class GenetikModel {
                 System.out.println("ini se kacang : "+serKacang);
                 System.out.println("ini ka kacang : "+kalKacang);
                 System.out.println("ini fo kacang : "+fosKacang);
-                
+                System.out.println("harga : "+hargaKacang);
             }
             rs.close();
         }catch (Exception e){
@@ -287,6 +312,7 @@ public class GenetikModel {
                 serIkan = rs.getDouble("serat_kasar");
                 kalIkan = rs.getDouble("kalsium");
                 fosIkan = rs.getDouble("fosfor");
+                hargaIkan = rs.getDouble("harga");
                 
                 System.out.println("");
                 System.out.println("ini ME ikan : "+meIkan);
@@ -295,7 +321,7 @@ public class GenetikModel {
                 System.out.println("ini se ikan : "+serIkan);
                 System.out.println("ini ka ikan : "+kalIkan);
                 System.out.println("ini fo ikan : "+fosIkan);
-                
+                System.out.println("harga : "+hargaIkan);
             }
             rs.close();
         }catch (Exception e){
@@ -315,6 +341,7 @@ public class GenetikModel {
                 serUdang = rs.getDouble("serat_kasar");
                 kalUdang = rs.getDouble("kalsium");
                 fosUdang = rs.getDouble("fosfor");
+                hargaUdang = rs.getDouble("harga");
                 
                 System.out.println("");
                 System.out.println("ini ME udang : "+meUdang);
@@ -323,7 +350,7 @@ public class GenetikModel {
                 System.out.println("ini se udang : "+serUdang);
                 System.out.println("ini ka udang : "+kalUdang);
                 System.out.println("ini fo udang : "+fosUdang);
-                
+                System.out.println("harga : "+hargaUdang);
             }
             rs.close();
         }catch (Exception e){
@@ -336,26 +363,47 @@ public class GenetikModel {
         return me;
     }
     
-    
     public Double getProtein(){
-        return kebNut[1];
+        return protein;
     }
     
     public Double getLemak(){
-        return kebNut[2];
+        return lemak;
     }
     
     public Double getSerat(){
-        return kebNut[3];
+        return serat;
     }
     
     public Double getKalsium(){
-        return kebNut[4];
+        return kalsium;
     }
     
     public Double getFosfor(){
-        return kebNut[5];
+        return fosfor;
     }
+//    -------------------------------get harga bahan
+    public Double getHarga1(){
+        return hargaKedelai;
+    }
+    
+    public Double getHarga2(){
+        return hargaKelapa;
+    }
+    
+    public Double getHarga3(){
+        return hargaKacang;
+    }
+    
+    public Double getHarga4(){
+        return hargaIkan;
+    }
+    
+    public Double getHarga5(){
+        return hargaUdang;
+    }
+    
+
     
 //    ------------------------------get Kandungan Pakan
     
@@ -461,6 +509,18 @@ public class GenetikModel {
     public int getIterasi(){
         return iterasi;
     }
+    public int getKonsumsi(){
+        return konsumsi;
+    }
+    public double getProbCross(){
+        return pc;
+    }
+    public double getProbMut(){
+        return pm;
+    }
+    public int getAyam(){
+        return ayam;
+    }
     
     public void tampilBahan(){
         try{
@@ -484,8 +544,13 @@ public class GenetikModel {
                 bahan[0][4] = rs.getDouble("serat_kasar");
                 bahan[0][5] = rs.getDouble("kalsium");
                 bahan[0][6] = rs.getDouble("fosfor");
+                
                 System.out.println("ini : "+bahan[0][1]);
-                System.out.println("ini y : "+bahan[0][2]);
+                System.out.println("ini : "+bahan[0][2]);
+                System.out.println("ini : "+bahan[0][3]);
+                System.out.println("ini : "+bahan[0][4]);
+                System.out.println("ini : "+bahan[0][5]);
+                System.out.println("ini : "+bahan[0][6]);
                 
             }
         }

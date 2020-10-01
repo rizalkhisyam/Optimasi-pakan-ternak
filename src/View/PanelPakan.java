@@ -5,6 +5,8 @@
  */
 package View;
 
+import javax.swing.JTextArea;
+
 /**
  *
  * @author Muhammad Rizal
@@ -17,6 +19,10 @@ public class PanelPakan extends javax.swing.JPanel {
     public PanelPakan() {
         initComponents();
     }
+    
+    public JTextArea getAreaKromosom(){
+        return textKromosom;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -28,16 +34,26 @@ public class PanelPakan extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        textKromosom = new javax.swing.JTextArea();
 
         setPreferredSize(new java.awt.Dimension(690, 470));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("PERHITUNGAN ALGORITMA");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 200, 140, -1));
+        jLabel1.setText("Kromosom");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 60, -1));
+
+        textKromosom.setColumns(20);
+        textKromosom.setRows(5);
+        jScrollPane1.setViewportView(textKromosom);
+
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 170, 210));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea textKromosom;
     // End of variables declaration//GEN-END:variables
 }
