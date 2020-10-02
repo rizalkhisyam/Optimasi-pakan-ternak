@@ -44,6 +44,8 @@ public class HomeView extends javax.swing.JFrame {
     private void initComponents() {
 
         Button_Optimasi = new javax.swing.JButton();
+        Button_Ga = new javax.swing.JButton();
+        Button_clear = new javax.swing.JButton();
         DynamicPanel = new javax.swing.JPanel();
         tesData = new javax.swing.JLabel();
         scrollPane = new javax.swing.JScrollPane();
@@ -67,15 +69,26 @@ public class HomeView extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(1100, 720));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Button_Optimasi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Button/btn-optimasi.png"))); // NOI18N
+        Button_Optimasi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Button/simpan-awal.png"))); // NOI18N
         Button_Optimasi.setBorder(null);
         Button_Optimasi.setBorderPainted(false);
         Button_Optimasi.setContentAreaFilled(false);
         Button_Optimasi.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(Button_Optimasi, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 550, 160, -1));
-        getContentPane().add(DynamicPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 160, 690, 470));
+        getContentPane().add(Button_Optimasi, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 540, 90, 40));
 
-        tesData.setText("jLabel1");
+        Button_Ga.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Button/optimasi-awal.png"))); // NOI18N
+        Button_Ga.setBorderPainted(false);
+        Button_Ga.setContentAreaFilled(false);
+        Button_Ga.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Button_Ga.setOpaque(false);
+        getContentPane().add(Button_Ga, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 540, 90, 40));
+
+        Button_clear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Button/delete-awal.png"))); // NOI18N
+        Button_clear.setBorderPainted(false);
+        Button_clear.setContentAreaFilled(false);
+        Button_clear.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(Button_clear, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 537, 40, 40));
+        getContentPane().add(DynamicPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 160, 690, 470));
         getContentPane().add(tesData, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 660, -1, -1));
 
         scrollPane.setFont(new java.awt.Font("Poppins", 1, 11)); // NOI18N
@@ -167,7 +180,33 @@ public class HomeView extends javax.swing.JFrame {
     public void setTable_Bahan(JTable tableBahan){
         this.tableBahan = tableBahan;
     }
+//    Button clear =============
+    public void ClearMouseListener(MouseListener l){
+        this.Button_clear.addMouseListener(l);
+    }
     
+    public JButton getButton_Clear(){
+        return Button_clear;
+    }
+    
+    public void setButton_clear(JButton Button_clear){
+        this.Button_clear = Button_clear;
+    }
+    
+//    Button Otpimasi=============================
+    public void RunMouseListener(MouseListener l){
+        this.Button_Ga.addMouseListener(l);
+    }
+    
+    public JButton getButton_Ga(){
+        return Button_Ga;
+    }
+    
+    public void setButton_Ga(JButton Button_Ga){
+        this.Button_Ga = Button_Ga;
+    }
+    
+//   Button Simpan ========================================
     public void OptimasiMouseListener(MouseListener l){
         this.Button_Optimasi.addMouseListener(l);
     }
@@ -288,9 +327,11 @@ public class HomeView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Button_Algo;
+    private javax.swing.JButton Button_Ga;
     private javax.swing.JButton Button_Hasil;
     private javax.swing.JButton Button_Optimasi;
     private javax.swing.JButton Button_Pakan;
+    private javax.swing.JButton Button_clear;
     private javax.swing.JPanel DynamicPanel;
     private javax.swing.JTextField ayam;
     private javax.swing.JLabel background;

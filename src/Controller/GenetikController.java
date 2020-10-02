@@ -71,6 +71,9 @@ public class GenetikController {
     home.getDynamicPanel().setVisible(false);
     
     home.OptimasiMouseListener(new OptimasiMouseListener());
+    home.RunMouseListener(new RunMouseListener());
+    home.ClearMouseListener(new ClearMouseListener());
+    
     home.AlgoMouseListener(new AlgoMouseListener());
     home.HasilMouseListener(new HasilMouseListener());
     home.PakanMouseListener(new PakanMouseListener());
@@ -1182,7 +1185,7 @@ public class GenetikController {
             
             System.out.println("Banyak Ayam : "+banyakAyam+" ekor");
             String ayam = Integer.toString(banyakAyam);
-            result.getBanyakAyam().setText(ayam+" gram");
+            result.getBanyakAyam().setText(ayam+" ekor");
             System.out.println("");
             
         double b1 = (bahan1/totalBahan*konsumsi);
@@ -1269,6 +1272,62 @@ public class GenetikController {
     
     private void setIcon(JButton button, String resource) {
         button.setIcon(new ImageIcon(getClass().getResource(resource)));
+    }
+
+    private class RunMouseListener implements MouseListener {
+
+        public RunMouseListener() {
+        }
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+            }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+            }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+            setIcon(home.getButton_Ga(), "/View/Button/optimasi-hover.png");
+            }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+            setIcon(home.getButton_Ga(), "/View/Button/optimasi-awal.png");
+            }
+    }
+
+    private class ClearMouseListener implements MouseListener {
+
+        public ClearMouseListener() {
+        }
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+            }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+            }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+            setIcon(home.getButton_Clear(), "/View/Button/delete-hover.png");
+            }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+            setIcon(home.getButton_Clear(), "/View/Button/delete-awal.png");
+            }
     }
 
     private class PakanMouseListener implements MouseListener {
@@ -1403,12 +1462,12 @@ public class GenetikController {
 
         @Override
         public void mouseEntered(MouseEvent e) {
-            setIcon(home.getButton_Optimasi(), "/View/Button/btn-optimasi-hover.png");
+            setIcon(home.getButton_Optimasi(), "/View/Button/simpan-hover.png");
         }
 
         @Override
         public void mouseExited(MouseEvent e) {
-            setIcon(home.getButton_Optimasi(), "/View/Button/btn-optimasi.png");
+            setIcon(home.getButton_Optimasi(), "/View/Button/simpan-awal.png");
         }
     }
     
