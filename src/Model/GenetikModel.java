@@ -24,13 +24,8 @@ public class GenetikModel {
     public Koneksi koneksi;
     private int result = 0;
     private static double bahan[][] = new double[1][7];
-    private double kebNut[];
-    private static String data[];
     private static DefaultTableModel model;
     private HomeView home = new HomeView();
-    private String nama;
-    
-    private static double popAwal[][];
     
     private double me;
     private double protein;
@@ -96,16 +91,6 @@ public class GenetikModel {
 //        home.getTable().getModel();
 //        getData();
 //    }
-    public void populasiAwal(){
-        int popSize = this.getPopSize();
-        for (int i = 0; i < popSize; i++) {
-            System.out.println("Kromosom P"+(i+1));
-            for (int j = 0; j < 5; j++) {
-                popAwal[i][j] = r.nextInt(10)+1;
-                System.out.println(popAwal[i][j]);
-            }
-        }
-    }
     
     public void getData(){
         try{
@@ -122,7 +107,6 @@ public class GenetikModel {
                 o[4] = String.valueOf(rs.getDouble("serat_kasar"));
                 o[5] = String.valueOf(rs.getDouble("kalsium"));
                 o[6] = String.valueOf(rs.getDouble("fosfor"));
-                nama = rs.getString("nama_bahan");
                 
                 System.out.println("==== Daftar Bahan Pakan ====");
                 System.out.println("Nama Bahan : "+o[0]);
@@ -225,15 +209,15 @@ public class GenetikModel {
                 kalKedelai = rs.getDouble("kalsium");
                 fosKedelai = rs.getDouble("fosfor");
                 hargaKedelai = rs.getDouble("harga");
-                
-                System.out.println("");
-                System.out.println("ini ME kedelai : "+meKedelai);
-                System.out.println("ini pr kedelai : "+proKedelai);
-                System.out.println("ini le kedelai : "+lemKedelai);
-                System.out.println("ini se kedelai : "+serKedelai);
-                System.out.println("ini ka kedelai : "+kalKedelai);
-                System.out.println("ini fo kedelai : "+fosKedelai);
-                System.out.println("harga : "+hargaKedelai);
+//                
+//                System.out.println("");
+//                System.out.println("ini ME kedelai : "+meKedelai);
+//                System.out.println("ini pr kedelai : "+proKedelai);
+//                System.out.println("ini le kedelai : "+lemKedelai);
+//                System.out.println("ini se kedelai : "+serKedelai);
+//                System.out.println("ini ka kedelai : "+kalKedelai);
+//                System.out.println("ini fo kedelai : "+fosKedelai);
+//                System.out.println("harga : "+hargaKedelai);
                 
             }
             rs.close();
@@ -255,15 +239,15 @@ public class GenetikModel {
                 kalKelapa = rs.getDouble("kalsium");
                 fosKelapa = rs.getDouble("fosfor");
                 hargaKelapa = rs.getDouble("harga");
-                
-                System.out.println("");
-                System.out.println("ini ME kelapa : "+meKelapa);
-                System.out.println("ini pr kelapa : "+proKelapa);
-                System.out.println("ini le kelapa : "+lemKelapa);
-                System.out.println("ini se kelapa : "+serKelapa);
-                System.out.println("ini ka kelapa : "+kalKelapa);
-                System.out.println("ini fo kelapa : "+fosKelapa);
-                System.out.println("harga : "+hargaKelapa);
+//                
+//                System.out.println("");
+//                System.out.println("ini ME kelapa : "+meKelapa);
+//                System.out.println("ini pr kelapa : "+proKelapa);
+//                System.out.println("ini le kelapa : "+lemKelapa);
+//                System.out.println("ini se kelapa : "+serKelapa);
+//                System.out.println("ini ka kelapa : "+kalKelapa);
+//                System.out.println("ini fo kelapa : "+fosKelapa);
+//                System.out.println("harga : "+hargaKelapa);
             }
             rs.close();
         }catch (Exception e){
@@ -284,15 +268,15 @@ public class GenetikModel {
                 kalKacang = rs.getDouble("kalsium");
                 fosKacang = rs.getDouble("fosfor");
                 hargaKacang = rs.getDouble("harga");
-                
-                System.out.println("");
-                System.out.println("ini ME kacang : "+meKacang);
-                System.out.println("ini pr kacang : "+proKacang);
-                System.out.println("ini le kacang : "+lemKacang);
-                System.out.println("ini se kacang : "+serKacang);
-                System.out.println("ini ka kacang : "+kalKacang);
-                System.out.println("ini fo kacang : "+fosKacang);
-                System.out.println("harga : "+hargaKacang);
+//                
+//                System.out.println("");
+//                System.out.println("ini ME kacang : "+meKacang);
+//                System.out.println("ini pr kacang : "+proKacang);
+//                System.out.println("ini le kacang : "+lemKacang);
+//                System.out.println("ini se kacang : "+serKacang);
+//                System.out.println("ini ka kacang : "+kalKacang);
+//                System.out.println("ini fo kacang : "+fosKacang);
+//                System.out.println("harga : "+hargaKacang);
             }
             rs.close();
         }catch (Exception e){
@@ -313,15 +297,15 @@ public class GenetikModel {
                 kalIkan = rs.getDouble("kalsium");
                 fosIkan = rs.getDouble("fosfor");
                 hargaIkan = rs.getDouble("harga");
-                
-                System.out.println("");
-                System.out.println("ini ME ikan : "+meIkan);
-                System.out.println("ini pr ikan : "+proIkan);
-                System.out.println("ini le ikan : "+lemIkan);
-                System.out.println("ini se ikan : "+serIkan);
-                System.out.println("ini ka ikan : "+kalIkan);
-                System.out.println("ini fo ikan : "+fosIkan);
-                System.out.println("harga : "+hargaIkan);
+//                
+//                System.out.println("");
+//                System.out.println("ini ME ikan : "+meIkan);
+//                System.out.println("ini pr ikan : "+proIkan);
+//                System.out.println("ini le ikan : "+lemIkan);
+//                System.out.println("ini se ikan : "+serIkan);
+//                System.out.println("ini ka ikan : "+kalIkan);
+//                System.out.println("ini fo ikan : "+fosIkan);
+//                System.out.println("harga : "+hargaIkan);
             }
             rs.close();
         }catch (Exception e){
@@ -342,15 +326,15 @@ public class GenetikModel {
                 kalUdang = rs.getDouble("kalsium");
                 fosUdang = rs.getDouble("fosfor");
                 hargaUdang = rs.getDouble("harga");
-                
-                System.out.println("");
-                System.out.println("ini ME udang : "+meUdang);
-                System.out.println("ini pr udang : "+proUdang);
-                System.out.println("ini le udang : "+lemUdang);
-                System.out.println("ini se udang : "+serUdang);
-                System.out.println("ini ka udang : "+kalUdang);
-                System.out.println("ini fo udang : "+fosUdang);
-                System.out.println("harga : "+hargaUdang);
+//                
+//                System.out.println("");
+//                System.out.println("ini ME udang : "+meUdang);
+//                System.out.println("ini pr udang : "+proUdang);
+//                System.out.println("ini le udang : "+lemUdang);
+//                System.out.println("ini se udang : "+serUdang);
+//                System.out.println("ini ka udang : "+kalUdang);
+//                System.out.println("ini fo udang : "+fosUdang);
+//                System.out.println("harga : "+hargaUdang);
             }
             rs.close();
         }catch (Exception e){
@@ -538,19 +522,19 @@ public class GenetikModel {
                 String fosfor = String.valueOf(rs.getDouble("fosfor"));
 
 //                bahan[0][0] = rs.getString("nama_bahan");
-                bahan[0][1] = rs.getDouble("energi_metabolis");
-                bahan[0][2] = rs.getDouble("protein");
-                bahan[0][3] = rs.getDouble("lemak");
-                bahan[0][4] = rs.getDouble("serat_kasar");
-                bahan[0][5] = rs.getDouble("kalsium");
-                bahan[0][6] = rs.getDouble("fosfor");
-                
-                System.out.println("ini : "+bahan[0][1]);
-                System.out.println("ini : "+bahan[0][2]);
-                System.out.println("ini : "+bahan[0][3]);
-                System.out.println("ini : "+bahan[0][4]);
-                System.out.println("ini : "+bahan[0][5]);
-                System.out.println("ini : "+bahan[0][6]);
+//                bahan[0][1] = rs.getDouble("energi_metabolis");
+//                bahan[0][2] = rs.getDouble("protein");
+//                bahan[0][3] = rs.getDouble("lemak");
+//                bahan[0][4] = rs.getDouble("serat_kasar");
+//                bahan[0][5] = rs.getDouble("kalsium");
+//                bahan[0][6] = rs.getDouble("fosfor");
+//                
+//                System.out.println("ini : "+bahan[0][1]);
+//                System.out.println("ini : "+bahan[0][2]);
+//                System.out.println("ini : "+bahan[0][3]);
+//                System.out.println("ini : "+bahan[0][4]);
+//                System.out.println("ini : "+bahan[0][5]);
+//                System.out.println("ini : "+bahan[0][6]);
                 
             }
         }

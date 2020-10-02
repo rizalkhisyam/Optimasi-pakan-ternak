@@ -63,7 +63,6 @@ public class GenetikController {
     genModel.getKacang();
     genModel.getIkan();
     genModel.getUdang();
-    genModel.tampilBahan();
 
     home.setVisible(true);
     home.getDynamicPanel().setLayout(layout);
@@ -1132,7 +1131,7 @@ public class GenetikController {
     }
     
     public void hasilOptimasi(){
-
+        int konsumsi = genModel.getKonsumsi();
         int banyakAyam = genModel.getAyam();
         
         double hargaKedelai = genModel.getHarga1();
@@ -1147,11 +1146,26 @@ public class GenetikController {
         }
         System.out.println("\n");
         System.out.println("------ Hasil Optimasi ------");
+        
         System.out.println("- Kedelai : "+pTerbaik[0]+"%");
+        String kedelai = Double.toString(pTerbaik[0]);
+        result.getPersenKedelai().setText(kedelai+" %");
+        
         System.out.println("- Bungkil Kelapa : "+pTerbaik[1]+"%");
+        String kelapa = Double.toString(pTerbaik[1]);
+        result.getPersenKelapa().setText(kelapa+" %");
+        
         System.out.println("- Bungkil Kacang : "+pTerbaik[2]+"%");
+        String kacang = Double.toString(pTerbaik[2]);
+        result.getPersenKacang().setText(kacang+" %");
+        
         System.out.println("- Tepung Ikan : "+pTerbaik[3]+"%");
+        String ikan = Double.toString(pTerbaik[3]);
+        result.getPersenIkan().setText(ikan+" %");
+        
         System.out.println("- Limbah Udang : "+pTerbaik[4]+"%");
+        String udang = Double.toString(pTerbaik[4]);
+        result.getPersenUdang().setText(udang+" %");
                     
         double bahan1 = pTerbaik[0];
         double bahan2 = pTerbaik[1];
@@ -1159,24 +1173,65 @@ public class GenetikController {
         double bahan4 = pTerbaik[3];
         double bahan5 = pTerbaik[4];
         
-            System.out.println("");
+        System.out.println("");
         double totalBahan = bahan1+bahan2+bahan3+bahan4+bahan5;
             System.out.println("Total bobot : "+totalBahan);
-            System.out.println("Kemampuan Ayam dalam mengkonsumsi pakan : 75 gram");
+            System.out.println("Kemampuan Ayam dalam mengkonsumsi pakan : "+konsumsi);
+            String pakan = Integer.toString(konsumsi);
+            result.getBeratPakan().setText(pakan+" gram");
+            
             System.out.println("Banyak Ayam : "+banyakAyam+" ekor");
+            String ayam = Integer.toString(banyakAyam);
+            result.getBanyakAyam().setText(ayam+" gram");
             System.out.println("");
             
-        double konversi1 = (bahan1/totalBahan*75)*banyakAyam;
-        double konversi2 = (bahan2/totalBahan*75)*banyakAyam;
-        double konversi3 = (bahan3/totalBahan*75)*banyakAyam;
-        double konversi4 = (bahan4/totalBahan*75)*banyakAyam;
-        double konversi5 = (bahan5/totalBahan*75)*banyakAyam;
+        double b1 = (bahan1/totalBahan*konsumsi);
+        String be1 = Double.toString(Math.round(b1));
+        result.getBeratKedelai().setText((be1)+" gram");
+        
+        double b2 = (bahan2/totalBahan*konsumsi);
+        String be2 = Double.toString(Math.round(b2));
+        result.getBeratKelapa().setText((be2)+" gram");
+        
+        double b3 = (bahan3/totalBahan*konsumsi);
+        String be3 = Double.toString(Math.round(b3));
+        result.getBeratKacang().setText((be3)+" gram");
+        
+        double b4 = (bahan4/totalBahan*konsumsi);
+        String be4 = Double.toString(Math.round(b4));
+        result.getBeratIkan().setText((be4)+" gram");
+        
+        double b5 = (bahan5/totalBahan*konsumsi);
+        String be5 = Double.toString(Math.round(b5));
+        result.getBeratUdang().setText((be5)+" gram");
+            
+        double konversi1 = (bahan1/totalBahan*konsumsi)*banyakAyam;
+        double konversi2 = (bahan2/totalBahan*konsumsi)*banyakAyam;
+        double konversi3 = (bahan3/totalBahan*konsumsi)*banyakAyam;
+        double konversi4 = (bahan4/totalBahan*konsumsi)*banyakAyam;
+        double konversi5 = (bahan5/totalBahan*konsumsi)*banyakAyam;
+        
             System.out.println("");
+            
             System.out.println("Kedelai : "+konversi1+" gram");
+            String kon1 = Double.toString(Math.round(konversi1));
+            result.getTotalKedelai().setText((kon1)+" gram");
+            
             System.out.println("Bungkil Kelapa : "+konversi2+" gram");
+            String kon2 = Double.toString(Math.round(konversi2));
+            result.getTotalKelapa().setText((kon2)+" gram");
+            
             System.out.println("Bungkil Kacang : "+konversi3+" gram");
+            String kon3 = Double.toString(Math.round(konversi3));
+            result.getTotalKacang().setText((kon3)+" gram");
+            
             System.out.println("Tepung Ikan : "+konversi4+" gram");
+            String kon4 = Double.toString(Math.round(konversi4));
+            result.getTotalIkan().setText((kon4)+" gram");
+            
             System.out.println("Limbah Udang : "+konversi5+" gram");
+            String kon5 = Double.toString(Math.round(konversi5));
+            result.getTotalUdang().setText((kon5)+" gram");
             
             System.out.println("");
             double cost1 = konversi1/1000*hargaKedelai;
@@ -1187,12 +1242,29 @@ public class GenetikController {
             double totalCost = cost1+cost2+cost3+cost4+cost5;
             double konversiCost = (int) Math.round(totalCost);
             System.out.println("Harga komposisi kedelai : Rp. "+Math.round(cost1));
+            String price1 = Double.toString(Math.round(cost1));
+            result.getHargaKedelai().setText("Rp. "+price1);
+            
             System.out.println("Harga komposisi bungkil kelapa : Rp. "+Math.round(cost2));
+            String price2 = Double.toString(Math.round(cost2));
+            result.getHargaKelapa().setText("Rp. "+price2);
+            
             System.out.println("Harga komposisi bungkil kacang : Rp. "+Math.round(cost3));
+            String price3 = Double.toString(Math.round(cost3));
+            result.getHargaKacang().setText("Rp. "+price3);
+            
             System.out.println("Harga komposisi tepung ikan : Rp. "+Math.round(cost4));
+            String price4 = Double.toString(Math.round(cost4));
+            result.getHargaIkan().setText("Rp. "+price4);
+            
             System.out.println("Harga komposisi limbah udang : Rp. "+Math.round(cost5));
+            String price5 = Double.toString(Math.round(cost5));
+            result.getHargaUdang().setText("Rp. "+price5);
+            
             System.out.println("");
             System.out.println("Total Harga Bahan Pakan yang optimal : Rp. "+konversiCost);
+            String totalPrice = Double.toString(Math.round(konversiCost));
+            result.getTotalHarga().setText("Rp. "+totalPrice);
     }
     
     private void setIcon(JButton button, String resource) {
@@ -1236,6 +1308,7 @@ public class GenetikController {
             home.getDynamicPanel().setVisible(true);
             feed.setVisible(false);
             result.setVisible(true);
+            hasilOptimasi();
             }
 
         @Override
@@ -1263,8 +1336,6 @@ public class GenetikController {
             feed.setVisible(true);
             result.setVisible(false);
             
-            String s = Double.toString(genModel.getMe());
-            home.getData().setText(s);
             int iterasi = genModel.getIterasi();
             
             System.out.println("||---- GENERASI 1 ----||");
@@ -1280,7 +1351,7 @@ public class GenetikController {
             cariIndividuTerbaik();
             individuTerbaik();
             }
-            hasilOptimasi();
+//            hasilOptimasi();
             }
 
         @Override

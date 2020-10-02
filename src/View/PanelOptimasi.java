@@ -5,6 +5,8 @@
  */
 package View;
 
+import javax.swing.JLabel;
+
 /**
  *
  * @author Muhammad Rizal
@@ -17,7 +19,86 @@ public class PanelOptimasi extends javax.swing.JPanel {
     public PanelOptimasi() {
         initComponents();
     }
-
+        
+    public JLabel getPersenKedelai(){
+        return persenKedelai;
+    }
+    public JLabel getPersenKelapa(){
+        return persenKelapa;
+    }
+    public JLabel getPersenKacang(){
+        return persenKacang;
+    }
+    public JLabel getPersenIkan(){
+        return persenIkan;
+    }
+    public JLabel getPersenUdang(){
+        return persenUdang;
+    }
+    
+//    ========= berat
+    public JLabel getBeratKedelai(){
+        return beratKedelai;
+    }
+    public JLabel getBeratKelapa(){
+        return beratKelapa;
+    }
+    public JLabel getBeratKacang(){
+        return beratKacang;
+    }
+    public JLabel getBeratIkan(){
+        return beratIkan;
+    }
+    public JLabel getBeratUdang(){
+        return beratUdang;
+    }
+    
+//    ======== data ayam
+    public JLabel getBeratPakan(){
+        return beratPakan;
+    }
+    public JLabel getBanyakAyam(){
+        return banyakAyam;
+    }
+    
+//    ======== berat bobot
+    public JLabel getTotalKedelai(){
+        return totalKedelai;
+    }
+    public JLabel getTotalKelapa(){
+        return totalKelapa;
+    }
+    public JLabel getTotalKacang(){
+        return totalKacang;
+    }
+    public JLabel getTotalIkan(){
+        return totalIkan;
+    }
+    public JLabel getTotalUdang(){
+        return totalUdang;
+    }
+    
+//    ======== harga bahan
+    public JLabel getHargaKedelai(){
+        return hargaKedelai;
+    }
+    public JLabel getHargaKelapa(){
+        return hargaKelapa;
+    }
+    public JLabel getHargaKacang(){
+        return hargaKacang;
+    }
+    public JLabel getHargaIkan(){
+        return hargaIkan;
+    }
+    public JLabel getHargaUdang(){
+        return hargaUdang;
+    }
+    
+//    ===== total harga
+    public JLabel getTotalHarga(){
+        return totalHarga;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,16 +108,293 @@ public class PanelOptimasi extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        persenKedelai = new javax.swing.JLabel();
+        persenKelapa = new javax.swing.JLabel();
+        persenKacang = new javax.swing.JLabel();
+        persenIkan = new javax.swing.JLabel();
+        persenUdang = new javax.swing.JLabel();
+        beratKedelai = new javax.swing.JLabel();
+        beratKelapa = new javax.swing.JLabel();
+        beratKacang = new javax.swing.JLabel();
+        beratIkan = new javax.swing.JLabel();
+        beratUdang = new javax.swing.JLabel();
+        beratPakan = new javax.swing.JLabel();
+        banyakAyam = new javax.swing.JLabel();
+        hargaKedelai = new javax.swing.JLabel();
+        totalKelapa = new javax.swing.JLabel();
+        totalKacang = new javax.swing.JLabel();
+        totalIkan = new javax.swing.JLabel();
+        totalUdang = new javax.swing.JLabel();
+        totalKedelai = new javax.swing.JLabel();
+        hargaKelapa = new javax.swing.JLabel();
+        hargaKacang = new javax.swing.JLabel();
+        hargaIkan = new javax.swing.JLabel();
+        hargaUdang = new javax.swing.JLabel();
+        totalHarga = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Panel Hasil");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 200, -1, -1));
+        persenKedelai.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        persenKedelai.setText("Komposisi :");
+        add(persenKedelai, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, -1, 20));
+
+        persenKelapa.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        persenKelapa.setText("Komposisi :");
+        add(persenKelapa, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, -1, 30));
+
+        persenKacang.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        persenKacang.setText("Komposisi :");
+        add(persenKacang, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, -1, 30));
+
+        persenIkan.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        persenIkan.setText("Komposisi :");
+        add(persenIkan, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 300, -1, 30));
+
+        persenUdang.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        persenUdang.setText("Komposisi :");
+        add(persenUdang, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 390, -1, 40));
+
+        beratKedelai.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        beratKedelai.setText("Berat : ");
+        add(beratKedelai, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 50, -1, 30));
+
+        beratKelapa.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        beratKelapa.setText("Berat : ");
+        add(beratKelapa, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 150, -1, 20));
+
+        beratKacang.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        beratKacang.setText("Berat : ");
+        add(beratKacang, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, -1, 40));
+
+        beratIkan.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        beratIkan.setText("Berat : ");
+        add(beratIkan, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 320, -1, 40));
+
+        beratUdang.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        beratUdang.setText("Berat : ");
+        add(beratUdang, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 420, -1, 30));
+
+        beratPakan.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        beratPakan.setText("konsumsi");
+        add(beratPakan, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 50, -1, 20));
+
+        banyakAyam.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        banyakAyam.setText("Banyak Ayam : ");
+        add(banyakAyam, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 70, -1, 20));
+
+        hargaKedelai.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        hargaKedelai.setText("Kedelai : ");
+        add(hargaKedelai, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 250, -1, 20));
+
+        totalKelapa.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        totalKelapa.setText("Bungkil kelapa : ");
+        add(totalKelapa, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 140, -1, 20));
+
+        totalKacang.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        totalKacang.setText("Bungkil kacang : ");
+        add(totalKacang, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 160, -1, 20));
+
+        totalIkan.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        totalIkan.setText("Tepung ikan : ");
+        add(totalIkan, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 180, -1, 20));
+
+        totalUdang.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        totalUdang.setText("Limbah udang : ");
+        add(totalUdang, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 200, -1, 20));
+
+        totalKedelai.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        totalKedelai.setText("Kedelai : ");
+        add(totalKedelai, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 120, -1, 20));
+
+        hargaKelapa.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        hargaKelapa.setText("Bungkil kelapa : ");
+        add(hargaKelapa, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 270, -1, 20));
+
+        hargaKacang.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        hargaKacang.setText("Bungkil kacang : ");
+        add(hargaKacang, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 290, -1, 20));
+
+        hargaIkan.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        hargaIkan.setText("Tepung ikan : ");
+        add(hargaIkan, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 310, -1, 20));
+
+        hargaUdang.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        hargaUdang.setText("Limbah udang : ");
+        add(hargaUdang, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 330, -1, 20));
+
+        totalHarga.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        totalHarga.setText("Total Biaya Ransum Pakan :");
+        add(totalHarga, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 390, -1, 20));
+
+        jLabel24.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jLabel24.setText("Total Biaya Ransum Pakan :");
+        add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 370, -1, 20));
+
+        jLabel23.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jLabel23.setText("Harga Komposisi Limbah Udang : ");
+        add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 330, -1, 20));
+
+        jLabel22.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jLabel22.setText("Harga Komposisi Tepung Ikan : ");
+        add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 310, -1, 20));
+
+        jLabel21.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jLabel21.setText("Harga Komposisi Bungkil Kacang : ");
+        add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 290, -1, 20));
+
+        jLabel20.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jLabel20.setText("Harga Komposisi Bungkil Kelapa : ");
+        add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 270, -1, 20));
+
+        jLabel19.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jLabel19.setText("Harga Komposisi Kedelai : ");
+        add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 250, -1, 20));
+
+        jLabel18.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jLabel18.setText("Limbah udang : ");
+        add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 200, -1, 20));
+
+        jLabel17.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jLabel17.setText("Tepung ikan : ");
+        add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 180, -1, 20));
+
+        jLabel16.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jLabel16.setText("Bungkil kacang : ");
+        add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 160, -1, 20));
+
+        jLabel15.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jLabel15.setText("Bungkil kelapa : ");
+        add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 140, -1, 20));
+
+        jLabel14.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jLabel14.setText("Kedelai : ");
+        add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 120, -1, 20));
+
+        jLabel13.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jLabel13.setText("Banyak Ayam : ");
+        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 70, -1, 20));
+
+        jLabel12.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jLabel12.setText("Kemampuan Konsumsi Pakan : ");
+        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 50, -1, 20));
+
+        jLabel11.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jLabel11.setText("Berat : ");
+        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 420, -1, 30));
+
+        jLabel10.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jLabel10.setText("Berat : ");
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, -1, 40));
+
+        jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jLabel9.setText("Berat : ");
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 230, -1, 40));
+
+        jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jLabel8.setText("Berat : ");
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, -1, 20));
+
+        jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jLabel7.setText("Berat : ");
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, -1, 30));
+
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jLabel6.setText("Komposisi :");
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 390, -1, 40));
+
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jLabel5.setText("Komposisi :");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 300, -1, 30));
+
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jLabel4.setText("Komposisi :");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 210, -1, 30));
+
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jLabel3.setText("Komposisi :");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, -1, 30));
+
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jLabel2.setText("Komposisi :");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, -1, 20));
+
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Home/hasil_fix.png"))); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 470));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel banyakAyam;
+    private javax.swing.JLabel beratIkan;
+    private javax.swing.JLabel beratKacang;
+    private javax.swing.JLabel beratKedelai;
+    private javax.swing.JLabel beratKelapa;
+    private javax.swing.JLabel beratPakan;
+    private javax.swing.JLabel beratUdang;
+    private javax.swing.JLabel hargaIkan;
+    private javax.swing.JLabel hargaKacang;
+    private javax.swing.JLabel hargaKedelai;
+    private javax.swing.JLabel hargaKelapa;
+    private javax.swing.JLabel hargaUdang;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel persenIkan;
+    private javax.swing.JLabel persenKacang;
+    private javax.swing.JLabel persenKedelai;
+    private javax.swing.JLabel persenKelapa;
+    private javax.swing.JLabel persenUdang;
+    private javax.swing.JLabel totalHarga;
+    private javax.swing.JLabel totalIkan;
+    private javax.swing.JLabel totalKacang;
+    private javax.swing.JLabel totalKedelai;
+    private javax.swing.JLabel totalKelapa;
+    private javax.swing.JLabel totalUdang;
     // End of variables declaration//GEN-END:variables
 }

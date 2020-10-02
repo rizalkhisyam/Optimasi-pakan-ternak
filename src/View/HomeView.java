@@ -132,19 +132,19 @@ public class HomeView extends javax.swing.JFrame {
         Button_Pakan.setBorderPainted(false);
         Button_Pakan.setContentAreaFilled(false);
         Button_Pakan.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(Button_Pakan, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 110, 200, -1));
+        getContentPane().add(Button_Pakan, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 100, 200, -1));
 
         Button_Algo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Button/btn-calculate.png"))); // NOI18N
         Button_Algo.setBorderPainted(false);
         Button_Algo.setContentAreaFilled(false);
         Button_Algo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(Button_Algo, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 110, -1, -1));
+        getContentPane().add(Button_Algo, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 100, -1, -1));
 
         Button_Hasil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Button/btn-result.png"))); // NOI18N
         Button_Hasil.setBorderPainted(false);
         Button_Hasil.setContentAreaFilled(false);
         Button_Hasil.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(Button_Hasil, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 110, -1, -1));
+        getContentPane().add(Button_Hasil, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 100, -1, -1));
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Home/bg-home.png"))); // NOI18N
         getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1100, 720));
