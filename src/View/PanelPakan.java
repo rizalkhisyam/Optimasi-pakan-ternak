@@ -7,6 +7,7 @@ package View;
 
 import javax.swing.JTextArea;
 
+
 /**
  *
  * @author Muhammad Rizal
@@ -23,7 +24,18 @@ public class PanelPakan extends javax.swing.JPanel {
     public JTextArea getAreaKromosom(){
         return textKromosom;
     }
-
+    
+    public JTextArea getOutputElit(){
+        return outputElitism;
+    }
+    
+    public JTextArea getBest(){
+        return bestKromosom;
+    }
+    public JTextArea getBestFitness(){
+        return outputFitness;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -33,27 +45,88 @@ public class PanelPakan extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         textKromosom = new javax.swing.JTextArea();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        outputElitism = new javax.swing.JTextArea();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        outputFitness = new javax.swing.JTextArea();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        bestKromosom = new javax.swing.JTextArea();
+        jLabel2 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(690, 470));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Kromosom");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 60, -1));
-
+        textKromosom.setEditable(false);
         textKromosom.setColumns(20);
         textKromosom.setRows(5);
+        textKromosom.setBorder(null);
         jScrollPane1.setViewportView(textKromosom);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 170, 210));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 360, 420));
+
+        outputElitism.setEditable(false);
+        outputElitism.setColumns(20);
+        outputElitism.setRows(5);
+        outputElitism.setBorder(null);
+        jScrollPane2.setViewportView(outputElitism);
+
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 30, 250, 250));
+
+        outputFitness.setColumns(20);
+        outputFitness.setRows(5);
+        jScrollPane4.setViewportView(outputFitness);
+
+        add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 400, 250, 50));
+
+        jLabel4.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
+        jLabel4.setText("Perhitungan Algoritma Genetika  :");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 360, -1));
+
+        jLabel3.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
+        jLabel3.setText("Elitism  :");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 10, 250, -1));
+
+        jLabel5.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
+        jLabel5.setText("Nilai Fitness :");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 380, 250, -1));
+
+        jLabel1.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
+        jLabel1.setText("Kromosom Terbaik :");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 290, 250, -1));
+
+        bestKromosom.setEditable(false);
+        bestKromosom.setColumns(20);
+        bestKromosom.setRows(5);
+        bestKromosom.setBorder(null);
+        jScrollPane3.setViewportView(bestKromosom);
+
+        add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 310, 250, 50));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Home/bg-hitung.png"))); // NOI18N
+        jLabel2.setText("jLabel2");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 790, 480));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea bestKromosom;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JTextArea outputElitism;
+    private javax.swing.JTextArea outputFitness;
     private javax.swing.JTextArea textKromosom;
     // End of variables declaration//GEN-END:variables
 }

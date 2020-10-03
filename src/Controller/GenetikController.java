@@ -63,6 +63,8 @@ public class GenetikController {
     genModel.getKacang();
     genModel.getIkan();
     genModel.getUdang();
+    
+//    home.getButton_Ga().setVisible(false);
 
     home.setVisible(true);
     home.getDynamicPanel().setLayout(layout);
@@ -88,13 +90,15 @@ public class GenetikController {
         try{
             for (int i = 0; i < popSize; i++) {
             System.out.println("== Kromosm P"+(i+1)+" ==");
-            feed.getAreaKromosom().setText("Kromosom P"+(i+1));
+            feed.getAreaKromosom().append("= Kromosom P"+(i+1)+" = "+"\n");
             for (int j = 0; j < 5; j++) {
             int random = r.nextInt(10)+1;
             popAwal[i][j] = random;
             System.out.println("Kromosom :"+(j+1)+": "+popAwal[i][j]);
-//            feed.getAreaKromosom().setText("Kromosom P"+(i+1)+": "+popAwal[i][j]);
+            feed.getAreaKromosom().append("- "+popAwal[i][j]+"\n");
+            
             }
+            feed.getAreaKromosom().append("\n");
         }
         }catch (Exception e){
             System.out.println(e);
@@ -164,9 +168,12 @@ public class GenetikController {
         double kebNutKa = (e / 100)*konsumsi;
         double kebNutFo = (f / 100)*konsumsi;
         
-        System.out.println("-------- Evaluasi Kromosom -------");
+        System.out.println("---------------- Evaluasi Kromosom ----------------");
+        feed.getAreaKromosom().append("---------------- Evaluasi Kromosom ----------------"+"\n");
         for (int i = 0; i < popSize; i++) {
             System.out.println("Kromosom P"+(i+1));
+            feed.getAreaKromosom().append("Kromosom P"+(i+1));
+            feed.getAreaKromosom().append("\n");
             for (int j = 0; j < individu; j++) {
                 System.out.println("- "+popAwal[i][j]);
             }
@@ -177,21 +184,33 @@ public class GenetikController {
             double p4 = popAwal[i][3];
             double p5 = popAwal[i][4];
             double total = p1+p2+p3+p4+p5;
-
+            feed.getAreaKromosom().append("Bobot kromosom: "+total+"\n");
+            
             double harga1 = p1/total*konsumsi;
             double harga2 = p2/total*konsumsi;
             double harga3 = p3/total*konsumsi;
             double harga4 = p4/total*konsumsi;
             double harga5 = p5/total*konsumsi;
             double totalHarga = harga1+harga2+harga3+harga4+harga5;
+            
             System.out.println("Bobot :"+ total);
+            feed.getAreaKromosom().append("Total Bobot Konsumsi : "+totalHarga+"\n");
             System.out.println("tes tot: "+totalHarga);
+            feed.getAreaKromosom().append("\n");
+            
             System.out.println("Kromosom 1 dalam gr : "+harga1+" gram");
             System.out.println("Kromosom 2 dalam gr : "+harga2+" gram");
-            System.out.println("Kromosom 3 dalam gr : "+harga3+" gram");
-            System.out.println("Kromosom 4 dalam gr : "+harga4+" gram");
+            System.out.println("Kromosom 3 dalam gr : "+harga3+" gram");  
+            System.out.println("Kromosom 4 dalam gr : "+harga4+" gram");        
             System.out.println("Kromosom 5 dalam gr : "+harga5+" gram");
             System.out.println("-------------------------------");
+            
+            feed.getAreaKromosom().append("Kromosom 1 dalam gr : "+harga1+" gram"+"\n");
+            feed.getAreaKromosom().append("Kromosom 2 dalam gr : "+harga2+" gram"+"\n");
+            feed.getAreaKromosom().append("Kromosom 3 dalam gr : "+harga3+" gram"+"\n");
+            feed.getAreaKromosom().append("Kromosom 4 dalam gr : "+harga4+" gram"+"\n");
+            feed.getAreaKromosom().append("Kromosom 5 dalam gr : "+harga5+" gram"+"\n");
+            feed.getAreaKromosom().append("\n");
             
             double cost1 = harga1/1000*hargaKedelai;
             double cost2 = harga2/1000*hargaKelapa;
@@ -207,22 +226,44 @@ public class GenetikController {
             System.out.println("harga k5 = RP. "+cost5);
             System.out.println("Total Harga Bahan Pakan P"+(i+1)+" :Rp. "+totalCost);
             System.out.println("");
+            
+            feed.getAreaKromosom().append("harga k1 = RP. "+cost1+"\n");
+            feed.getAreaKromosom().append("harga k2 = RP. "+cost2+"\n");
+            feed.getAreaKromosom().append("harga k3 = RP. "+cost3+"\n");
+            feed.getAreaKromosom().append("harga k4 = RP. "+cost4+"\n");
+            feed.getAreaKromosom().append("harga k5 = RP. "+cost5+"\n");
+            feed.getAreaKromosom().append("Total Harga Bahan P "+(i+1)+" :Rp. "+totalCost+"\n");
+            
             double kedelai1 = harga1*me1;
             double kedelai2 = harga1*pro1/100;
             double kedelai3 = harga1*lem1/100;
             double kedelai4 = harga1*ser1/100;
             double kedelai5 = harga1*kal1/100;
             double kedelai6 = harga1*fos1/100;
-            System.out.println("<------------------------>");
+            System.out.println("\n");
+
             System.out.println("Kandungan Nutrisi P"+(i+1));
-            System.out.println("===========bahan 1============");
+            System.out.println("=========== bahan 1 ============");
+            
             System.out.println("Kedelai");
             System.out.println("ME : "+kedelai1);
             System.out.println("Protein : "+kedelai2);
-            System.out.println("Lemak : "+kedelai3);
-            System.out.println("Serat : "+kedelai4);
+            System.out.println("Lemak : "+kedelai3);   
+            System.out.println("Serat : "+kedelai4);     
             System.out.println("Kalsium : "+kedelai5);
             System.out.println("Fosfor : "+kedelai6);
+            
+            feed.getAreaKromosom().append("-----------------------------------------------------------------"+"\n");
+            feed.getAreaKromosom().append("Kandungan Nutrisi P"+(i+1)+"\n");
+            feed.getAreaKromosom().append("=========== bahan 1 ============"+"\n");
+            feed.getAreaKromosom().append("Kedelai"+"\n");
+            feed.getAreaKromosom().append("ME : "+kedelai1+"\n");
+            feed.getAreaKromosom().append("Protein : "+kedelai2+"\n");
+            feed.getAreaKromosom().append("Lemak : "+kedelai3+"\n");
+            feed.getAreaKromosom().append("Serat : "+kedelai4+"\n");
+            feed.getAreaKromosom().append("Kalsium : "+kedelai5+"\n");
+            feed.getAreaKromosom().append("Fosfor : "+kedelai6+"\n");
+            feed.getAreaKromosom().append("\n");
             
             double kelapa1 = harga2*me2;
             double kelapa2 = harga2*pro2/100;
@@ -239,6 +280,17 @@ public class GenetikController {
             System.out.println("Kalsium : "+kelapa5);
             System.out.println("Fosfor : "+kelapa6);
             
+            feed.getAreaKromosom().append("Kandungan Nutrisi P"+(i+1)+"\n");
+            feed.getAreaKromosom().append("=========== bahan 2 ============"+"\n");
+            feed.getAreaKromosom().append("Bungkil Kelapa"+"\n");
+            feed.getAreaKromosom().append("ME : "+kelapa1+"\n");
+            feed.getAreaKromosom().append("Protein : "+kelapa2+"\n");
+            feed.getAreaKromosom().append("Lemak : "+kelapa3+"\n");
+            feed.getAreaKromosom().append("Serat : "+kelapa4+"\n");
+            feed.getAreaKromosom().append("Kalsium : "+kelapa5+"\n");
+            feed.getAreaKromosom().append("Fosfor : "+kelapa6+"\n");
+            feed.getAreaKromosom().append("\n");
+            
             double kacang1 = harga3*me3;
             double kacang2 = harga3*pro3/100;
             double kacang3 = harga3*lem3/100;
@@ -254,6 +306,17 @@ public class GenetikController {
             System.out.println("Kalsium : "+kacang5);
             System.out.println("Fosfor : "+kacang6);
             
+            feed.getAreaKromosom().append("Kandungan Nutrisi P"+(i+1)+"\n");
+            feed.getAreaKromosom().append("=========== bahan 3 ============"+"\n");
+            feed.getAreaKromosom().append("Bungkil Kacang"+"\n");
+            feed.getAreaKromosom().append("ME : "+kacang1+"\n");
+            feed.getAreaKromosom().append("Protein : "+kacang2+"\n");
+            feed.getAreaKromosom().append("Lemak : "+kacang3+"\n");
+            feed.getAreaKromosom().append("Serat : "+kacang4+"\n");
+            feed.getAreaKromosom().append("Kalsium : "+kacang5+"\n");
+            feed.getAreaKromosom().append("Fosfor : "+kacang6+"\n");
+            feed.getAreaKromosom().append("\n");
+            
             double ikan1 = harga4*me4;
             double ikan2 = harga4*pro4/100;
             double ikan3 = harga4*lem4/100;
@@ -268,6 +331,17 @@ public class GenetikController {
             System.out.println("Serat : "+ikan4);
             System.out.println("Kalsium : "+ikan5);
             System.out.println("Fosfor : "+ikan6);
+            
+            feed.getAreaKromosom().append("Kandungan Nutrisi P"+(i+1)+"\n");
+            feed.getAreaKromosom().append("=========== bahan 4 ============"+"\n");
+            feed.getAreaKromosom().append("Tepung Ikan"+"\n");
+            feed.getAreaKromosom().append("ME : "+ikan1+"\n");
+            feed.getAreaKromosom().append("Protein : "+ikan2+"\n");
+            feed.getAreaKromosom().append("Lemak : "+ikan3+"\n");
+            feed.getAreaKromosom().append("Serat : "+ikan4+"\n");
+            feed.getAreaKromosom().append("Kalsium : "+ikan5+"\n");
+            feed.getAreaKromosom().append("Fosfor : "+ikan6+"\n");
+            feed.getAreaKromosom().append("\n");
             
             double udang1 = harga5*me5;
             double udang2 = harga5*pro5/100;
@@ -285,6 +359,17 @@ public class GenetikController {
             System.out.println("Kalsium : "+udang5);
             System.out.println("Fosfor : "+udang6);
             
+            feed.getAreaKromosom().append("Kandungan Nutrisi P"+(i+1)+"\n");
+            feed.getAreaKromosom().append("=========== bahan 5 ============"+"\n");
+            feed.getAreaKromosom().append("Limbah Udang"+"\n");
+            feed.getAreaKromosom().append("ME : "+udang1+"\n");
+            feed.getAreaKromosom().append("Protein : "+udang2+"\n");
+            feed.getAreaKromosom().append("Lemak : "+udang3+"\n");
+            feed.getAreaKromosom().append("Serat : "+udang4+"\n");
+            feed.getAreaKromosom().append("Kalsium : "+udang5+"\n");
+            feed.getAreaKromosom().append("Fosfor : "+udang6+"\n");
+            feed.getAreaKromosom().append("\n");
+            
             double totalMe = kedelai1+kelapa1+kacang1+ikan1+udang1;
             double totalProtein = kedelai2+kelapa2+kacang2+ikan2+udang2;
             double totalLemak = kedelai3+kelapa3+kacang3+ikan3+udang3;
@@ -300,6 +385,15 @@ public class GenetikController {
             System.out.println("Total Kalsium : "+totalKalsium);
             System.out.println("Total Fosfor : "+totalFosfor);
             
+            feed.getAreaKromosom().append("Total Kandungan Nutrisi"+"\n");
+            feed.getAreaKromosom().append("Total ME : "+totalMe+"\n");
+            feed.getAreaKromosom().append("Total Protein : "+totalProtein+"\n");
+            feed.getAreaKromosom().append("Total Lemak : "+totalLemak+"\n");
+            feed.getAreaKromosom().append("Total Serat : "+totalSerat+"\n");
+            feed.getAreaKromosom().append("Total Kalsium : "+totalKalsium+"\n");
+            feed.getAreaKromosom().append("Total Fosfor : "+totalFosfor+"\n");
+            feed.getAreaKromosom().append("\n");
+            
 //            hitung penalty
             double penalty1=0;
             double penalty2=0;
@@ -310,59 +404,87 @@ public class GenetikController {
             
             System.out.println("");
             System.out.println("Hitung Penalty");
+            feed.getAreaKromosom().append("Hitung Penalty"+"\n");
             if (totalMe > kebNutMe) {
                 System.out.println("1. Kebutuhan ME terpenuhi");
+                feed.getAreaKromosom().append("1. Kebutuhan ME terpenuhi"+"\n");
             }else{
                 System.out.println("1. Kebutuhan ME tidak terpenuhi");
                 penalty1 = kebNutMe - totalMe;
                 System.out.println("  Kekurangan Nutrisi ME : "+penalty1);
+                
+                feed.getAreaKromosom().append("1. Kebutuhan ME tidak terpenuhi"+"\n");
+                feed.getAreaKromosom().append("  Kekurangan Nutrisi ME : "+penalty1+"\n");
             }
             
             if (totalProtein > kebNutPr) {
                 System.out.println("2. Kebutuhan Protein Terpenuhi");
+                feed.getAreaKromosom().append("2. Kebutuhan Protein terpenuhi"+"\n");
             }else{
                 System.out.println("2. Kebutuhan Protein tidak terpenuhi");
                 penalty2 = kebNutPr - totalProtein;
                 System.out.println("  Kekurangan Nutrisi Protein : "+penalty2);
+                
+                feed.getAreaKromosom().append("2. Kebutuhan Protein tidak terpenuhi"+"\n");
+                feed.getAreaKromosom().append("  Kekurangan Nutrisi Protein : "+penalty2+"\n");
             }
             
             if (totalLemak > kebNutLe) {
                 System.out.println("3. Kebutuhan Lemak Terpenuhi");
+                feed.getAreaKromosom().append("3. Kebutuhan Lemak terpenuhi"+"\n");
             }else{
                 System.out.println("3. Kebutuhan Lemak tidak terpenuhi");
                 penalty3 = kebNutLe - totalLemak;
                 System.out.println("  Kekurangan Nutrisi Lemak :"+penalty3);
+                
+                feed.getAreaKromosom().append("3. Kebutuhan Lemak tidak terpenuhi"+"\n");
+                feed.getAreaKromosom().append("  Kekurangan Nutrisi Lemak :"+penalty3+"\n");
             }
             
             if (totalSerat > kebNutSe) {
                 System.out.println("4. Kebutuhan Serat Terpenuhi");
+                feed.getAreaKromosom().append("4. Kebutuhan Serat terpenuhi"+"\n");
             }else{
                 System.out.println("4. Kebutuhan Serat tidak terpenuhi");
                 penalty4 = kebNutSe - totalSerat;
                 System.out.println("  Kekurangan Nutrisi Serat :"+penalty4);
+                
+                feed.getAreaKromosom().append("4. Kebutuhan Serat tidak terpenuhi"+"\n");
+                feed.getAreaKromosom().append("  Kekurangan Nutrisi Serat :"+penalty4+"\n");
             }
             
             if (totalKalsium > kebNutKa) {
                 System.out.println("5. Kebutuhan Kalsium Terpenuhi");
+                feed.getAreaKromosom().append("5. Kebutuhan Kalsium terpenuhi"+"\n");
             }else{
                 System.out.println("5. Kebutuhan Kalsium tidak terpenuhi");
                 penalty5 = kebNutKa - totalKalsium;
                 System.out.println("  Kekurangan Nutrisi Kalsium :"+penalty5);
+                
+                feed.getAreaKromosom().append("5. Kebutuhan Kalsium tidak terpenuhi"+"\n");
+                feed.getAreaKromosom().append("  Kekurangan Nutrisi Kalsium :"+penalty5+"\n");
             }
             
             if (totalFosfor > kebNutFo) {
                 System.out.println("6. Kebutuhan Fosfor Terpenuhi");
+                feed.getAreaKromosom().append("6. Kebutuhan Fosfor terpenuhi"+"\n");
             }else{
                 System.out.println("6. Kebutuhan Fosfor tidak terpenuhi");
                 penalty6 = kebNutFo - totalFosfor;
                 System.out.println("  Kekurangan Nutrisi Fosfor :"+penalty6);
+                
+                feed.getAreaKromosom().append("6. Kebutuhan Fosfor tidak terpenuhi"+"\n");
+                feed.getAreaKromosom().append("  Kekurangan Nutrisi Fosfor :"+penalty6+"\n");
             }
             double totalPenalty = penalty1+penalty2+penalty3+penalty4+penalty5+penalty6;
             System.out.println("Total Penalty : "+totalPenalty);
             System.out.println("");
             
+            feed.getAreaKromosom().append("Total Penalty : "+totalPenalty+"\n");
+            feed.getAreaKromosom().append("\n");
 //            hitung Fitness
             System.out.println("---------Fitness--------");
+            feed.getAreaKromosom().append("---------Fitness--------"+"\n");
             double fitness = 100 /(totalCost +(totalPenalty*100));
             popAwal[i][5] = fitness;
             
@@ -370,7 +492,11 @@ public class GenetikController {
             System.out.println("tot Pen:"+totalPenalty);
             System.out.println("Nilai Fitness P"+(i+1)+" :"+df.format(fitness));
             System.out.println("");
-            System.out.println("//============================================================//");
+            System.out.println("=================================================================");
+            
+            feed.getAreaKromosom().append("Nilai Fitness P"+(i+1)+" :"+df.format(fitness)+"\n");
+            feed.getAreaKromosom().append("\n");
+            feed.getAreaKromosom().append("//============================================================//"+"\n");
         }
     }
     
@@ -385,13 +511,20 @@ public class GenetikController {
             // pilih populasi dengan acak        
             int p1 = r.nextInt(popSize);
             int p2 = r.nextInt(popSize);
+            
             System.out.println("Proses Crossover one-cut-point");
             System.out.println("Individu acak 1: P"+(p1+1));
             System.out.println("Individu acak 2: P" +(p2+1));
             
+            feed.getAreaKromosom().append("-------- CROSSOVER --------"+"\n");
+            feed.getAreaKromosom().append("Proses Crossover one-cut-point"+"\n");
+            feed.getAreaKromosom().append("Individu acak 1: P"+(p1+1)+"\n");
+            feed.getAreaKromosom().append("Individu acak 2: P"+(p2+1)+"\n");
+            
             // acak titik potong
             int cutPoint = r.nextInt(5);
             System.out.println("cut: "+cutPoint);
+            feed.getAreaKromosom().append("Titik potong berada pada index : "+cutPoint+"\n");
             
             //proses crossover one-cut-point-crossover
             double tempCC[][] = new double[cc.length][individu + 1];
@@ -404,7 +537,7 @@ public class GenetikController {
                 }
             }
             System.arraycopy(tempCC, 0, this.cc, 0, tempCC.length);
-            System.out.println("tes crossover : "+cc[0][1]);
+//            System.out.println("tes crossover : "+cc[0][1]);
         }
     }
     
@@ -469,18 +602,22 @@ public class GenetikController {
         double kebNutFo = (f / 100)*konsumsi;
         
         System.out.println("=================");
+        feed.getAreaKromosom().append("\n");
+        feed.getAreaKromosom().append("Crossover Offspring : "+"\n");
         System.out.println("Crossover Offspring : ");
         for (double[] cc1 : this.cc) {
+            feed.getAreaKromosom().append("Offspring :"+"\n");
             for (int j = 0; j < individu + 1; j++) {
                 System.out.print(cc1[j] + " ");
+                feed.getAreaKromosom().append(cc1[j]+", "+"\n");
             }
             System.out.println();
         }
         for (int i = 0; i < 2; i++) {
-            System.out.println("hmmm");
-            for (int j = 0; j < individu; j++) {
-            System.out.println("hai ini tes: "+cc[i][j]); 
-            }
+            
+        System.out.println("---------------- Evaluasi Crossover ----------------");
+        feed.getAreaKromosom().append("---------------- Evaluasi Crossover ----------------"+"\n");
+        
             double p1 = cc[i][0];
             double p2 = cc[i][1];
             double p3 = cc[i][2];
@@ -503,6 +640,13 @@ public class GenetikController {
             System.out.println("Kromosom 5 dalam gr : "+harga5+" gram");
             System.out.println("-------------------------------");
             
+            feed.getAreaKromosom().append("Kromosom 1 dalam gr : "+harga1+" gram"+"\n");
+            feed.getAreaKromosom().append("Kromosom 2 dalam gr : "+harga2+" gram"+"\n");
+            feed.getAreaKromosom().append("Kromosom 3 dalam gr : "+harga3+" gram"+"\n");
+            feed.getAreaKromosom().append("Kromosom 4 dalam gr : "+harga4+" gram"+"\n");
+            feed.getAreaKromosom().append("Kromosom 5 dalam gr : "+harga5+" gram"+"\n");
+            feed.getAreaKromosom().append("\n");
+            
             double cost1 = harga1/1000*hargaKedelai;
             double cost2 = harga2/1000*hargaKelapa;
             double cost3 = harga3/1000*hargaKacang;
@@ -517,6 +661,14 @@ public class GenetikController {
             System.out.println("harga k5 = RP. "+cost5);
             System.out.println("Total Harga Bahan Pakan P"+(i+1)+" :Rp. "+totalCost);
             System.out.println("");
+            
+            feed.getAreaKromosom().append("harga k1 = RP. "+cost1+"\n");
+            feed.getAreaKromosom().append("harga k2 = RP. "+cost2+"\n");
+            feed.getAreaKromosom().append("harga k3 = RP. "+cost3+"\n");
+            feed.getAreaKromosom().append("harga k4 = RP. "+cost4+"\n");
+            feed.getAreaKromosom().append("harga k5 = RP. "+cost5+"\n");
+            feed.getAreaKromosom().append("Total Harga Bahan P "+(i+1)+" :Rp. "+totalCost+"\n");
+            
             double kedelai1 = harga1*me1;
             double kedelai2 = harga1*pro1/100;
             double kedelai3 = harga1*lem1/100;
@@ -534,6 +686,18 @@ public class GenetikController {
             System.out.println("Kalsium : "+kedelai5);
             System.out.println("Fosfor : "+kedelai6);
             
+            feed.getAreaKromosom().append("-----------------------------------------------------------------"+"\n");
+            feed.getAreaKromosom().append("Kandungan Nutrisi P"+(i+1)+"\n");
+            feed.getAreaKromosom().append("=========== bahan 1 ============"+"\n");
+            feed.getAreaKromosom().append("Kedelai"+"\n");
+            feed.getAreaKromosom().append("ME : "+kedelai1+"\n");
+            feed.getAreaKromosom().append("Protein : "+kedelai2+"\n");
+            feed.getAreaKromosom().append("Lemak : "+kedelai3+"\n");
+            feed.getAreaKromosom().append("Serat : "+kedelai4+"\n");
+            feed.getAreaKromosom().append("Kalsium : "+kedelai5+"\n");
+            feed.getAreaKromosom().append("Fosfor : "+kedelai6+"\n");
+            feed.getAreaKromosom().append("\n");
+            
             double kelapa1 = harga2*me2;
             double kelapa2 = harga2*pro2/100;
             double kelapa3 = harga2*lem2/100;
@@ -548,6 +712,18 @@ public class GenetikController {
             System.out.println("Serat : "+kelapa4);
             System.out.println("Kalsium : "+kelapa5);
             System.out.println("Fosfor : "+kelapa6);
+            
+            feed.getAreaKromosom().append("-----------------------------------------------------------------"+"\n");
+            feed.getAreaKromosom().append("Kandungan Nutrisi P"+(i+1)+"\n");
+            feed.getAreaKromosom().append("=========== bahan 2 ============"+"\n");
+            feed.getAreaKromosom().append("Kedelai"+"\n");
+            feed.getAreaKromosom().append("ME : "+kelapa1+"\n");
+            feed.getAreaKromosom().append("Protein : "+kelapa2+"\n");
+            feed.getAreaKromosom().append("Lemak : "+kelapa3+"\n");
+            feed.getAreaKromosom().append("Serat : "+kelapa4+"\n");
+            feed.getAreaKromosom().append("Kalsium : "+kelapa5+"\n");
+            feed.getAreaKromosom().append("Fosfor : "+kelapa6+"\n");
+            feed.getAreaKromosom().append("\n");
             
             double kacang1 = harga3*me3;
             double kacang2 = harga3*pro3/100;
@@ -564,6 +740,17 @@ public class GenetikController {
             System.out.println("Kalsium : "+kacang5);
             System.out.println("Fosfor : "+kacang6);
             
+            feed.getAreaKromosom().append("Kandungan Nutrisi P"+(i+1)+"\n");
+            feed.getAreaKromosom().append("=========== bahan 3 ============"+"\n");
+            feed.getAreaKromosom().append("Bungkil Kacang"+"\n");
+            feed.getAreaKromosom().append("ME : "+kacang1+"\n");
+            feed.getAreaKromosom().append("Protein : "+kacang2+"\n");
+            feed.getAreaKromosom().append("Lemak : "+kacang3+"\n");
+            feed.getAreaKromosom().append("Serat : "+kacang4+"\n");
+            feed.getAreaKromosom().append("Kalsium : "+kacang5+"\n");
+            feed.getAreaKromosom().append("Fosfor : "+kacang6+"\n");
+            feed.getAreaKromosom().append("\n");
+            
             double ikan1 = harga4*me4;
             double ikan2 = harga4*pro4/100;
             double ikan3 = harga4*lem4/100;
@@ -578,6 +765,17 @@ public class GenetikController {
             System.out.println("Serat : "+ikan4);
             System.out.println("Kalsium : "+ikan5);
             System.out.println("Fosfor : "+ikan6);
+            
+            feed.getAreaKromosom().append("Kandungan Nutrisi P"+(i+1)+"\n");
+            feed.getAreaKromosom().append("=========== bahan 4 ============"+"\n");
+            feed.getAreaKromosom().append("Tepung Ikan"+"\n");
+            feed.getAreaKromosom().append("ME : "+ikan1+"\n");
+            feed.getAreaKromosom().append("Protein : "+ikan2+"\n");
+            feed.getAreaKromosom().append("Lemak : "+ikan3+"\n");
+            feed.getAreaKromosom().append("Serat : "+ikan4+"\n");
+            feed.getAreaKromosom().append("Kalsium : "+ikan5+"\n");
+            feed.getAreaKromosom().append("Fosfor : "+ikan6+"\n");
+            feed.getAreaKromosom().append("\n");
             
             double udang1 = harga5*me5;
             double udang2 = harga5*pro5/100;
@@ -595,6 +793,17 @@ public class GenetikController {
             System.out.println("Kalsium : "+udang5);
             System.out.println("Fosfor : "+udang6);
             
+            feed.getAreaKromosom().append("Kandungan Nutrisi P"+(i+1)+"\n");
+            feed.getAreaKromosom().append("=========== bahan 5 ============"+"\n");
+            feed.getAreaKromosom().append("Limbah Udang"+"\n");
+            feed.getAreaKromosom().append("ME : "+udang1+"\n");
+            feed.getAreaKromosom().append("Protein : "+udang2+"\n");
+            feed.getAreaKromosom().append("Lemak : "+udang3+"\n");
+            feed.getAreaKromosom().append("Serat : "+udang4+"\n");
+            feed.getAreaKromosom().append("Kalsium : "+udang5+"\n");
+            feed.getAreaKromosom().append("Fosfor : "+udang6+"\n");
+            feed.getAreaKromosom().append("\n");
+            
             double totalMe = kedelai1+kelapa1+kacang1+ikan1+udang1;
             double totalProtein = kedelai2+kelapa2+kacang2+ikan2+udang2;
             double totalLemak = kedelai3+kelapa3+kacang3+ikan3+udang3;
@@ -610,6 +819,15 @@ public class GenetikController {
             System.out.println("Total Kalsium : "+totalKalsium);
             System.out.println("Total Fosfor : "+totalFosfor);
             
+            feed.getAreaKromosom().append("Total Kandungan Nutrisi"+"\n");
+            feed.getAreaKromosom().append("Total ME : "+totalMe+"\n");
+            feed.getAreaKromosom().append("Total Protein : "+totalProtein+"\n");
+            feed.getAreaKromosom().append("Total Lemak : "+totalLemak+"\n");
+            feed.getAreaKromosom().append("Total Serat : "+totalSerat+"\n");
+            feed.getAreaKromosom().append("Total Kalsium : "+totalKalsium+"\n");
+            feed.getAreaKromosom().append("Total Fosfor : "+totalFosfor+"\n");
+            feed.getAreaKromosom().append("\n");
+            
 //            hitung penalty
             double penalty1=0;
             double penalty2=0;
@@ -620,75 +838,111 @@ public class GenetikController {
             
             System.out.println("");
             System.out.println("Hitung Penalty");
+            feed.getAreaKromosom().append("Hitung Penalty"+"\n");
+            
             if (totalMe > kebNutMe) {
                 System.out.println("1. Kebutuhan ME terpenuhi");
+                feed.getAreaKromosom().append("1. Kebutuhan ME terpenuhi"+"\n");
             }else{
                 System.out.println("1. Kebutuhan ME tidak terpenuhi");
                 penalty1 = kebNutMe - totalMe;
                 System.out.println("  Kekurangan Nutrisi ME : "+penalty1);
+                
+                feed.getAreaKromosom().append("1. Kebutuhan ME tidak terpenuhi"+"\n");
+                feed.getAreaKromosom().append("  Kekurangan Nutrisi ME : "+penalty1+"\n");
             }
             
             if (totalProtein > kebNutPr) {
                 System.out.println("2. Kebutuhan Protein Terpenuhi");
+                feed.getAreaKromosom().append("2. Kebutuhan Protein Terpenuhi"+"\n");
             }else{
                 System.out.println("2. Kebutuhan Protein tidak terpenuhi");
                 penalty2 = kebNutPr - totalProtein;
                 System.out.println("  Kekurangan Nutrisi Protein : "+penalty2);
+                
+                feed.getAreaKromosom().append("2. Kebutuhan Protein tidak terpenuhi"+"\n");
+                feed.getAreaKromosom().append("  Kekurangan Nutrisi Protein : "+penalty2+"\n");
             }
             
             if (totalLemak > kebNutLe) {
                 System.out.println("3. Kebutuhan Lemak Terpenuhi");
+                feed.getAreaKromosom().append("3. Kebutuhan Lemak Terpenuhi"+"\n");
             }else{
                 System.out.println("3. Kebutuhan Lemak tidak terpenuhi");
                 penalty3 = kebNutLe - totalLemak;
                 System.out.println("  Kekurangan Nutrisi Lemak :"+penalty3);
+                
+                feed.getAreaKromosom().append("3. Kebutuhan Lemak tidak terpenuhi"+"\n");
+                feed.getAreaKromosom().append("  Kekurangan Nutrisi Lemak :"+penalty3+"\n");
             }
             
             if (totalSerat > kebNutSe) {
                 System.out.println("4. Kebutuhan Serat Terpenuhi");
+                feed.getAreaKromosom().append("4. Kebutuhan Serat Terpenuhi"+"\n");
             }else{
                 System.out.println("4. Kebutuhan Serat tidak terpenuhi");
                 penalty4 = kebNutSe - totalSerat;
                 System.out.println("  Kekurangan Nutrisi Serat :"+penalty4);
+                
+                feed.getAreaKromosom().append("4. Kebutuhan Serat tidak terpenuhi"+"\n");
+                feed.getAreaKromosom().append("  Kekurangan Nutrisi Serat :"+penalty4+"\n");
             }
             
             if (totalKalsium > kebNutKa) {
                 System.out.println("5. Kebutuhan Kalsium Terpenuhi");
+                feed.getAreaKromosom().append("5. Kebutuhan Kalsium Terpenuhi"+"\n");
             }else{
                 System.out.println("5. Kebutuhan Kalsium tidak terpenuhi");
                 penalty5 = kebNutKa - totalKalsium;
                 System.out.println("  Kekurangan Nutrisi Kalsium :"+penalty5);
+                
+                feed.getAreaKromosom().append("5. Kebutuhan Kalsium tidak terpenuhi"+"\n");
+                feed.getAreaKromosom().append("  Kekurangan Nutrisi Kalsium :"+penalty5+"\n");
             }
             
             if (totalFosfor > kebNutFo) {
                 System.out.println("6. Kebutuhan Fosfor Terpenuhi");
+                feed.getAreaKromosom().append("6. Kebutuhan Fosfor Terpenuhi"+"\n");
             }else{
                 System.out.println("6. Kebutuhan Fosfor tidak terpenuhi");
                 penalty6 = kebNutFo - totalFosfor;
                 System.out.println("  Kekurangan Nutrisi Fosfor :"+penalty6);
+                
+                feed.getAreaKromosom().append("6. Kebutuhan Fosfor tidak terpenuhi"+"\n");
+                feed.getAreaKromosom().append("  Kekurangan Nutrisi Fosfor :"+penalty6+"\n");
             }
             double totalPenalty = penalty1+penalty2+penalty3+penalty4+penalty5+penalty6;
             System.out.println("Total Penalty : "+totalPenalty);
+            feed.getAreaKromosom().append("Total Penalty :"+totalPenalty+"\n");
+            feed.getAreaKromosom().append("\n");
             System.out.println("");
             
 //            hitung Fitness
             System.out.println("---------Fitness--------");
+            feed.getAreaKromosom().append("---------Fitness--------"+"\n");
             double fitness = 100 /(totalCost +(totalPenalty*100));
             cc[i][5] = fitness;
             
             df = new DecimalFormat("#.######");
             System.out.println("tot cost:"+totalCost);
             System.out.println("tot Pen:"+totalPenalty);
-            System.out.println("Nilai Fitness P"+(i+1)+" :"+df.format(fitness));
+            System.out.println("Nilai Fitness :"+df.format(fitness));
+            feed.getAreaKromosom().append("Nilai Fitness :"+df.format(fitness)+"\n");
+            feed.getAreaKromosom().append("\n");
             System.out.println("");
+            
             System.out.println("Crossover dan fitness");
+            feed.getAreaKromosom().append("Crossover Offsrping dan fitness"+"\n");
             for (double[] cc1 : this.cc) {
+                feed.getAreaKromosom().append("Offspring :"+"\n");
             for (int j = 0; j < individu + 1; j++) {
                 System.out.print(df.format(cc1[j])+ " ");
+                feed.getAreaKromosom().append(df.format(cc1[j])+"\n");
             }
             System.out.println();
         }
             System.out.println("//============================================================//");
+            feed.getAreaKromosom().append("//============================================================//"+"\n");
         }
     }
     
@@ -710,13 +964,20 @@ public class GenetikController {
         
         if (pm > 0) {
             int p1 = new Random().nextInt(popSize);
+            feed.getAreaKromosom().append("----------- MUTASI -----------"+"\n");
+            feed.getAreaKromosom().append("Proses Mutasi Reciprocal-exchange-mutation"+"\n");
+            feed.getAreaKromosom().append("Mutasi pada kromosom : P"+(p1+1)+"\n");
+            
             System.out.println("Proses Mutasi Reciprocal-exchange-mutation");
             System.out.println("Mutasi pada kromosom : P"+(p1+1));
             
             int pos1 = new Random().nextInt(5);
             System.out.println("Mutation point 1 : index "+pos1);
+            feed.getAreaKromosom().append("Mutation point 1 : index "+pos1+"\n");
+            
             int pos2 = getRandomWithExclusion(r, 0, individu - 1, pos1);
             System.out.println("Mutation point 2 : index "+pos2);
+            feed.getAreaKromosom().append("Mutation point 2 : index "+pos2+"\n");
             
 //          proses mutasi reciprocal exchange mutation
             System.arraycopy(popAwal[p1], 0, cm[0], 0, individu);
@@ -787,19 +1048,18 @@ public class GenetikController {
         double kebNutFo = (f / 100)*konsumsi;
         
         System.out.println("Mutation: ");
+        feed.getAreaKromosom().append("Mutation Offspring :"+"\n");
         for (double[] cm1 : this.cm) {
+            feed.getAreaKromosom().append("Offspring : "+"\n");
             for (int j = 0; j < individu + 1; j++) {
                 System.out.print(cm1[j] + " ");
+                feed.getAreaKromosom().append(cm1[j]+"\n");
             }
             System.out.println();
         }
         
         for (int i = 0; i < 1; i++) {
-            System.out.println("ini tes mutasi");
-            for (int j = 0; j < individu; j++) {
-                System.out.println("mutasi : "+cm[i][j]);
-            }
-            
+            feed.getAreaKromosom().append("----------------- Evaluasi Mutasi ------------------"+"\n");
             double p1 = cm[i][0];
             double p2 = cm[i][1];
             double p3 = cm[i][2];
@@ -813,6 +1073,7 @@ public class GenetikController {
             double harga4 = p4/total*konsumsi;
             double harga5 = p5/total*konsumsi;
             double totalHarga = harga1+harga2+harga3+harga4+harga5;
+            
             System.out.println("Bobot :"+ total);
             System.out.println("tes tot: "+totalHarga);
             System.out.println("Kromosom 1 dalam gr : "+harga1+" gram");
@@ -821,6 +1082,13 @@ public class GenetikController {
             System.out.println("Kromosom 4 dalam gr : "+harga4+" gram");
             System.out.println("Kromosom 5 dalam gr : "+harga5+" gram");
             System.out.println("-------------------------------");
+            
+            feed.getAreaKromosom().append("Kromosom 1 dalam gr : "+harga1+" gram"+"\n");
+            feed.getAreaKromosom().append("Kromosom 2 dalam gr : "+harga2+" gram"+"\n");
+            feed.getAreaKromosom().append("Kromosom 3 dalam gr : "+harga3+" gram"+"\n");
+            feed.getAreaKromosom().append("Kromosom 4 dalam gr : "+harga4+" gram"+"\n");
+            feed.getAreaKromosom().append("Kromosom 5 dalam gr : "+harga5+" gram"+"\n");
+            feed.getAreaKromosom().append("\n");
             
             double cost1 = harga1/1000*hargaKedelai;
             double cost2 = harga2/1000*hargaKelapa;
@@ -836,6 +1104,14 @@ public class GenetikController {
             System.out.println("harga k5 = RP. "+cost5);
             System.out.println("Total Harga Bahan Pakan P"+(i+1)+" :Rp. "+totalCost);
             System.out.println("");
+            
+            feed.getAreaKromosom().append("harga k1 = RP. "+cost1+"\n");
+            feed.getAreaKromosom().append("harga k2 = RP. "+cost2+"\n");
+            feed.getAreaKromosom().append("harga k3 = RP. "+cost3+"\n");
+            feed.getAreaKromosom().append("harga k4 = RP. "+cost4+"\n");
+            feed.getAreaKromosom().append("harga k5 = RP. "+cost5+"\n");
+            feed.getAreaKromosom().append("Total Harga Bahan P "+(i+1)+" :Rp. "+totalCost+"\n");
+            
             double kedelai1 = harga1*me1;
             double kedelai2 = harga1*pro1;
             double kedelai3 = harga1*lem1;
@@ -853,6 +1129,18 @@ public class GenetikController {
             System.out.println("Kalsium : "+kedelai5);
             System.out.println("Fosfor : "+kedelai6);
             
+            feed.getAreaKromosom().append("-----------------------------------------------------------------"+"\n");
+            feed.getAreaKromosom().append("Kandungan Nutrisi P"+(i+1)+"\n");
+            feed.getAreaKromosom().append("=========== bahan 1 ============"+"\n");
+            feed.getAreaKromosom().append("Kedelai"+"\n");
+            feed.getAreaKromosom().append("ME : "+kedelai1+"\n");
+            feed.getAreaKromosom().append("Protein : "+kedelai2+"\n");
+            feed.getAreaKromosom().append("Lemak : "+kedelai3+"\n");
+            feed.getAreaKromosom().append("Serat : "+kedelai4+"\n");
+            feed.getAreaKromosom().append("Kalsium : "+kedelai5+"\n");
+            feed.getAreaKromosom().append("Fosfor : "+kedelai6+"\n");
+            feed.getAreaKromosom().append("\n");
+            
             double kelapa1 = harga2*me2;
             double kelapa2 = harga2*pro2/100;
             double kelapa3 = harga2*lem2/100;
@@ -867,6 +1155,17 @@ public class GenetikController {
             System.out.println("Serat : "+kelapa4);
             System.out.println("Kalsium : "+kelapa5);
             System.out.println("Fosfor : "+kelapa6);
+            
+            feed.getAreaKromosom().append("Kandungan Nutrisi P"+(i+1)+"\n");
+            feed.getAreaKromosom().append("=========== bahan 2 ============"+"\n");
+            feed.getAreaKromosom().append("Kedelai"+"\n");
+            feed.getAreaKromosom().append("ME : "+kelapa1+"\n");
+            feed.getAreaKromosom().append("Protein : "+kelapa2+"\n");
+            feed.getAreaKromosom().append("Lemak : "+kelapa3+"\n");
+            feed.getAreaKromosom().append("Serat : "+kelapa4+"\n");
+            feed.getAreaKromosom().append("Kalsium : "+kelapa5+"\n");
+            feed.getAreaKromosom().append("Fosfor : "+kelapa6+"\n");
+            feed.getAreaKromosom().append("\n");
             
             double kacang1 = harga3*me3;
             double kacang2 = harga3*pro3/100;
@@ -883,6 +1182,17 @@ public class GenetikController {
             System.out.println("Kalsium : "+kacang5);
             System.out.println("Fosfor : "+kacang6);
             
+            feed.getAreaKromosom().append("Kandungan Nutrisi P"+(i+1)+"\n");
+            feed.getAreaKromosom().append("=========== bahan 3 ============"+"\n");
+            feed.getAreaKromosom().append("Bungkil Kacang"+"\n");
+            feed.getAreaKromosom().append("ME : "+kacang1+"\n");
+            feed.getAreaKromosom().append("Protein : "+kacang2+"\n");
+            feed.getAreaKromosom().append("Lemak : "+kacang3+"\n");
+            feed.getAreaKromosom().append("Serat : "+kacang4+"\n");
+            feed.getAreaKromosom().append("Kalsium : "+kacang5+"\n");
+            feed.getAreaKromosom().append("Fosfor : "+kacang6+"\n");
+            feed.getAreaKromosom().append("\n");
+            
             double ikan1 = harga4*me4;
             double ikan2 = harga4*pro4/100;
             double ikan3 = harga4*lem4/100;
@@ -897,6 +1207,17 @@ public class GenetikController {
             System.out.println("Serat : "+ikan4);
             System.out.println("Kalsium : "+ikan5);
             System.out.println("Fosfor : "+ikan6);
+            
+            feed.getAreaKromosom().append("Kandungan Nutrisi P"+(i+1)+"\n");
+            feed.getAreaKromosom().append("=========== bahan 4 ============"+"\n");
+            feed.getAreaKromosom().append("Tepung Ikan"+"\n");
+            feed.getAreaKromosom().append("ME : "+ikan1+"\n");
+            feed.getAreaKromosom().append("Protein : "+ikan2+"\n");
+            feed.getAreaKromosom().append("Lemak : "+ikan3+"\n");
+            feed.getAreaKromosom().append("Serat : "+ikan4+"\n");
+            feed.getAreaKromosom().append("Kalsium : "+ikan5+"\n");
+            feed.getAreaKromosom().append("Fosfor : "+ikan6+"\n");
+            feed.getAreaKromosom().append("\n");
             
             double udang1 = harga5*me5;
             double udang2 = harga5*pro5/100;
@@ -914,6 +1235,17 @@ public class GenetikController {
             System.out.println("Kalsium : "+udang5);
             System.out.println("Fosfor : "+udang6);
             
+            feed.getAreaKromosom().append("Kandungan Nutrisi P"+(i+1)+"\n");
+            feed.getAreaKromosom().append("=========== bahan 5 ============"+"\n");
+            feed.getAreaKromosom().append("Limbah Udang"+"\n");
+            feed.getAreaKromosom().append("ME : "+udang1+"\n");
+            feed.getAreaKromosom().append("Protein : "+udang2+"\n");
+            feed.getAreaKromosom().append("Lemak : "+udang3+"\n");
+            feed.getAreaKromosom().append("Serat : "+udang4+"\n");
+            feed.getAreaKromosom().append("Kalsium : "+udang5+"\n");
+            feed.getAreaKromosom().append("Fosfor : "+udang6+"\n");
+            feed.getAreaKromosom().append("\n");
+            
             double totalMe = kedelai1+kelapa1+kacang1+ikan1+udang1;
             double totalProtein = kedelai2+kelapa2+kacang2+ikan2+udang2;
             double totalLemak = kedelai3+kelapa3+kacang3+ikan3+udang3;
@@ -929,6 +1261,15 @@ public class GenetikController {
             System.out.println("Total Kalsium : "+totalKalsium);
             System.out.println("Total Fosfor : "+totalFosfor);
             
+            feed.getAreaKromosom().append("Total Kandungan Nutrisi"+"\n");
+            feed.getAreaKromosom().append("Total ME : "+totalMe+"\n");
+            feed.getAreaKromosom().append("Total Protein : "+totalProtein+"\n");
+            feed.getAreaKromosom().append("Total Lemak : "+totalLemak+"\n");
+            feed.getAreaKromosom().append("Total Serat : "+totalSerat+"\n");
+            feed.getAreaKromosom().append("Total Kalsium : "+totalKalsium+"\n");
+            feed.getAreaKromosom().append("Total Fosfor : "+totalFosfor+"\n");
+            feed.getAreaKromosom().append("\n");
+            
 //            hitung penalty
             double penalty1=0;
             double penalty2=0;
@@ -939,80 +1280,119 @@ public class GenetikController {
             
             System.out.println("");
             System.out.println("Hitung Penalty");
+            feed.getAreaKromosom().append("\n");
+            feed.getAreaKromosom().append("Hitung Penalty"+"\n");
+            
             if (totalMe > kebNutMe) {
                 System.out.println("1. Kebutuhan ME terpenuhi");
+                feed.getAreaKromosom().append("1. Kebutuhan ME terpenuhi"+"\n");
             }else{
                 System.out.println("1. Kebutuhan ME tidak terpenuhi");
                 penalty1 = kebNutMe - totalMe;
                 System.out.println("  Kekurangan Nutrisi ME : "+penalty1);
+                
+                feed.getAreaKromosom().append("1. Kebutuhan ME tidak terpenuhi"+"\n");
+                feed.getAreaKromosom().append("  Kekurangan Nutrisi ME : "+penalty1+"\n");
             }
             
             if (totalProtein > kebNutPr) {
                 System.out.println("2. Kebutuhan Protein Terpenuhi");
+                feed.getAreaKromosom().append("2. Kebutuhan Protein Terpenuhi"+"\n");
             }else{
                 System.out.println("2. Kebutuhan Protein tidak terpenuhi");
                 penalty2 = kebNutPr - totalProtein;
                 System.out.println("  Kekurangan Nutrisi Protein : "+penalty2);
+                
+                feed.getAreaKromosom().append("2. Kebutuhan Protein tidak terpenuhi"+"\n");
+                feed.getAreaKromosom().append("  Kekurangan Nutrisi Protein : "+penalty2+"\n");
             }
             
             if (totalLemak > kebNutLe) {
                 System.out.println("3. Kebutuhan Lemak Terpenuhi");
+                feed.getAreaKromosom().append("3. Kebutuhan Lemak Terpenuhi"+"\n");
             }else{
                 System.out.println("3. Kebutuhan Lemak tidak terpenuhi");
                 penalty3 = kebNutLe - totalLemak;
                 System.out.println("  Kekurangan Nutrisi Lemak :"+penalty3);
+                
+                feed.getAreaKromosom().append("3. Kebutuhan Lemak tidak terpenuhi"+"\n");
+                feed.getAreaKromosom().append("  Kekurangan Nutrisi Lemak :"+penalty3+"\n");
             }
             
             if (totalSerat > kebNutSe) {
                 System.out.println("4. Kebutuhan Serat Terpenuhi");
+                feed.getAreaKromosom().append("4. Kebutuhan Serat Terpenuhi"+"\n");
             }else{
                 System.out.println("4. Kebutuhan Serat tidak terpenuhi");
                 penalty4 = kebNutSe - totalSerat;
                 System.out.println("  Kekurangan Nutrisi Serat :"+penalty4);
+                
+                feed.getAreaKromosom().append("4. Kebutuhan Serat tidak terpenuhi"+"\n");
+                feed.getAreaKromosom().append("  Kekurangan Nutrisi Serat :"+penalty4+"\n");
             }
             
             if (totalKalsium > kebNutKa) {
                 System.out.println("5. Kebutuhan Kalsium Terpenuhi");
+                feed.getAreaKromosom().append("5. Kebutuhan Kalsium Terpenuhi"+"\n");
             }else{
                 System.out.println("5. Kebutuhan Kalsium tidak terpenuhi");
                 penalty5 = kebNutKa - totalKalsium;
                 System.out.println("  Kekurangan Nutrisi Kalsium :"+penalty5);
+                
+                feed.getAreaKromosom().append("5. Kebutuhan Kalsium tidak terpenuhi"+"\n");
+                feed.getAreaKromosom().append("  Kekurangan Nutrisi Kalsium :"+penalty5+"\n");
             }
             
             if (totalFosfor > kebNutFo) {
                 System.out.println("6. Kebutuhan Fosfor Terpenuhi");
+                feed.getAreaKromosom().append("6. Kebutuhan Fosfor Terpenuhi"+"\n");
             }else{
                 System.out.println("6. Kebutuhan Fosfor tidak terpenuhi");
                 penalty6 = kebNutFo - totalFosfor;
                 System.out.println("  Kekurangan Nutrisi Fosfor :"+penalty6);
+                
+                feed.getAreaKromosom().append("6. Kebutuhan Fosfor tidak terpenuhi"+"\n");
+                feed.getAreaKromosom().append("  Kekurangan Nutrisi Fosfor :"+penalty6+"\n");
             }
             double totalPenalty = penalty1+penalty2+penalty3+penalty4+penalty5+penalty6;
             System.out.println("Total Penalty : "+totalPenalty);
+            feed.getAreaKromosom().append("Total Penalty : "+totalPenalty+"\n");
+            feed.getAreaKromosom().append("\n");
             System.out.println("");
             
 //            hitung Fitness
             System.out.println("---------Fitness--------");
+            feed.getAreaKromosom().append("---------Fitness--------"+"\n");
             double fitness = 100 /(totalCost +(totalPenalty*100));
             cm[i][5] = fitness;
             
             df = new DecimalFormat("#.######");
             System.out.println("tot cost:"+totalCost);
             System.out.println("tot Pen:"+totalPenalty);
-            System.out.println("Nilai Fitness P"+(i+1)+" :"+df.format(fitness));
+            System.out.println("Nilai Fitness :"+df.format(fitness));
+            feed.getAreaKromosom().append("Nilai Fitness :"+df.format(fitness)+"\n");
+            feed.getAreaKromosom().append("\n");
             System.out.println("");
             System.out.println("Mutasi dan fitness");
+            feed.getAreaKromosom().append("Offspring Mutasi dan fitness"+"\n");
             for (double[] cm1 : this.cm) {
+                feed.getAreaKromosom().append("Offspring : "+"\n");
             for (int j = 0; j < individu + 1; j++) {
                 System.out.print(df.format(cm1[j]) + " ");
+                feed.getAreaKromosom().append("- "+df.format(cm1[j]) +"\n");
             }
             System.out.println();
         }
             System.out.println("//============================================================//");
+            feed.getAreaKromosom().append("//============================================================//"+"\n");
         }
         
     }
     
     public void seleksi(){
+        
+        feed.getAreaKromosom().append("------------ SELEKSI ------------"+"\n");
+        feed.getAreaKromosom().append("\n");
         popSize = genModel.getPopSize();
         double popSeleksi[][] = new double[popSize+this.cc.length+this.cm.length]
                                 [individu + 1];
@@ -1049,9 +1429,11 @@ public class GenetikController {
         }
         
         System.out.println("Probabilitas: ");
+        feed.getAreaKromosom().append("Probabilitas Seleksi: "+"\n");
         for (double[] prob1 : prob) {
             for (int j = 0; j < prob1.length; j++) {
                 System.out.printf("%-20.10f", prob1[j]);
+                feed.getAreaKromosom().append(df.format(prob1[j])+"\n");
             }
             System.out.println();
         }
@@ -1062,7 +1444,23 @@ public class GenetikController {
         //p_rw = rouletteWheel(popSeleksi, prob);
         p_rw = elitism(popSeleksi);
         
-        System.out.println("Hasil Roulette Wheel dengan penambahan Operator ELITISM : ");
+        feed.getAreaKromosom().append("\n");
+        System.out.println("** Hasil Roulette Wheel dengan penambahan Operator ELITISM **");
+        feed.getAreaKromosom().append("** Hasil Roulette Wheel dengan penambahan Operator ELITISM **"+"\n");
+        feed.getAreaKromosom().append("\n");
+        
+        for (int i = 0; i <popSize; i++) {
+            feed.getAreaKromosom().append("Ranking Ke-"+(i+1)+"\n");
+            feed.getOutputElit().append("Ranking Ke-"+(i+1)+"\n");
+            for (int j = 0; j < individu + 1; j++) {
+                feed.getAreaKromosom().append("- "+df.format(p_rw[i][j])+"\n");
+                feed.getAreaKromosom().append("\n");
+                
+                feed.getOutputElit().append("- "+df.format(p_rw[i][j])+"\n");
+                feed.getOutputElit().append("\n");
+            }
+        }
+        
         for (double[] p_rw1 : p_rw) {
             for (int j = 0; j < p_rw1.length; j++) {
                 System.out.print(df.format(p_rw1[j]) + " ");
@@ -1089,7 +1487,7 @@ public class GenetikController {
                 return Double.compare(b[b.length - 1], a[a.length - 1]);
             }
         });
-        System.arraycopy(temp, 0, hasil, 0, this.popSize);
+        System.arraycopy(temp, 0, hasil, 0, popSize);
         return hasil;
     }
     
@@ -1128,9 +1526,21 @@ public class GenetikController {
     
     public void individuTerbaik(){
          System.out.println("Individu Terbaik: ");
-        for (int j = 0; j < individu+1; j++) {
+         feed.getAreaKromosom().append("Individu Terbaik adalah : "+"\n");
+         
+        for (int j = 0; j < individu; j++) {
             System.out.print(df.format(pTerbaik[j])+" ");
+            feed.getAreaKromosom().append(df.format(pTerbaik[j])+", ");
         }
+        
+    }
+    
+    public void showBest(){
+        for (int j = 0; j < individu; j++) {
+            System.out.print(df.format(pTerbaik[j])+" ");
+            feed.getBest().append(df.format(pTerbaik[j])+", ");
+        }
+        feed.getBestFitness().append(df.format(pTerbaik[5]));
     }
     
     public void hasilOptimasi(){
@@ -1281,6 +1691,27 @@ public class GenetikController {
 
         @Override
         public void mouseClicked(MouseEvent e) {
+            JOptionPane.showMessageDialog(home, "Sistem sedang melakukan optimasi");
+            int iterasi = genModel.getIterasi();
+            
+            System.out.println("||---- GENERASI 1 ----||");
+            individu();
+            evaluasiKromosom();
+            for (int i = 1; i < iterasi; i++) {
+            System.out.println("||---- GENERASI "+(i+1)+" ----||");
+            crossover();
+            printCrossover();
+            mutation();
+            evaluasiMutasi();
+            feed.getOutputElit().append("-- Seleksi Generasi Ke-"+(i+1)+"\n");
+            seleksi();
+            feed.getOutputElit().append("----------------------------------");
+            feed.getOutputElit().append("\n");
+            cariIndividuTerbaik();
+            individuTerbaik();
+            }
+            showBest();
+            hasilOptimasi();
             }
 
         @Override
@@ -1301,6 +1732,15 @@ public class GenetikController {
             setIcon(home.getButton_Ga(), "/View/Button/optimasi-awal.png");
             }
     }
+    
+    public void clearInput(){
+        home.getPopulasi().setText("");
+        home.getIterasi().setText("");
+        home.getInputCross().setText("");
+        home.getInputMut().setText("");
+        home.getKonsumsi().setText("");
+        home.getAyam().setText("");
+    }
 
     private class ClearMouseListener implements MouseListener {
 
@@ -1309,6 +1749,7 @@ public class GenetikController {
 
         @Override
         public void mouseClicked(MouseEvent e) {
+            clearInput();
             }
 
         @Override
@@ -1350,10 +1791,12 @@ public class GenetikController {
 
         @Override
         public void mouseEntered(MouseEvent e) {
+            setIcon(home.getButton_Pakan(), "/View/Button/btn-bahan-hover-b.png");
             }
 
         @Override
         public void mouseExited(MouseEvent e) {
+            setIcon(home.getButton_Pakan(), "/View/Button/btn-feed.png");
             }
     }
 
@@ -1367,49 +1810,6 @@ public class GenetikController {
             home.getDynamicPanel().setVisible(true);
             feed.setVisible(false);
             result.setVisible(true);
-            hasilOptimasi();
-            }
-
-        @Override
-        public void mousePressed(MouseEvent e) {
-            }
-
-        @Override
-        public void mouseReleased(MouseEvent e) {
-            }
-
-        @Override
-        public void mouseEntered(MouseEvent e) {
-            }
-
-        @Override
-        public void mouseExited(MouseEvent e) {
-            }
-    }
-
-    private class AlgoMouseListener implements MouseListener {
-
-        @Override
-        public void mouseClicked(MouseEvent e) {
-            home.getDynamicPanel().setVisible(true);
-            feed.setVisible(true);
-            result.setVisible(false);
-            
-            int iterasi = genModel.getIterasi();
-            
-            System.out.println("||---- GENERASI 1 ----||");
-            individu();
-            evaluasiKromosom();
-            for (int i = 1; i < iterasi; i++) {
-            System.out.println("||---- GENERASI "+(i+1)+" ----||");
-            crossover();
-            printCrossover();
-            mutation();
-            evaluasiMutasi();
-            seleksi();
-            cariIndividuTerbaik();
-            individuTerbaik();
-            }
 //            hasilOptimasi();
             }
 
@@ -1423,7 +1823,36 @@ public class GenetikController {
 
         @Override
         public void mouseEntered(MouseEvent e) {
-                setIcon(home.getButton_Algo(), "/View/Button/btn-calculate-hover.png");
+            setIcon(home.getButton_Hasil(), "/View/Button/btn-optimasi-hover-o.png");
+            }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+            setIcon(home.getButton_Hasil(), "/View/Button/btn-result.png");
+            }
+    }
+
+    private class AlgoMouseListener implements MouseListener {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            home.getDynamicPanel().setVisible(true);
+            feed.setVisible(true);
+            result.setVisible(false);
+            
+            }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+            }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+            }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+                setIcon(home.getButton_Algo(), "/View/Button/btn-hitung-hover-c.png");
             }
 
         @Override
@@ -1447,6 +1876,8 @@ public class GenetikController {
             try {
                 genModel.insertDataAlgo(popSize, iterasi, pc, pm, konsumsi, ayam);
                 JOptionPane.showMessageDialog(home, "Berhasil disimpan, klik Perhitungan Algoritma");
+                genModel.getAlgo();
+//                home.getButton_Ga().setVisible(true);
             } catch (SQLException ex) {
                 Logger.getLogger(GenetikController.class.getName()).log(Level.SEVERE, null, ex);
             }

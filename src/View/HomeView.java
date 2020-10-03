@@ -20,6 +20,7 @@ import com.mysql.jdbc.Util;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JTextField;
 /**
  *
  * @author Muhammad Rizal
@@ -80,7 +81,6 @@ public class HomeView extends javax.swing.JFrame {
         Button_Ga.setBorderPainted(false);
         Button_Ga.setContentAreaFilled(false);
         Button_Ga.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Button_Ga.setOpaque(false);
         getContentPane().add(Button_Ga, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 540, 90, 40));
 
         Button_clear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Button/delete-awal.png"))); // NOI18N
@@ -139,7 +139,7 @@ public class HomeView extends javax.swing.JFrame {
         getContentPane().add(inputAlgoritma, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 330, 600));
 
         header.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Home/header.png"))); // NOI18N
-        getContentPane().add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1100, 110));
+        getContentPane().add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1100, 90));
 
         Button_Pakan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Button/btn-feed.png"))); // NOI18N
         Button_Pakan.setBorderPainted(false);
@@ -271,21 +271,45 @@ public class HomeView extends javax.swing.JFrame {
     public String getInputPopulasi(){
         return inputPopulasi.getText();
     }
+    public JTextField getPopulasi(){
+        return inputPopulasi;
+    }
+    
     public String getInputIterasi(){
         return inputGenerasi.getText();
     }
+    public JTextField getIterasi(){
+        return inputGenerasi;
+    }
+    
     public String getInputProbCross(){
         return inputProbCross.getText();
     }
+    public JTextField getInputCross(){
+        return inputProbCross;
+    }
+    
     public String getInputProbMut(){
         return inputProbMut.getText();
     }
+    public JTextField getInputMut(){
+        return inputProbMut;
+    }
+    
     public String getInputKonsumsi(){
         return konsumsi.getText();
     }
+    public JTextField getKonsumsi(){
+        return konsumsi;
+    }
+    
     public String getInputAyam(){
         return ayam.getText();
     }
+    public JTextField getAyam(){
+        return ayam;
+    }
+    
     private void inputPopulasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputPopulasiActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_inputPopulasiActionPerformed

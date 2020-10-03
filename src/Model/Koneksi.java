@@ -18,9 +18,14 @@ public class Koneksi {
     public Statement stm;
 
     public Koneksi(String database, String user, String password) throws SQLException {
+        try {
         String url = "jdbc:mysql://localhost:3306/" + database;
         koneksi = DriverManager.getConnection(url, user, password);
         stm = koneksi.createStatement();
+        }catch(Exception e){
+            System.out.println("Koneksi Gagagl ,"+e);
+        }
+        
     }
     
     public ResultSet getResult(String sql) throws SQLException {
