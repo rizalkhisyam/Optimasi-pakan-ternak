@@ -1441,7 +1441,7 @@ public class GenetikController {
         
         // lakukan roulette wheel
         double p_rw[][];
-        //p_rw = rouletteWheel(popSeleksi, prob);
+//        p_rw = rouletteWheel(popSeleksi, prob);
         p_rw = elitism(popSeleksi);
         
         feed.getAreaKromosom().append("\n");
@@ -1740,6 +1740,10 @@ public class GenetikController {
         home.getInputMut().setText("");
         home.getKonsumsi().setText("");
         home.getAyam().setText("");
+        feed.getAreaKromosom().setText("");
+        feed.getBest().setText("");
+        feed.getBestFitness().setText("");
+        feed.getOutputElit().setText("");
     }
 
     private class ClearMouseListener implements MouseListener {
