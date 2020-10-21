@@ -40,20 +40,30 @@ public class GenetikController {
     private DefaultTableModel model;
     
     private static int popSize;
+    private static int crossover;
+    private static int mutasi;
     private static int individu = 5;
+    private static int jumlahOffspringC;
+    private static int jumlahOffspringM;
+    
     private double popAwal[][] = null;
     private double cc[][] = null;
+    private double offspringC[][] = null;
+    private double offspringM[][] = null;
     private double cm[][] = null;
     private double pTerbaik[];
+    
     private static double pc;
     private static double pm;
+    private boolean check = false;
+    private double bestPen;
     
     public GenetikController(HomeView home, GenetikModel genModel)throws SQLException{
     this.home = home;
     this.genModel = genModel;
     popSize = genModel.getPopSize();
     
-    genModel.getData();
+//    genModel.getData();
     
     genModel.getKebNut();
     genModel.getAlgo();
@@ -165,7 +175,7 @@ public class GenetikController {
         double kebNutPr = (b / 100)*konsumsi;
         double kebNutLe = (c / 100)*konsumsi;
         double kebNutSe = (d / 100)*konsumsi;
-        double kebNutKa = (e / 100)*konsumsi;
+        double kebNutKa = Math.round(e / 100)*konsumsi;
         double kebNutFo = (f / 100)*konsumsi;
         
         System.out.println("---------------- Evaluasi Kromosom ----------------");
@@ -504,13 +514,27 @@ public class GenetikController {
         popSize = genModel.getPopSize();
         pc = genModel.getProbCross();
         int osCrossover = (int) Math.ceil(pc*popSize);
-        this.cc = new double[osCrossover][individu + 1];
         
-        if (pc > 0) {
+        if (osCrossover % 2 == 0) {
+                crossover = osCrossover;
+                jumlahOffspringC = osCrossover * 2;
+            }else{
+                crossover = (osCrossover + 1);
+                jumlahOffspringC = (osCrossover + 1) * 2;
+            }
+        this.cc = new double[crossover][individu + 1];
+        this.offspringC = new double[jumlahOffspringC][individu + 1];
+        
+        for ( int j = 0; j < crossover; j++) {
             
             // pilih populasi dengan acak        
             int p1 = r.nextInt(popSize);
             int p2 = r.nextInt(popSize);
+            int a = 0;
+            while(p2 == p1){
+                p2 = r.nextInt(popSize);
+                a++;
+            }
             
             System.out.println("Proses Crossover one-cut-point");
             System.out.println("Individu acak 1: P"+(p1+1));
@@ -529,16 +553,16 @@ public class GenetikController {
             //proses crossover one-cut-point-crossover
             double tempCC[][] = new double[cc.length][individu + 1];
             System.arraycopy(popAwal[p1], 0, tempCC[0], 0, individu);
-            System.arraycopy(popAwal[p2], 0, tempCC[1], 0, individu);
+//            System.arraycopy(popAwal[p2], 0, tempCC[1], 0, individu);
             for (int i = 0; i < individu; i++) {
                 if (i >= cutPoint) {
                     tempCC[0][i] = popAwal[p2][i];
-                    tempCC[1][i] = popAwal[p1][i];
+//                    tempCC[1][i] = popAwal[p1][i];
                 }
             }
-            System.arraycopy(tempCC, 0, this.cc, 0, tempCC.length);
-//            System.out.println("tes crossover : "+cc[0][1]);
+            System.arraycopy(tempCC, 0,this.offspringC, j, tempCC.length);
         }
+        
     }
     
     public void printCrossover(){
@@ -598,31 +622,31 @@ public class GenetikController {
         double kebNutPr = (b / 100)*konsumsi;
         double kebNutLe = (c / 100)*konsumsi;
         double kebNutSe = (d / 100)*konsumsi;
-        double kebNutKa = (e / 100)*konsumsi;
+        double kebNutKa = Math.round(e / 100)*konsumsi;
         double kebNutFo = (f / 100)*konsumsi;
         
         System.out.println("=================");
         feed.getAreaKromosom().append("\n");
         feed.getAreaKromosom().append("Crossover Offspring : "+"\n");
         System.out.println("Crossover Offspring : ");
-        for (double[] cc1 : this.cc) {
+        for (int x = 0; x < crossover; x++) {
             feed.getAreaKromosom().append("Offspring :"+"\n");
             for (int j = 0; j < individu + 1; j++) {
-                System.out.print(cc1[j] + " ");
-                feed.getAreaKromosom().append(cc1[j]+", "+"\n");
+                System.out.print(offspringC[x][j] + " ");
+                feed.getAreaKromosom().append(offspringC[x][j]+", "+"\n");
             }
             System.out.println();
         }
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < crossover; i++) {
             
         System.out.println("---------------- Evaluasi Crossover ----------------");
         feed.getAreaKromosom().append("---------------- Evaluasi Crossover ----------------"+"\n");
         
-            double p1 = cc[i][0];
-            double p2 = cc[i][1];
-            double p3 = cc[i][2];
-            double p4 = cc[i][3];
-            double p5 = cc[i][4];
+            double p1 = offspringC[i][0];
+            double p2 = offspringC[i][1];
+            double p3 = offspringC[i][2];
+            double p4 = offspringC[i][3];
+            double p5 = offspringC[i][4];
             double total = p1+p2+p3+p4+p5;
 
             double harga1 = p1/total*konsumsi;
@@ -921,7 +945,7 @@ public class GenetikController {
             System.out.println("---------Fitness--------");
             feed.getAreaKromosom().append("---------Fitness--------"+"\n");
             double fitness = 100 /(totalCost +(totalPenalty*100));
-            cc[i][5] = fitness;
+            offspringC[i][5] = fitness;
             
             df = new DecimalFormat("#.######");
             System.out.println("tot cost:"+totalCost);
@@ -933,14 +957,17 @@ public class GenetikController {
             
             System.out.println("Crossover dan fitness");
             feed.getAreaKromosom().append("Crossover Offsrping dan fitness"+"\n");
-            for (double[] cc1 : this.cc) {
+            for (int k = 0; k < crossover; k++) {
                 feed.getAreaKromosom().append("Offspring :"+"\n");
             for (int j = 0; j < individu + 1; j++) {
-                System.out.print(df.format(cc1[j])+ " ");
-                feed.getAreaKromosom().append(df.format(cc1[j])+"\n");
+                System.out.print(df.format(offspringC[k][j])+ " ");
+                feed.getAreaKromosom().append(df.format(offspringC[k][j])+"\n");
             }
             System.out.println();
-        }
+            }
+            
+            
+            
             System.out.println("//============================================================//");
             feed.getAreaKromosom().append("//============================================================//"+"\n");
         }
@@ -960,9 +987,14 @@ public class GenetikController {
     public void mutation(){
         pm = genModel.getProbMut();
         int osMutation = (int) Math.ceil(pm*popSize);
-        this.cm = new double[osMutation][individu + 1];
+        mutasi = osMutation;
+        jumlahOffspringM = mutasi * 2;
         
-        if (pm > 0) {
+        this.cm = new double[mutasi][individu + 1];
+        this.offspringM = new double[jumlahOffspringM][individu + 1];
+        
+        for (int i = 0; i < mutasi; i++) {
+            int b = 0;
             int p1 = new Random().nextInt(popSize);
             feed.getAreaKromosom().append("----------- MUTASI -----------"+"\n");
             feed.getAreaKromosom().append("Proses Mutasi Reciprocal-exchange-mutation"+"\n");
@@ -975,15 +1007,24 @@ public class GenetikController {
             System.out.println("Mutation point 1 : index "+pos1);
             feed.getAreaKromosom().append("Mutation point 1 : index "+pos1+"\n");
             
-            int pos2 = getRandomWithExclusion(r, 0, individu - 1, pos1);
+//            int pos2 = getRandomWithExclusion(r, 0, individu - 1, pos1);
+            int pos2 = new Random().nextInt(5);
+            while(pos2 == pos1){
+                pos2 = getRandomWithExclusion(r, 0, individu - 1, pos1);
+                b++;
+            }
+            
             System.out.println("Mutation point 2 : index "+pos2);
             feed.getAreaKromosom().append("Mutation point 2 : index "+pos2+"\n");
             
 //          proses mutasi reciprocal exchange mutation
-            System.arraycopy(popAwal[p1], 0, cm[0], 0, individu);
-            cm[0][pos1] = popAwal[p1][pos2];
-            cm[0][pos2] = popAwal[p1][pos1];
-
+            double tempM[][] = new double [cm.length][individu + 1];
+            System.arraycopy(popAwal[p1], 0, tempM[0], 0, individu);
+           
+            tempM[0][pos1] = popAwal[p1][pos2];
+            tempM[0][pos2] = popAwal[p1][pos1];
+            
+            System.arraycopy(tempM, 0, offspringM, i, tempM.length);
         }
     }
     
@@ -1044,12 +1085,12 @@ public class GenetikController {
         double kebNutPr = (b / 100)*konsumsi;
         double kebNutLe = (c / 100)*konsumsi;
         double kebNutSe = (d / 100)*konsumsi;
-        double kebNutKa = (e / 100)*konsumsi;
+        double kebNutKa = Math.round(e / 100)*konsumsi;
         double kebNutFo = (f / 100)*konsumsi;
         
         System.out.println("Mutation: ");
         feed.getAreaKromosom().append("Mutation Offspring :"+"\n");
-        for (double[] cm1 : this.cm) {
+        for (double[] cm1 : this.offspringM) {
             feed.getAreaKromosom().append("Offspring : "+"\n");
             for (int j = 0; j < individu + 1; j++) {
                 System.out.print(cm1[j] + " ");
@@ -1058,13 +1099,13 @@ public class GenetikController {
             System.out.println();
         }
         
-        for (int i = 0; i < 1; i++) {
+        for (int i = 0; i < mutasi; i++) {
             feed.getAreaKromosom().append("----------------- Evaluasi Mutasi ------------------"+"\n");
-            double p1 = cm[i][0];
-            double p2 = cm[i][1];
-            double p3 = cm[i][2];
-            double p4 = cm[i][3];
-            double p5 = cm[i][4];
+            double p1 = offspringM[i][0];
+            double p2 = offspringM[i][1];
+            double p3 = offspringM[i][2];
+            double p4 = offspringM[i][3];
+            double p5 = offspringM[i][4];
             double total = p1+p2+p3+p4+p5;
 
             double harga1 = p1/total*konsumsi;
@@ -1113,11 +1154,11 @@ public class GenetikController {
             feed.getAreaKromosom().append("Total Harga Bahan P "+(i+1)+" :Rp. "+totalCost+"\n");
             
             double kedelai1 = harga1*me1;
-            double kedelai2 = harga1*pro1;
-            double kedelai3 = harga1*lem1;
-            double kedelai4 = harga1*ser1;
-            double kedelai5 = harga1*kal1;
-            double kedelai6 = harga1*fos1;
+            double kedelai2 = harga1*pro1/100;
+            double kedelai3 = harga1*lem1/100;
+            double kedelai4 = harga1*ser1/100;
+            double kedelai5 = harga1*kal1/100;
+            double kedelai6 = harga1*fos1/100;
             System.out.println("<------------------------>");
             System.out.println("Kandungan Nutrisi P"+(i+1));
             System.out.println("===========bahan 1============");
@@ -1364,7 +1405,7 @@ public class GenetikController {
             System.out.println("---------Fitness--------");
             feed.getAreaKromosom().append("---------Fitness--------"+"\n");
             double fitness = 100 /(totalCost +(totalPenalty*100));
-            cm[i][5] = fitness;
+            offspringM[i][5] = fitness;
             
             df = new DecimalFormat("#.######");
             System.out.println("tot cost:"+totalCost);
@@ -1375,11 +1416,11 @@ public class GenetikController {
             System.out.println("");
             System.out.println("Mutasi dan fitness");
             feed.getAreaKromosom().append("Offspring Mutasi dan fitness"+"\n");
-            for (double[] cm1 : this.cm) {
+            for (int y = 0; y < mutasi; y++) {
                 feed.getAreaKromosom().append("Offspring : "+"\n");
             for (int j = 0; j < individu + 1; j++) {
-                System.out.print(df.format(cm1[j]) + " ");
-                feed.getAreaKromosom().append("- "+df.format(cm1[j]) +"\n");
+                System.out.print(df.format(offspringM[y][j]) + " ");
+                feed.getAreaKromosom().append("- "+df.format(offspringM[y][j]) +"\n");
             }
             System.out.println();
         }
@@ -1389,17 +1430,17 @@ public class GenetikController {
         
     }
     
-    public void seleksi(){
+    public void seleksiRoullete(){
         
         feed.getAreaKromosom().append("------------ SELEKSI ------------"+"\n");
         feed.getAreaKromosom().append("\n");
         popSize = genModel.getPopSize();
-        double popSeleksi[][] = new double[popSize+this.cc.length+this.cm.length]
+        double popSeleksi[][] = new double[popSize+this.offspringC.length/2+this.offspringM.length/2]
                                 [individu + 1];
         
         System.arraycopy(popAwal, 0, popSeleksi, 0, popSize);
-        System.arraycopy(cc, 0, popSeleksi, popSize, cc.length);
-        System.arraycopy(cm, 0, popSeleksi, popSize + cc.length, cm.length);
+        System.arraycopy(offspringC, 0, popSeleksi, popSize, offspringC.length/2);
+        System.arraycopy(offspringM, 0, popSeleksi, popSize + offspringC.length/2, offspringM.length/2);
         
         // hitung total fitness
         double totFitness = 0;
@@ -1438,15 +1479,58 @@ public class GenetikController {
             System.out.println();
         }
         System.out.println();
-        
+//        
         // lakukan roulette wheel
         double p_rw[][];
-//        p_rw = rouletteWheel(popSeleksi, prob);
+        p_rw = rouletteWheel(popSeleksi, prob);
+        
+        feed.getAreaKromosom().append("\n");
+        System.out.println("** Hasil Roulette Wheel **");
+        feed.getAreaKromosom().append("** Hasil Roulette Wheel **"+"\n");
+        feed.getAreaKromosom().append("\n");
+        
+        for (int i = 0; i <popSize; i++) {
+            feed.getAreaKromosom().append("Seleksi :"+(i+1)+"\n");
+            feed.getOutputElit().append("Seleksi :"+(i+1)+"\n");
+            for (int j = 0; j < individu + 1; j++) {
+                feed.getAreaKromosom().append("- "+df.format(p_rw[i][j])+"\n");
+                feed.getAreaKromosom().append("\n");
+                
+                feed.getOutputElit().append("- "+df.format(p_rw[i][j])+"\n");
+                feed.getOutputElit().append("\n");
+            }
+        }
+        
+        for (double[] p_rw1 : p_rw) {
+            for (int j = 0; j < p_rw1.length; j++) {
+                System.out.print(df.format(p_rw1[j]) + " ");
+            }
+            System.out.println();
+        }
+        System.out.println();
+        
+        // update populasi
+        updatePopulasi(p_rw);
+    }
+    
+    public void seleksiElitism(){
+        
+        feed.getAreaKromosom().append("------------ SELEKSI ------------"+"\n");
+        feed.getAreaKromosom().append("\n");
+        popSize = genModel.getPopSize();
+        double popSeleksi[][] = new double[popSize+this.offspringC.length/2+this.offspringM.length/2]
+                                [individu + 1];
+        
+        System.arraycopy(popAwal, 0, popSeleksi, 0, popSize);
+        System.arraycopy(offspringC, 0, popSeleksi, popSize, offspringC.length/2);
+        System.arraycopy(offspringM, 0, popSeleksi, popSize + offspringC.length/2, offspringM.length/2);
+        
+        double p_rw[][];
         p_rw = elitism(popSeleksi);
         
         feed.getAreaKromosom().append("\n");
-        System.out.println("** Hasil Roulette Wheel dengan penambahan Operator ELITISM **");
-        feed.getAreaKromosom().append("** Hasil Roulette Wheel dengan penambahan Operator ELITISM **"+"\n");
+        System.out.println("** Hasil ELITISM SELECTION **");
+        feed.getAreaKromosom().append("** Hasil ELITISM SELECTION **"+"\n");
         feed.getAreaKromosom().append("\n");
         
         for (int i = 0; i <popSize; i++) {
@@ -1471,7 +1555,6 @@ public class GenetikController {
         
         // update populasi
         updatePopulasi(p_rw);
-        //p_rw = elitism(popSeleksi);
     }
     
     public void updatePopulasi(double pSeleksi[][]){
@@ -1693,22 +1776,29 @@ public class GenetikController {
         public void mouseClicked(MouseEvent e) {
             JOptionPane.showMessageDialog(home, "Sistem sedang melakukan optimasi");
             int iterasi = genModel.getIterasi();
-            
-            System.out.println("||---- GENERASI 1 ----||");
+            int seleksi = genModel.getSeleksi();
+             
             individu();
             evaluasiKromosom();
-            for (int i = 1; i < iterasi; i++) {
+            for (int i = 0; i < iterasi; i++) {
             System.out.println("||---- GENERASI "+(i+1)+" ----||");
             crossover();
             printCrossover();
             mutation();
             evaluasiMutasi();
             feed.getOutputElit().append("-- Seleksi Generasi Ke-"+(i+1)+"\n");
-            seleksi();
+            if (seleksi == 1) {
+                    seleksiElitism();
+                    feed.getLabelSeleksi().setText("Elitism Selection :");
+                }else{
+                    seleksiRoullete();
+                    feed.getLabelSeleksi().setText("Roullete Wheel Selection :");
+                }
             feed.getOutputElit().append("----------------------------------");
             feed.getOutputElit().append("\n");
             cariIndividuTerbaik();
             individuTerbaik();
+            
             }
             showBest();
             hasilOptimasi();
@@ -1766,12 +1856,12 @@ public class GenetikController {
 
         @Override
         public void mouseEntered(MouseEvent e) {
-            setIcon(home.getButton_Clear(), "/View/Button/delete-hover.png");
+            setIcon(home.getButton_Clear(), "/View/Button/trash-hover.png");
             }
 
         @Override
         public void mouseExited(MouseEvent e) {
-            setIcon(home.getButton_Clear(), "/View/Button/delete-awal.png");
+            setIcon(home.getButton_Clear(), "/View/Button/trash-awal.png");
             }
     }
 
@@ -1869,16 +1959,22 @@ public class GenetikController {
 
         @Override
         public void mouseClicked(MouseEvent e) {
-            System.out.println("tes bisa");
+            
             int popSize = Integer.parseInt(home.getInputPopulasi());
             int iterasi = Integer.parseInt(home.getInputIterasi());
             double pc = Double.parseDouble(home.getInputProbCross());
             double pm = Double.parseDouble(home.getInputProbMut());
+            int seleksi = 0;
             int konsumsi = Integer.parseInt(home.getInputKonsumsi());
             int ayam = Integer.parseInt(home.getInputAyam());
-   
-            try {
-                genModel.insertDataAlgo(popSize, iterasi, pc, pm, konsumsi, ayam);
+            if (home.getElitism().isSelected()) {
+                seleksi = 1;
+            }else{
+                seleksi = 2;
+            }
+            
+                try {
+                genModel.insertDataAlgo(popSize, iterasi, pc, pm, seleksi, konsumsi, ayam);
                 JOptionPane.showMessageDialog(home, "Berhasil disimpan, klik Perhitungan Algoritma");
                 genModel.getAlgo();
 //                home.getButton_Ga().setVisible(true);

@@ -17,9 +17,11 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import com.mysql.jdbc.Util;
+import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 /**
  *
@@ -44,13 +46,18 @@ public class HomeView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         Button_Optimasi = new javax.swing.JButton();
         Button_Ga = new javax.swing.JButton();
         Button_clear = new javax.swing.JButton();
+        elitism = new javax.swing.JRadioButton();
+        roullete = new javax.swing.JRadioButton();
+        jLabel1 = new javax.swing.JLabel();
         DynamicPanel = new javax.swing.JPanel();
         tesData = new javax.swing.JLabel();
         scrollPane = new javax.swing.JScrollPane();
         tableBahan = new javax.swing.JTable();
+        jLabel2 = new javax.swing.JLabel();
         inputPopulasi = new javax.swing.JTextField();
         inputGenerasi = new javax.swing.JTextField();
         inputProbCross = new javax.swing.JTextField();
@@ -75,19 +82,34 @@ public class HomeView extends javax.swing.JFrame {
         Button_Optimasi.setBorderPainted(false);
         Button_Optimasi.setContentAreaFilled(false);
         Button_Optimasi.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(Button_Optimasi, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 540, 90, 40));
+        getContentPane().add(Button_Optimasi, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 600, 90, 40));
 
         Button_Ga.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Button/optimasi-awal.png"))); // NOI18N
         Button_Ga.setBorderPainted(false);
         Button_Ga.setContentAreaFilled(false);
         Button_Ga.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(Button_Ga, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 540, 90, 40));
+        getContentPane().add(Button_Ga, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 600, 90, 40));
 
-        Button_clear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Button/delete-awal.png"))); // NOI18N
+        Button_clear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Button/trash-awal.png"))); // NOI18N
         Button_clear.setBorderPainted(false);
         Button_clear.setContentAreaFilled(false);
         Button_clear.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(Button_clear, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 537, 40, 40));
+        getContentPane().add(Button_clear, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 600, 50, 40));
+
+        buttonGroup1.add(elitism);
+        elitism.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        elitism.setText("Elitism Selection");
+        elitism.setContentAreaFilled(false);
+        getContentPane().add(elitism, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 380, -1, -1));
+
+        buttonGroup1.add(roullete);
+        roullete.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        roullete.setText("Roullete Wheel");
+        roullete.setContentAreaFilled(false);
+        getContentPane().add(roullete, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 380, 120, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Home/Metode Seleksi _.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 350, 100, 20));
         getContentPane().add(DynamicPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 160, 690, 470));
         getContentPane().add(tesData, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 660, -1, -1));
 
@@ -96,15 +118,22 @@ public class HomeView extends javax.swing.JFrame {
         tableBahan.setFont(new java.awt.Font("Poppins", 0, 11)); // NOI18N
         tableBahan.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {"Kedelai", "3880", "38", "20", "2", "0.15", "0.37"},
+                {"Bungkil Kelapa", "1525", "19.2", "2.1", "14.4", "0.17", "0.65"},
+                {"Bungkil Kacang", "2205", "47", "1", "13", "0.2", "0.45"},
+                {"Tepung ikan", "2580", "64.2", "5", "1", "3.73", "2.43"},
+                {"Limbah udang", "1230", "45.2", "3,6", "15,9", "8.9", "1.9"}
             },
             new String [] {
-                "Nama Bahan", "Energi Metabolis", "Protein", "Lemak", "Serat", "Kalsium", "Fosfor"
+                "Nama Bahan", "ME", "Protein", "Lemak", "Serat", "Kalsium", "Fosfor"
             }
         ));
         scrollPane.setViewportView(tableBahan);
 
-        getContentPane().add(scrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 160, 690, 470));
+        getContentPane().add(scrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 180, 650, 110));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Home/bahan-pakan2.png"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 160, 690, 470));
 
         inputPopulasi.setBorder(null);
         inputPopulasi.setOpaque(false);
@@ -113,33 +142,63 @@ public class HomeView extends javax.swing.JFrame {
                 inputPopulasiActionPerformed(evt);
             }
         });
-        getContentPane().add(inputPopulasi, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 140, 80, 30));
+        inputPopulasi.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                inputPopulasiKeyTyped(evt);
+            }
+        });
+        getContentPane().add(inputPopulasi, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, 100, 20));
 
         inputGenerasi.setBorder(null);
         inputGenerasi.setOpaque(false);
-        getContentPane().add(inputGenerasi, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 200, 80, 30));
+        inputGenerasi.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                inputGenerasiKeyTyped(evt);
+            }
+        });
+        getContentPane().add(inputGenerasi, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 170, 100, 30));
 
         inputProbCross.setBorder(null);
         inputProbCross.setOpaque(false);
-        getContentPane().add(inputProbCross, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 260, 80, 20));
+        inputProbCross.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                inputProbCrossKeyTyped(evt);
+            }
+        });
+        getContentPane().add(inputProbCross, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 230, 100, 30));
 
         inputProbMut.setBorder(null);
         inputProbMut.setOpaque(false);
-        getContentPane().add(inputProbMut, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 310, 80, 30));
+        inputProbMut.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                inputProbMutKeyTyped(evt);
+            }
+        });
+        getContentPane().add(inputProbMut, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 290, 100, 20));
 
         konsumsi.setBorder(null);
         konsumsi.setOpaque(false);
-        getContentPane().add(konsumsi, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 420, 60, 30));
+        konsumsi.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                konsumsiKeyTyped(evt);
+            }
+        });
+        getContentPane().add(konsumsi, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 470, 60, 30));
 
         ayam.setBorder(null);
         ayam.setOpaque(false);
-        getContentPane().add(ayam, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 480, 60, 20));
+        ayam.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                ayamKeyTyped(evt);
+            }
+        });
+        getContentPane().add(ayam, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 530, 60, 30));
 
-        inputAlgoritma.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Home/menu-ga-1.png"))); // NOI18N
-        getContentPane().add(inputAlgoritma, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 330, 600));
+        inputAlgoritma.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Home/parameter-input-1.png"))); // NOI18N
+        getContentPane().add(inputAlgoritma, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 320, 610));
 
         header.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Home/header.png"))); // NOI18N
-        getContentPane().add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1100, 90));
+        getContentPane().add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1100, -1));
 
         Button_Pakan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Button/btn-feed.png"))); // NOI18N
         Button_Pakan.setBorderPainted(false);
@@ -164,22 +223,27 @@ public class HomeView extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    //button menu Optimasi=========================
-    public JScrollPane getScroll(){
-        return scrollPane;
+    public JRadioButton getElitism(){
+        return elitism;
     }
     
-    public JLabel getData(){
-        return tesData;
+    public JRadioButton getRoullete(){
+        return roullete;
     }
+
+//button menu Optimasi=========================
+//    public JScrollPane getScroll(){
+//        return scrollPane;
+//    }
+//    
+//    public JLabel getData(){
+//        return tesData;
+//    }
+//    
+//    public JTable getTable(){
+//        return tableBahan;
+//    }
     
-    public JTable getTable(){
-        return tableBahan;
-    }
-    
-    public void setTable_Bahan(JTable tableBahan){
-        this.tableBahan = tableBahan;
-    }
 //    Button clear =============
     public void ClearMouseListener(MouseListener l){
         this.Button_clear.addMouseListener(l);
@@ -314,6 +378,54 @@ public class HomeView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_inputPopulasiActionPerformed
 
+    private void inputPopulasiKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputPopulasiKeyTyped
+        char c = evt.getKeyChar();
+        if (!(Character.isDigit(c) || c == KeyEvent.VK_BACK_SPACE || c == KeyEvent.VK_DELETE)) {
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_inputPopulasiKeyTyped
+
+    private void inputGenerasiKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputGenerasiKeyTyped
+       char c = evt.getKeyChar();
+        if (!(Character.isDigit(c) || c == KeyEvent.VK_BACK_SPACE || c == KeyEvent.VK_DELETE)) {
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_inputGenerasiKeyTyped
+
+    private void inputProbCrossKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputProbCrossKeyTyped
+        char c = evt.getKeyChar();
+        if (!((inputProbCross.getText()+evt.getKeyChar()).matches("[0-9]*(.[0-9]*)?"))) {
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_inputProbCrossKeyTyped
+
+    private void inputProbMutKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputProbMutKeyTyped
+       char c = evt.getKeyChar();
+        if (!((inputProbMut.getText()+evt.getKeyChar()).matches("[0-9]*(.[0-9]*)?"))) {
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_inputProbMutKeyTyped
+
+    private void konsumsiKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_konsumsiKeyTyped
+        char c = evt.getKeyChar();
+        if (!(Character.isDigit(c) || c == KeyEvent.VK_BACK_SPACE || c == KeyEvent.VK_DELETE)) {
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_konsumsiKeyTyped
+
+    private void ayamKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ayamKeyTyped
+        char c = evt.getKeyChar();
+        if (!(Character.isDigit(c) || c == KeyEvent.VK_BACK_SPACE || c == KeyEvent.VK_DELETE)) {
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_ayamKeyTyped
+
     /**
      * @param args the command line arguments
      */
@@ -359,13 +471,18 @@ public class HomeView extends javax.swing.JFrame {
     private javax.swing.JPanel DynamicPanel;
     private javax.swing.JTextField ayam;
     private javax.swing.JLabel background;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JRadioButton elitism;
     private javax.swing.JLabel header;
     private javax.swing.JLabel inputAlgoritma;
     private javax.swing.JTextField inputGenerasi;
     private javax.swing.JTextField inputPopulasi;
     private javax.swing.JTextField inputProbCross;
     private javax.swing.JTextField inputProbMut;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField konsumsi;
+    private javax.swing.JRadioButton roullete;
     private javax.swing.JScrollPane scrollPane;
     private javax.swing.JTable tableBahan;
     private javax.swing.JLabel tesData;

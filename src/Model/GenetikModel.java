@@ -38,6 +38,7 @@ public class GenetikModel {
     private int iterasi;
     private double pc;
     private double pm;
+    private int seleksi;
     private int konsumsi;
     private int ayam;
     
@@ -86,17 +87,10 @@ public class GenetikModel {
         koneksi = new Koneksi("optimasi", "root", "");
     }
     
-//     public void showBahan(){
-//        model = new DefaultTableModel();
-//        home.getTable().getModel();
-//        getData();
-//    }
-    
     public void getData(){
         try{
             String query = "SELECT * from data_pakan";
             ResultSet rs = koneksi.getResult(query);
-            model = (DefaultTableModel)home.getTable().getModel();
             
             while(rs.next()){
                 Object[] o = new Object[7];
@@ -107,16 +101,6 @@ public class GenetikModel {
                 o[4] = String.valueOf(rs.getDouble("serat_kasar"));
                 o[5] = String.valueOf(rs.getDouble("kalsium"));
                 o[6] = String.valueOf(rs.getDouble("fosfor"));
-                
-                System.out.println("==== Daftar Bahan Pakan ====");
-                System.out.println("Nama Bahan : "+o[0]);
-                System.out.println("Kandungan ME : "+o[1]);
-                System.out.println("Kandungan Protein : "+o[2]);
-                System.out.println("Kandungan Lemak : "+o[3]);
-                System.out.println("Kandungan Serat : "+o[4]);
-                System.out.println("Kandungan Kalsium : "+o[5]);
-                System.out.println("Kandungan Fosfor : "+o[6]);
-                System.out.println("");
                 
                 model.addRow(o);
             }
@@ -156,11 +140,11 @@ public class GenetikModel {
 
     }
     
-    public void insertDataAlgo(int populasi, int iterasi, double probCross, double probMut, int konsumsi, int ayam)throws SQLException{
+    public void insertDataAlgo(int populasi, int iterasi, double probCross, double probMut, int seleksi, int konsumsi, int ayam)throws SQLException{
         try {
             String query = "INSERT INTO `data_algoritma` (`id_algo`, `populasi`, `iterasi`, "
-                    + "`prob_crossover`, `prob_mutasi`, `konsumsi`, `ayam`) VALUES "
-                    + "(NULL, '" + populasi + "', '" + iterasi + "','" + probCross + "','" + probMut + "','" + konsumsi + "','" + ayam + "');";
+                    + "`prob_crossover`, `prob_mutasi`,`seleksi`,`konsumsi`, `ayam`) VALUES "
+                    + "(NULL, '" + populasi + "', '" + iterasi + "','" + probCross + "','" + probMut + "','" + seleksi + "','" + konsumsi + "','" + ayam + "');";
             System.out.println(query);
             koneksi.execute(query);
         } catch (SQLException e) {
@@ -178,6 +162,7 @@ public class GenetikModel {
                 iterasi = rs.getInt("iterasi");
                 pc = rs.getDouble("prob_crossover");
                 pm = rs.getDouble("prob_mutasi");
+                seleksi = rs.getInt("seleksi");
                 konsumsi = rs.getInt("konsumsi");
                 ayam = rs.getInt("ayam");
                 
@@ -187,6 +172,7 @@ public class GenetikModel {
                 System.out.println("Banyak Generasi : "+iterasi);
                 System.out.println("Probabilitas Crossover : "+pc);
                 System.out.println("Probabilitas Mutasi : "+pm);
+                System.out.println("Seleksi :"+seleksi);
                 System.out.println("Konsumsi Pakan : "+konsumsi);
                 System.out.println("Jumlah Ayam : "+ayam);
             }
@@ -209,15 +195,7 @@ public class GenetikModel {
                 kalKedelai = rs.getDouble("kalsium");
                 fosKedelai = rs.getDouble("fosfor");
                 hargaKedelai = rs.getDouble("harga");
-//                
-//                System.out.println("");
-//                System.out.println("ini ME kedelai : "+meKedelai);
-//                System.out.println("ini pr kedelai : "+proKedelai);
-//                System.out.println("ini le kedelai : "+lemKedelai);
-//                System.out.println("ini se kedelai : "+serKedelai);
-//                System.out.println("ini ka kedelai : "+kalKedelai);
-//                System.out.println("ini fo kedelai : "+fosKedelai);
-//                System.out.println("harga : "+hargaKedelai);
+
                 
             }
             rs.close();
@@ -239,15 +217,6 @@ public class GenetikModel {
                 kalKelapa = rs.getDouble("kalsium");
                 fosKelapa = rs.getDouble("fosfor");
                 hargaKelapa = rs.getDouble("harga");
-//                
-//                System.out.println("");
-//                System.out.println("ini ME kelapa : "+meKelapa);
-//                System.out.println("ini pr kelapa : "+proKelapa);
-//                System.out.println("ini le kelapa : "+lemKelapa);
-//                System.out.println("ini se kelapa : "+serKelapa);
-//                System.out.println("ini ka kelapa : "+kalKelapa);
-//                System.out.println("ini fo kelapa : "+fosKelapa);
-//                System.out.println("harga : "+hargaKelapa);
             }
             rs.close();
         }catch (Exception e){
@@ -268,15 +237,7 @@ public class GenetikModel {
                 kalKacang = rs.getDouble("kalsium");
                 fosKacang = rs.getDouble("fosfor");
                 hargaKacang = rs.getDouble("harga");
-//                
-//                System.out.println("");
-//                System.out.println("ini ME kacang : "+meKacang);
-//                System.out.println("ini pr kacang : "+proKacang);
-//                System.out.println("ini le kacang : "+lemKacang);
-//                System.out.println("ini se kacang : "+serKacang);
-//                System.out.println("ini ka kacang : "+kalKacang);
-//                System.out.println("ini fo kacang : "+fosKacang);
-//                System.out.println("harga : "+hargaKacang);
+
             }
             rs.close();
         }catch (Exception e){
@@ -297,15 +258,7 @@ public class GenetikModel {
                 kalIkan = rs.getDouble("kalsium");
                 fosIkan = rs.getDouble("fosfor");
                 hargaIkan = rs.getDouble("harga");
-//                
-//                System.out.println("");
-//                System.out.println("ini ME ikan : "+meIkan);
-//                System.out.println("ini pr ikan : "+proIkan);
-//                System.out.println("ini le ikan : "+lemIkan);
-//                System.out.println("ini se ikan : "+serIkan);
-//                System.out.println("ini ka ikan : "+kalIkan);
-//                System.out.println("ini fo ikan : "+fosIkan);
-//                System.out.println("harga : "+hargaIkan);
+
             }
             rs.close();
         }catch (Exception e){
@@ -326,15 +279,7 @@ public class GenetikModel {
                 kalUdang = rs.getDouble("kalsium");
                 fosUdang = rs.getDouble("fosfor");
                 hargaUdang = rs.getDouble("harga");
-//                
-//                System.out.println("");
-//                System.out.println("ini ME udang : "+meUdang);
-//                System.out.println("ini pr udang : "+proUdang);
-//                System.out.println("ini le udang : "+lemUdang);
-//                System.out.println("ini se udang : "+serUdang);
-//                System.out.println("ini ka udang : "+kalUdang);
-//                System.out.println("ini fo udang : "+fosUdang);
-//                System.out.println("harga : "+hargaUdang);
+
             }
             rs.close();
         }catch (Exception e){
@@ -502,45 +447,11 @@ public class GenetikModel {
     public double getProbMut(){
         return pm;
     }
+    public int getSeleksi(){
+        return seleksi;
+    }
     public int getAyam(){
         return ayam;
-    }
-    
-    public void tampilBahan(){
-        try{
-            String query = "SELECT * from data_pakan";
-            ResultSet rs = koneksi.getResult(query);
-            
-            while(rs.next()){
-                
-//                String nama = rs.getString("nama_bahan");
-                String em = String.valueOf(rs.getDouble("energi_metabolis"));
-                String protein = String.valueOf(rs.getDouble("protein"));
-                String lemak = String.valueOf(rs.getDouble("lemak"));
-                String serat = String.valueOf(rs.getDouble("serat_kasar"));
-                String kalsium = String.valueOf(rs.getDouble("kalsium"));
-                String fosfor = String.valueOf(rs.getDouble("fosfor"));
-
-//                bahan[0][0] = rs.getString("nama_bahan");
-//                bahan[0][1] = rs.getDouble("energi_metabolis");
-//                bahan[0][2] = rs.getDouble("protein");
-//                bahan[0][3] = rs.getDouble("lemak");
-//                bahan[0][4] = rs.getDouble("serat_kasar");
-//                bahan[0][5] = rs.getDouble("kalsium");
-//                bahan[0][6] = rs.getDouble("fosfor");
-//                
-//                System.out.println("ini : "+bahan[0][1]);
-//                System.out.println("ini : "+bahan[0][2]);
-//                System.out.println("ini : "+bahan[0][3]);
-//                System.out.println("ini : "+bahan[0][4]);
-//                System.out.println("ini : "+bahan[0][5]);
-//                System.out.println("ini : "+bahan[0][6]);
-                
-            }
-        }
-        catch (Exception e){
-            System.out.println(e);
-        }
     }
     
     public Double getBahan01(){
