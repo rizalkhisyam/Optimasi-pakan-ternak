@@ -128,6 +128,7 @@ public class HomeView extends javax.swing.JFrame {
                 "Nama Bahan", "ME", "Protein", "Lemak", "Serat", "Kalsium", "Fosfor"
             }
         ));
+        tableBahan.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         scrollPane.setViewportView(tableBahan);
 
         getContentPane().add(scrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 180, 650, 110));

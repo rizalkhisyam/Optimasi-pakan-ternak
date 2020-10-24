@@ -5,7 +5,10 @@
  */
 package View;
 
+import java.awt.event.MouseListener;
+import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
 
@@ -23,19 +26,90 @@ public class PanelPakan extends javax.swing.JPanel {
     }
     
     
+    public void BestMouseListener(MouseListener l){
+        this.btn_hasil.addMouseListener(l);
+    }
+    
+    public JButton getButton_best() {
+        return btn_hasil;
+    }
+
+    public void setButton_best(JButton btn_hasil) {
+        this.btn_hasil = btn_hasil;
+    }
+    
+    public void PopulasiMouseListener(MouseListener l){
+        this.btn_pop.addMouseListener(l);
+    }
+    
+    public JButton getButton_pop() {
+        return btn_pop;
+    }
+
+    public void setButton_pop(JButton btn_pop) {
+        this.btn_pop = btn_pop;
+    }
+    
+    public void CrossoverMouseListener(MouseListener l){
+        this.btn_cros.addMouseListener(l);
+    }
+    
+    public JButton getButton_cros() {
+        return btn_cros;
+    }
+
+    public void setButton_cros(JButton btn_cros) {
+        this.btn_cros = btn_cros;
+    }
+    
+    
+    public void MutasiMouseListener(MouseListener l){
+        this.btn_mut.addMouseListener(l);
+    }
+    
+    public JButton getButton_mut() {
+        return btn_mut;
+    }
+
+    public void setButton_mut(JButton btn_mut) {
+        this.btn_mut = btn_mut;
+    }
+    
+    public void SeleksiMouseListener(MouseListener l){
+        this.btn_sel.addMouseListener(l);
+    }
+    
+    public JButton getButton_sel() {
+        return btn_sel;
+    }
+
+    public void setButton_sel(JButton btn_sel) {
+        this.btn_sel = btn_sel;
+    }
+    
+    public void FitnessMouseListener(MouseListener l){
+        this.btn_fit.addMouseListener(l);
+    }
+    
+    public JButton getButton_fit() {
+        return btn_fit;
+    }
+
+    public void setButton_fit(JButton btn_fit) {
+        this.btn_fit = btn_fit;
+    }
+    
+    
+    public void setDynamicPanel(JPanel dynamicPanelHitung) {
+        this.dynamicPanelHitung = dynamicPanelHitung;
+    }
+    
+    public JPanel getDynamicPanel2(){
+        return dynamicPanelHitung;
+    }
+    
     public JTextArea getAreaKromosom(){
         return textKromosom;
-    }
-    
-    public JTextArea getOutputElit(){
-        return outputElitism;
-    }
-    
-    public JTextArea getBest(){
-        return bestKromosom;
-    }
-    public JTextArea getBestFitness(){
-        return outputFitness;
     }
     
     public JLabel getLabelSeleksi(){
@@ -50,22 +124,21 @@ public class PanelPakan extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        dynamicPanelHitung = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         textKromosom = new javax.swing.JTextArea();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        outputElitism = new javax.swing.JTextArea();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        outputFitness = new javax.swing.JTextArea();
-        jLabel4 = new javax.swing.JLabel();
         labelSeleksi = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        bestKromosom = new javax.swing.JTextArea();
+        btn_pop = new javax.swing.JButton();
+        btn_cros = new javax.swing.JButton();
+        btn_mut = new javax.swing.JButton();
+        btn_sel = new javax.swing.JButton();
+        btn_fit = new javax.swing.JButton();
+        btn_hasil = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(690, 470));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        add(dynamicPanelHitung, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, 480, 410));
 
         textKromosom.setEditable(false);
         textKromosom.setColumns(20);
@@ -73,45 +146,47 @@ public class PanelPakan extends javax.swing.JPanel {
         textKromosom.setBorder(null);
         jScrollPane1.setViewportView(textKromosom);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 360, 420));
-
-        outputElitism.setEditable(false);
-        outputElitism.setColumns(20);
-        outputElitism.setRows(5);
-        outputElitism.setBorder(null);
-        jScrollPane2.setViewportView(outputElitism);
-
-        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 30, 250, 250));
-
-        outputFitness.setColumns(20);
-        outputFitness.setRows(5);
-        jScrollPane4.setViewportView(outputFitness);
-
-        add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 400, 250, 50));
-
-        jLabel4.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
-        jLabel4.setText("Perhitungan Algoritma Genetika  :");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 360, -1));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, 480, 410));
 
         labelSeleksi.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
-        labelSeleksi.setText("Seleksi  :");
-        add(labelSeleksi, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 10, 250, -1));
+        labelSeleksi.setText("Algoritma Genetika");
+        add(labelSeleksi, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 10, 220, -1));
 
-        jLabel5.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
-        jLabel5.setText("Nilai Fitness :");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 380, 250, -1));
+        btn_pop.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Button/btn_populasi.png"))); // NOI18N
+        btn_pop.setBorderPainted(false);
+        btn_pop.setContentAreaFilled(false);
+        btn_pop.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        add(btn_pop, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 190, -1));
 
-        jLabel1.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
-        jLabel1.setText("Kromosom Terbaik :");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 290, 250, -1));
+        btn_cros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Button/btn_crossover.png"))); // NOI18N
+        btn_cros.setBorderPainted(false);
+        btn_cros.setContentAreaFilled(false);
+        btn_cros.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        add(btn_cros, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 190, -1));
 
-        bestKromosom.setEditable(false);
-        bestKromosom.setColumns(20);
-        bestKromosom.setRows(5);
-        bestKromosom.setBorder(null);
-        jScrollPane3.setViewportView(bestKromosom);
+        btn_mut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Button/btn_mutasi.png"))); // NOI18N
+        btn_mut.setBorderPainted(false);
+        btn_mut.setContentAreaFilled(false);
+        btn_mut.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        add(btn_mut, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 190, -1));
 
-        add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 310, 250, 50));
+        btn_sel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Button/btn_seleksi.png"))); // NOI18N
+        btn_sel.setBorderPainted(false);
+        btn_sel.setContentAreaFilled(false);
+        btn_sel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        add(btn_sel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 190, -1));
+
+        btn_fit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Button/btn_fitness.png"))); // NOI18N
+        btn_fit.setBorderPainted(false);
+        btn_fit.setContentAreaFilled(false);
+        btn_fit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        add(btn_fit, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 190, -1));
+
+        btn_hasil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Button/btn_hasil.png"))); // NOI18N
+        btn_hasil.setBorderPainted(false);
+        btn_hasil.setContentAreaFilled(false);
+        btn_hasil.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        add(btn_hasil, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 340, 190, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Home/bg-hitung.png"))); // NOI18N
         jLabel2.setText("jLabel2");
@@ -120,18 +195,16 @@ public class PanelPakan extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextArea bestKromosom;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton btn_cros;
+    private javax.swing.JButton btn_fit;
+    private javax.swing.JButton btn_hasil;
+    private javax.swing.JButton btn_mut;
+    private javax.swing.JButton btn_pop;
+    private javax.swing.JButton btn_sel;
+    private javax.swing.JPanel dynamicPanelHitung;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JLabel labelSeleksi;
-    private javax.swing.JTextArea outputElitism;
-    private javax.swing.JTextArea outputFitness;
     private javax.swing.JTextArea textKromosom;
     // End of variables declaration//GEN-END:variables
 }
