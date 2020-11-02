@@ -9,7 +9,7 @@ import Model.GenetikModel;
 import View.Fitness;
 import View.Hasil;
 import View.HomeView;
-import View.Mutasi;
+import View.Mutasi; 
 import View.PanelOptimasi;
 import View.PanelPakan;
 import View.Populasi;
@@ -200,7 +200,7 @@ public class GenetikController {
         double kebNutPr = (b / 100)*konsumsi;
         double kebNutLe = (c / 100)*konsumsi;
         double kebNutSe = (d / 100)*konsumsi;
-        double kebNutKa = Math.round(e / 100)*konsumsi;
+        double kebNutKa = (e / 100)*konsumsi;
         double kebNutFo = (f / 100)*konsumsi;
         
         System.out.println("---------------- Evaluasi Kromosom ----------------");
@@ -233,12 +233,12 @@ public class GenetikController {
             System.out.println("tes tot: "+totalHarga);
             feed.getAreaKromosom().append("\n");
             
-            System.out.println("Kromosom 1 dalam gr : "+harga1+" gram");
-            System.out.println("Kromosom 2 dalam gr : "+harga2+" gram");
-            System.out.println("Kromosom 3 dalam gr : "+harga3+" gram");  
-            System.out.println("Kromosom 4 dalam gr : "+harga4+" gram");        
-            System.out.println("Kromosom 5 dalam gr : "+harga5+" gram");
-            System.out.println("-------------------------------");
+//            System.out.println("Kromosom 1 dalam gr : "+harga1+" gram");
+//            System.out.println("Kromosom 2 dalam gr : "+harga2+" gram");
+//            System.out.println("Kromosom 3 dalam gr : "+harga3+" gram");  
+//            System.out.println("Kromosom 4 dalam gr : "+harga4+" gram");        
+//            System.out.println("Kromosom 5 dalam gr : "+harga5+" gram");
+//            System.out.println("-------------------------------");
             
             feed.getAreaKromosom().append("Kromosom 1 dalam gr : "+harga1+" gram"+"\n");
             feed.getAreaKromosom().append("Kromosom 2 dalam gr : "+harga2+" gram"+"\n");
@@ -254,13 +254,13 @@ public class GenetikController {
             double cost5 = harga5/1000*hargaUdang;
             double totalCost = cost1+cost2+cost3+cost4+cost5;
             
-            System.out.println("harga k1 = RP. "+cost1);
-            System.out.println("harga k2 = RP. "+cost2);
-            System.out.println("harga k3 = RP. "+cost3);
-            System.out.println("harga k4 = RP. "+cost4);
-            System.out.println("harga k5 = RP. "+cost5);
-            System.out.println("Total Harga Bahan Pakan P"+(i+1)+" :Rp. "+totalCost);
-            System.out.println("");
+//            System.out.println("harga k1 = RP. "+cost1);
+//            System.out.println("harga k2 = RP. "+cost2);
+//            System.out.println("harga k3 = RP. "+cost3);
+//            System.out.println("harga k4 = RP. "+cost4);
+//            System.out.println("harga k5 = RP. "+cost5);
+//            System.out.println("Total Harga Bahan Pakan P"+(i+1)+" :Rp. "+totalCost);
+//            System.out.println("");
             
             feed.getAreaKromosom().append("harga k1 = RP. "+cost1+"\n");
             feed.getAreaKromosom().append("harga k2 = RP. "+cost2+"\n");
@@ -275,18 +275,18 @@ public class GenetikController {
             double kedelai4 = harga1*ser1/100;
             double kedelai5 = harga1*kal1/100;
             double kedelai6 = harga1*fos1/100;
-            System.out.println("\n");
-
-            System.out.println("Kandungan Nutrisi P"+(i+1));
-            System.out.println("=========== bahan 1 ============");
-            
-            System.out.println("Kedelai");
-            System.out.println("ME : "+kedelai1);
-            System.out.println("Protein : "+kedelai2);
-            System.out.println("Lemak : "+kedelai3);   
-            System.out.println("Serat : "+kedelai4);     
-            System.out.println("Kalsium : "+kedelai5);
-            System.out.println("Fosfor : "+kedelai6);
+//            System.out.println("\n");
+//
+//            System.out.println("Kandungan Nutrisi P"+(i+1));
+//            System.out.println("=========== bahan 1 ============");
+//            
+//            System.out.println("Kedelai");
+//            System.out.println("ME : "+kedelai1);
+//            System.out.println("Protein : "+kedelai2);
+//            System.out.println("Lemak : "+kedelai3);   
+//            System.out.println("Serat : "+kedelai4);     
+//            System.out.println("Kalsium : "+kedelai5);
+//            System.out.println("Fosfor : "+kedelai6);
             
             feed.getAreaKromosom().append("-----------------------------------------------------------------"+"\n");
             feed.getAreaKromosom().append("Kandungan Nutrisi P"+(i+1)+"\n");
@@ -306,14 +306,14 @@ public class GenetikController {
             double kelapa4 = harga2*ser2/100;
             double kelapa5 = harga2*kal2/100;
             double kelapa6 = harga2*fos2/100;
-            System.out.println("===========bahan 2============");
-            System.out.println("Bungkil Kelapa");
-            System.out.println("ME : "+kelapa1);
-            System.out.println("Protein : "+kelapa2);
-            System.out.println("Lemak : "+kelapa3);
-            System.out.println("Serat : "+kelapa4);
-            System.out.println("Kalsium : "+kelapa5);
-            System.out.println("Fosfor : "+kelapa6);
+//            System.out.println("===========bahan 2============");
+//            System.out.println("Bungkil Kelapa");
+//            System.out.println("ME : "+kelapa1);
+//            System.out.println("Protein : "+kelapa2);
+//            System.out.println("Lemak : "+kelapa3);
+//            System.out.println("Serat : "+kelapa4);
+//            System.out.println("Kalsium : "+kelapa5);
+//            System.out.println("Fosfor : "+kelapa6);
             
             feed.getAreaKromosom().append("Kandungan Nutrisi P"+(i+1)+"\n");
             feed.getAreaKromosom().append("=========== bahan 2 ============"+"\n");
@@ -332,14 +332,14 @@ public class GenetikController {
             double kacang4 = harga3*ser3/100;
             double kacang5 = harga3*kal3/100;
             double kacang6 = harga3*fos3/100;
-            System.out.println("===========bahan 3============");
-            System.out.println("Bungkil Kacang");
-            System.out.println("ME : "+kacang1);
-            System.out.println("Protein : "+kacang2);
-            System.out.println("Lemak : "+kacang3);
-            System.out.println("Serat : "+kacang4);
-            System.out.println("Kalsium : "+kacang5);
-            System.out.println("Fosfor : "+kacang6);
+//            System.out.println("===========bahan 3============");
+//            System.out.println("Bungkil Kacang");
+//            System.out.println("ME : "+kacang1);
+//            System.out.println("Protein : "+kacang2);
+//            System.out.println("Lemak : "+kacang3);
+//            System.out.println("Serat : "+kacang4);
+//            System.out.println("Kalsium : "+kacang5);
+//            System.out.println("Fosfor : "+kacang6);
             
             feed.getAreaKromosom().append("Kandungan Nutrisi P"+(i+1)+"\n");
             feed.getAreaKromosom().append("=========== bahan 3 ============"+"\n");
@@ -358,14 +358,14 @@ public class GenetikController {
             double ikan4 = harga4*ser4/100;
             double ikan5 = harga4*kal4/100;
             double ikan6 = harga4*fos4/100;
-            System.out.println("===========bahan 4============");
-            System.out.println("Tepung Ikan");
-            System.out.println("ME : "+ikan1);
-            System.out.println("Protein : "+ikan2);
-            System.out.println("Lemak : "+ikan3);
-            System.out.println("Serat : "+ikan4);
-            System.out.println("Kalsium : "+ikan5);
-            System.out.println("Fosfor : "+ikan6);
+//            System.out.println("===========bahan 4============");
+//            System.out.println("Tepung Ikan");
+//            System.out.println("ME : "+ikan1);
+//            System.out.println("Protein : "+ikan2);
+//            System.out.println("Lemak : "+ikan3);
+//            System.out.println("Serat : "+ikan4);
+//            System.out.println("Kalsium : "+ikan5);
+//            System.out.println("Fosfor : "+ikan6);
             
             feed.getAreaKromosom().append("Kandungan Nutrisi P"+(i+1)+"\n");
             feed.getAreaKromosom().append("=========== bahan 4 ============"+"\n");
@@ -385,14 +385,14 @@ public class GenetikController {
             double udang5 = harga5*kal5/100;
             double udang6 = harga5*fos5/100;
             
-            System.out.println("===========bahan 5============");
-            System.out.println("Limbah Udang");
-            System.out.println("ME : "+udang1);
-            System.out.println("Protein : "+udang2);
-            System.out.println("Lemak : "+udang3);
-            System.out.println("Serat : "+udang4);
-            System.out.println("Kalsium : "+udang5);
-            System.out.println("Fosfor : "+udang6);
+//            System.out.println("===========bahan 5============");
+//            System.out.println("Limbah Udang");
+//            System.out.println("ME : "+udang1);
+//            System.out.println("Protein : "+udang2);
+//            System.out.println("Lemak : "+udang3);
+//            System.out.println("Serat : "+udang4);
+//            System.out.println("Kalsium : "+udang5);
+//            System.out.println("Fosfor : "+udang6);
             
             feed.getAreaKromosom().append("Kandungan Nutrisi P"+(i+1)+"\n");
             feed.getAreaKromosom().append("=========== bahan 5 ============"+"\n");
@@ -411,14 +411,14 @@ public class GenetikController {
             double totalSerat = kedelai4+kelapa4+kacang4+ikan4+udang4;
             double totalKalsium = kedelai5+kelapa5+kacang5+ikan5+udang5;
             double totalFosfor = kedelai6+kelapa6+kacang6+ikan6+udang6;
-            System.out.println("");
-            System.out.println("Total Kandungan Nutrisi");
-            System.out.println("Total ME : "+totalMe);
-            System.out.println("Total Protein : "+totalProtein);
-            System.out.println("Total Lemak : "+totalLemak);
-            System.out.println("Total Serat : "+totalSerat);
-            System.out.println("Total Kalsium : "+totalKalsium);
-            System.out.println("Total Fosfor : "+totalFosfor);
+//            System.out.println("");
+//            System.out.println("Total Kandungan Nutrisi");
+//            System.out.println("Total ME : "+totalMe);
+//            System.out.println("Total Protein : "+totalProtein);
+//            System.out.println("Total Lemak : "+totalLemak);
+//            System.out.println("Total Serat : "+totalSerat);
+//            System.out.println("Total Kalsium : "+totalKalsium);
+//            System.out.println("Total Fosfor : "+totalFosfor);
             
             feed.getAreaKromosom().append("Total Kandungan Nutrisi"+"\n");
             feed.getAreaKromosom().append("Total ME : "+totalMe+"\n");
@@ -654,7 +654,7 @@ public class GenetikController {
         double kebNutPr = (b / 100)*konsumsi;
         double kebNutLe = (c / 100)*konsumsi;
         double kebNutSe = (d / 100)*konsumsi;
-        double kebNutKa = Math.round(e / 100)*konsumsi;
+        double kebNutKa = (e / 100)*konsumsi;
         double kebNutFo = (f / 100)*konsumsi;
         
         System.out.println("=================");
@@ -671,7 +671,7 @@ public class GenetikController {
         }
         for (int i = 0; i < crossover; i++) {
             
-        System.out.println("---------------- Evaluasi Crossover ----------------");
+//        System.out.println("---------------- Evaluasi Crossover ----------------");
         
             double p1 = offspringC[i][0];
             double p2 = offspringC[i][1];
@@ -686,14 +686,14 @@ public class GenetikController {
             double harga4 = p4/total*konsumsi;
             double harga5 = p5/total*konsumsi;
             double totalHarga = harga1+harga2+harga3+harga4+harga5;
-            System.out.println("Bobot :"+ total);
-            System.out.println("tes tot: "+totalHarga);
-            System.out.println("Kromosom 1 dalam gr : "+harga1+" gram");
-            System.out.println("Kromosom 2 dalam gr : "+harga2+" gram");
-            System.out.println("Kromosom 3 dalam gr : "+harga3+" gram");
-            System.out.println("Kromosom 4 dalam gr : "+harga4+" gram");
-            System.out.println("Kromosom 5 dalam gr : "+harga5+" gram");
-            System.out.println("-------------------------------");
+//            System.out.println("Bobot :"+ total);
+//            System.out.println("tes tot: "+totalHarga);
+//            System.out.println("Kromosom 1 dalam gr : "+harga1+" gram");
+//            System.out.println("Kromosom 2 dalam gr : "+harga2+" gram");
+//            System.out.println("Kromosom 3 dalam gr : "+harga3+" gram");
+//            System.out.println("Kromosom 4 dalam gr : "+harga4+" gram");
+//            System.out.println("Kromosom 5 dalam gr : "+harga5+" gram");
+//            System.out.println("-------------------------------");
             
             
             double cost1 = harga1/1000*hargaKedelai;
@@ -703,13 +703,13 @@ public class GenetikController {
             double cost5 = harga5/1000*hargaUdang;
             double totalCost = cost1+cost2+cost3+cost4+cost5;
             
-            System.out.println("harga k1 = RP. "+cost1);
-            System.out.println("harga k2 = RP. "+cost2);
-            System.out.println("harga k3 = RP. "+cost3);
-            System.out.println("harga k4 = RP. "+cost4);
-            System.out.println("harga k5 = RP. "+cost5);
-            System.out.println("Total Harga Bahan Pakan P"+(i+1)+" :Rp. "+totalCost);
-            System.out.println("");
+//            System.out.println("harga k1 = RP. "+cost1);
+//            System.out.println("harga k2 = RP. "+cost2);
+//            System.out.println("harga k3 = RP. "+cost3);
+//            System.out.println("harga k4 = RP. "+cost4);
+//            System.out.println("harga k5 = RP. "+cost5);
+//            System.out.println("Total Harga Bahan Pakan P"+(i+1)+" :Rp. "+totalCost);
+//            System.out.println("");
             
             double kedelai1 = harga1*me1;
             double kedelai2 = harga1*pro1/100;
@@ -717,16 +717,16 @@ public class GenetikController {
             double kedelai4 = harga1*ser1/100;
             double kedelai5 = harga1*kal1/100;
             double kedelai6 = harga1*fos1/100;
-            System.out.println("<------------------------>");
-            System.out.println("Kandungan Nutrisi P"+(i+1));
-            System.out.println("===========bahan 1============");
-            System.out.println("Kedelai");
-            System.out.println("ME : "+kedelai1);
-            System.out.println("Protein : "+kedelai2);
-            System.out.println("Lemak : "+kedelai3);
-            System.out.println("Serat : "+kedelai4);
-            System.out.println("Kalsium : "+kedelai5);
-            System.out.println("Fosfor : "+kedelai6);
+//            System.out.println("<------------------------>");
+//            System.out.println("Kandungan Nutrisi P"+(i+1));
+//            System.out.println("===========bahan 1============");
+//            System.out.println("Kedelai");
+//            System.out.println("ME : "+kedelai1);
+//            System.out.println("Protein : "+kedelai2);
+//            System.out.println("Lemak : "+kedelai3);
+//            System.out.println("Serat : "+kedelai4);
+//            System.out.println("Kalsium : "+kedelai5);
+//            System.out.println("Fosfor : "+kedelai6);
             
             
             double kelapa1 = harga2*me2;
@@ -735,14 +735,14 @@ public class GenetikController {
             double kelapa4 = harga2*ser2/100;
             double kelapa5 = harga2*kal2/100;
             double kelapa6 = harga2*fos2/100;
-            System.out.println("===========bahan 2============");
-            System.out.println("Bungkil Kelapa");
-            System.out.println("ME : "+kelapa1);
-            System.out.println("Protein : "+kelapa2);
-            System.out.println("Lemak : "+kelapa3);
-            System.out.println("Serat : "+kelapa4);
-            System.out.println("Kalsium : "+kelapa5);
-            System.out.println("Fosfor : "+kelapa6);
+//            System.out.println("===========bahan 2============");
+//            System.out.println("Bungkil Kelapa");
+//            System.out.println("ME : "+kelapa1);
+//            System.out.println("Protein : "+kelapa2);
+//            System.out.println("Lemak : "+kelapa3);
+//            System.out.println("Serat : "+kelapa4);
+//            System.out.println("Kalsium : "+kelapa5);
+//            System.out.println("Fosfor : "+kelapa6);
             
             
             double kacang1 = harga3*me3;
@@ -751,14 +751,14 @@ public class GenetikController {
             double kacang4 = harga3*ser3/100;
             double kacang5 = harga3*kal3/100;
             double kacang6 = harga3*fos3/100;
-            System.out.println("===========bahan 3============");
-            System.out.println("Bungkil Kacang");
-            System.out.println("ME : "+kacang1);
-            System.out.println("Protein : "+kacang2);
-            System.out.println("Lemak : "+kacang3);
-            System.out.println("Serat : "+kacang4);
-            System.out.println("Kalsium : "+kacang5);
-            System.out.println("Fosfor : "+kacang6);
+//            System.out.println("===========bahan 3============");
+//            System.out.println("Bungkil Kacang");
+//            System.out.println("ME : "+kacang1);
+//            System.out.println("Protein : "+kacang2);
+//            System.out.println("Lemak : "+kacang3);
+//            System.out.println("Serat : "+kacang4);
+//            System.out.println("Kalsium : "+kacang5);
+//            System.out.println("Fosfor : "+kacang6);
             
             
             double ikan1 = harga4*me4;
@@ -767,14 +767,14 @@ public class GenetikController {
             double ikan4 = harga4*ser4/100;
             double ikan5 = harga4*kal4/100;
             double ikan6 = harga4*fos4/100;
-            System.out.println("===========bahan 4============");
-            System.out.println("Tepung Ikan");
-            System.out.println("ME : "+ikan1);
-            System.out.println("Protein : "+ikan2);
-            System.out.println("Lemak : "+ikan3);
-            System.out.println("Serat : "+ikan4);
-            System.out.println("Kalsium : "+ikan5);
-            System.out.println("Fosfor : "+ikan6);
+//            System.out.println("===========bahan 4============");
+//            System.out.println("Tepung Ikan");
+//            System.out.println("ME : "+ikan1);
+//            System.out.println("Protein : "+ikan2);
+//            System.out.println("Lemak : "+ikan3);
+//            System.out.println("Serat : "+ikan4);
+//            System.out.println("Kalsium : "+ikan5);
+//            System.out.println("Fosfor : "+ikan6);
             
             double udang1 = harga5*me5;
             double udang2 = harga5*pro5/100;
@@ -783,14 +783,14 @@ public class GenetikController {
             double udang5 = harga5*kal5/100;
             double udang6 = harga5*fos5/100;
             
-            System.out.println("===========bahan 5============");
-            System.out.println("Limbah Udang");
-            System.out.println("ME : "+udang1);
-            System.out.println("Protein : "+udang2);
-            System.out.println("Lemak : "+udang3);
-            System.out.println("Serat : "+udang4);
-            System.out.println("Kalsium : "+udang5);
-            System.out.println("Fosfor : "+udang6);
+//            System.out.println("===========bahan 5============");
+//            System.out.println("Limbah Udang");
+//            System.out.println("ME : "+udang1);
+//            System.out.println("Protein : "+udang2);
+//            System.out.println("Lemak : "+udang3);
+//            System.out.println("Serat : "+udang4);
+//            System.out.println("Kalsium : "+udang5);
+//            System.out.println("Fosfor : "+udang6);
             
             double totalMe = kedelai1+kelapa1+kacang1+ikan1+udang1;
             double totalProtein = kedelai2+kelapa2+kacang2+ikan2+udang2;
@@ -798,14 +798,14 @@ public class GenetikController {
             double totalSerat = kedelai4+kelapa4+kacang4+ikan4+udang4;
             double totalKalsium = kedelai5+kelapa5+kacang5+ikan5+udang5;
             double totalFosfor = kedelai6+kelapa6+kacang6+ikan6+udang6;
-            System.out.println("");
-            System.out.println("Total Kandungan Nutrisi");
-            System.out.println("Total ME : "+totalMe);
-            System.out.println("Total Protein : "+totalProtein);
-            System.out.println("Total Lemak : "+totalLemak);
-            System.out.println("Total Serat : "+totalSerat);
-            System.out.println("Total Kalsium : "+totalKalsium);
-            System.out.println("Total Fosfor : "+totalFosfor);
+//            System.out.println("");
+//            System.out.println("Total Kandungan Nutrisi");
+//            System.out.println("Total ME : "+totalMe);
+//            System.out.println("Total Protein : "+totalProtein);
+//            System.out.println("Total Lemak : "+totalLemak);
+//            System.out.println("Total Serat : "+totalSerat);
+//            System.out.println("Total Kalsium : "+totalKalsium);
+//            System.out.println("Total Fosfor : "+totalFosfor);
             
 //            hitung penalty
             double penalty1=0;
@@ -883,13 +883,13 @@ public class GenetikController {
             System.out.println("Nilai Fitness :"+df.format(fitness));
             System.out.println("");
             
-            System.out.println("Crossover dan fitness");
-            for (int k = 0; k < crossover; k++) {
-            for (int j = 0; j < individu + 1; j++) {
-                System.out.print(df.format(offspringC[k][j])+ " ");
-            }
-            System.out.println();
-            }
+//            System.out.println("Crossover dan fitness");
+//            for (int k = 0; k < crossover; k++) {
+//            for (int j = 0; j < individu + 1; j++) {
+//                System.out.print(df.format(offspringC[k][j])+ " ");
+//            }
+//            System.out.println();
+//            }
             
             System.out.println("//============================================================//");
         }
@@ -1018,7 +1018,7 @@ public class GenetikController {
         double kebNutPr = (b / 100)*konsumsi;
         double kebNutLe = (c / 100)*konsumsi;
         double kebNutSe = (d / 100)*konsumsi;
-        double kebNutKa = Math.round(e / 100)*konsumsi;
+        double kebNutKa = (e / 100)*konsumsi;
         double kebNutFo = (f / 100)*konsumsi;
         
         System.out.println("Mutation: ");
@@ -1047,14 +1047,14 @@ public class GenetikController {
             double harga5 = p5/total*konsumsi;
             double totalHarga = harga1+harga2+harga3+harga4+harga5;
             
-            System.out.println("Bobot :"+ total);
-            System.out.println("tes tot: "+totalHarga);
-            System.out.println("Kromosom 1 dalam gr : "+harga1+" gram");
-            System.out.println("Kromosom 2 dalam gr : "+harga2+" gram");
-            System.out.println("Kromosom 3 dalam gr : "+harga3+" gram");
-            System.out.println("Kromosom 4 dalam gr : "+harga4+" gram");
-            System.out.println("Kromosom 5 dalam gr : "+harga5+" gram");
-            System.out.println("-------------------------------");
+//            System.out.println("Bobot :"+ total);
+//            System.out.println("tes tot: "+totalHarga);
+//            System.out.println("Kromosom 1 dalam gr : "+harga1+" gram");
+//            System.out.println("Kromosom 2 dalam gr : "+harga2+" gram");
+//            System.out.println("Kromosom 3 dalam gr : "+harga3+" gram");
+//            System.out.println("Kromosom 4 dalam gr : "+harga4+" gram");
+//            System.out.println("Kromosom 5 dalam gr : "+harga5+" gram");
+//            System.out.println("-------------------------------");
  
             double cost1 = harga1/1000*hargaKedelai;
             double cost2 = harga2/1000*hargaKelapa;
@@ -1063,13 +1063,13 @@ public class GenetikController {
             double cost5 = harga5/1000*hargaUdang;
             double totalCost = cost1+cost2+cost3+cost4+cost5;
             
-            System.out.println("harga k1 = RP. "+cost1);
-            System.out.println("harga k2 = RP. "+cost2);
-            System.out.println("harga k3 = RP. "+cost3);
-            System.out.println("harga k4 = RP. "+cost4);
-            System.out.println("harga k5 = RP. "+cost5);
-            System.out.println("Total Harga Bahan Pakan P"+(i+1)+" :Rp. "+totalCost);
-            System.out.println("");
+//            System.out.println("harga k1 = RP. "+cost1);
+//            System.out.println("harga k2 = RP. "+cost2);
+//            System.out.println("harga k3 = RP. "+cost3);
+//            System.out.println("harga k4 = RP. "+cost4);
+//            System.out.println("harga k5 = RP. "+cost5);
+//            System.out.println("Total Harga Bahan Pakan P"+(i+1)+" :Rp. "+totalCost);
+//            System.out.println("");
             
             
             double kedelai1 = harga1*me1;
@@ -1078,16 +1078,16 @@ public class GenetikController {
             double kedelai4 = harga1*ser1/100;
             double kedelai5 = harga1*kal1/100;
             double kedelai6 = harga1*fos1/100;
-            System.out.println("<------------------------>");
-            System.out.println("Kandungan Nutrisi P"+(i+1));
-            System.out.println("===========bahan 1============");
-            System.out.println("Kedelai");
-            System.out.println("ME : "+kedelai1);
-            System.out.println("Protein : "+kedelai2);
-            System.out.println("Lemak : "+kedelai3);
-            System.out.println("Serat : "+kedelai4);
-            System.out.println("Kalsium : "+kedelai5);
-            System.out.println("Fosfor : "+kedelai6);
+//            System.out.println("<------------------------>");
+//            System.out.println("Kandungan Nutrisi P"+(i+1));
+//            System.out.println("===========bahan 1============");
+//            System.out.println("Kedelai");
+//            System.out.println("ME : "+kedelai1);
+//            System.out.println("Protein : "+kedelai2);
+//            System.out.println("Lemak : "+kedelai3);
+//            System.out.println("Serat : "+kedelai4);
+//            System.out.println("Kalsium : "+kedelai5);
+//            System.out.println("Fosfor : "+kedelai6);
 
             double kelapa1 = harga2*me2;
             double kelapa2 = harga2*pro2/100;
@@ -1095,14 +1095,14 @@ public class GenetikController {
             double kelapa4 = harga2*ser2/100;
             double kelapa5 = harga2*kal2/100;
             double kelapa6 = harga2*fos2/100;
-            System.out.println("===========bahan 2============");
-            System.out.println("Bungkil Kelapa");
-            System.out.println("ME : "+kelapa1);
-            System.out.println("Protein : "+kelapa2);
-            System.out.println("Lemak : "+kelapa3);
-            System.out.println("Serat : "+kelapa4);
-            System.out.println("Kalsium : "+kelapa5);
-            System.out.println("Fosfor : "+kelapa6);
+//            System.out.println("===========bahan 2============");
+//            System.out.println("Bungkil Kelapa");
+//            System.out.println("ME : "+kelapa1);
+//            System.out.println("Protein : "+kelapa2);
+//            System.out.println("Lemak : "+kelapa3);
+//            System.out.println("Serat : "+kelapa4);
+//            System.out.println("Kalsium : "+kelapa5);
+//            System.out.println("Fosfor : "+kelapa6);
             
             double kacang1 = harga3*me3;
             double kacang2 = harga3*pro3/100;
@@ -1110,14 +1110,14 @@ public class GenetikController {
             double kacang4 = harga3*ser3/100;
             double kacang5 = harga3*kal3/100;
             double kacang6 = harga3*fos3/100;
-            System.out.println("===========bahan 3============");
-            System.out.println("Bungkil Kacang");
-            System.out.println("ME : "+kacang1);
-            System.out.println("Protein : "+kacang2);
-            System.out.println("Lemak : "+kacang3);
-            System.out.println("Serat : "+kacang4);
-            System.out.println("Kalsium : "+kacang5);
-            System.out.println("Fosfor : "+kacang6);
+//            System.out.println("===========bahan 3============");
+//            System.out.println("Bungkil Kacang");
+//            System.out.println("ME : "+kacang1);
+//            System.out.println("Protein : "+kacang2);
+//            System.out.println("Lemak : "+kacang3);
+//            System.out.println("Serat : "+kacang4);
+//            System.out.println("Kalsium : "+kacang5);
+//            System.out.println("Fosfor : "+kacang6);
             
             
             double ikan1 = harga4*me4;
@@ -1126,14 +1126,14 @@ public class GenetikController {
             double ikan4 = harga4*ser4/100;
             double ikan5 = harga4*kal4/100;
             double ikan6 = harga4*fos4/100;
-            System.out.println("===========bahan 4============");
-            System.out.println("Tepung Ikan");
-            System.out.println("ME : "+ikan1);
-            System.out.println("Protein : "+ikan2);
-            System.out.println("Lemak : "+ikan3);
-            System.out.println("Serat : "+ikan4);
-            System.out.println("Kalsium : "+ikan5);
-            System.out.println("Fosfor : "+ikan6);
+//            System.out.println("===========bahan 4============");
+//            System.out.println("Tepung Ikan");
+//            System.out.println("ME : "+ikan1);
+//            System.out.println("Protein : "+ikan2);
+//            System.out.println("Lemak : "+ikan3);
+//            System.out.println("Serat : "+ikan4);
+//            System.out.println("Kalsium : "+ikan5);
+//            System.out.println("Fosfor : "+ikan6);
             
             
             double udang1 = harga5*me5;
@@ -1143,14 +1143,14 @@ public class GenetikController {
             double udang5 = harga5*kal5/100;
             double udang6 = harga5*fos5/100;
             
-            System.out.println("===========bahan 5============");
-            System.out.println("Limbah Udang");
-            System.out.println("ME : "+udang1);
-            System.out.println("Protein : "+udang2);
-            System.out.println("Lemak : "+udang3);
-            System.out.println("Serat : "+udang4);
-            System.out.println("Kalsium : "+udang5);
-            System.out.println("Fosfor : "+udang6);
+//            System.out.println("===========bahan 5============");
+//            System.out.println("Limbah Udang");
+//            System.out.println("ME : "+udang1);
+//            System.out.println("Protein : "+udang2);
+//            System.out.println("Lemak : "+udang3);
+//            System.out.println("Serat : "+udang4);
+//            System.out.println("Kalsium : "+udang5);
+//            System.out.println("Fosfor : "+udang6);
             
             
             double totalMe = kedelai1+kelapa1+kacang1+ikan1+udang1;
@@ -1159,14 +1159,14 @@ public class GenetikController {
             double totalSerat = kedelai4+kelapa4+kacang4+ikan4+udang4;
             double totalKalsium = kedelai5+kelapa5+kacang5+ikan5+udang5;
             double totalFosfor = kedelai6+kelapa6+kacang6+ikan6+udang6;
-            System.out.println("");
-            System.out.println("Total Kandungan Nutrisi");
-            System.out.println("Total ME : "+totalMe);
-            System.out.println("Total Protein : "+totalProtein);
-            System.out.println("Total Lemak : "+totalLemak);
-            System.out.println("Total Serat : "+totalSerat);
-            System.out.println("Total Kalsium : "+totalKalsium);
-            System.out.println("Total Fosfor : "+totalFosfor);
+//            System.out.println("");
+//            System.out.println("Total Kandungan Nutrisi");
+//            System.out.println("Total ME : "+totalMe);
+//            System.out.println("Total Protein : "+totalProtein);
+//            System.out.println("Total Lemak : "+totalLemak);
+//            System.out.println("Total Serat : "+totalSerat);
+//            System.out.println("Total Kalsium : "+totalKalsium);
+//            System.out.println("Total Fosfor : "+totalFosfor);
             
             
 //            hitung penalty
@@ -1253,15 +1253,15 @@ public class GenetikController {
             System.out.println("tot Pen:"+totalPenalty);
             System.out.println("Nilai Fitness :"+df.format(fitness));
 
-            System.out.println("");
-            System.out.println("Mutasi dan fitness");
-            for (int y = 0; y < mutasi; y++) {
-            for (int j = 0; j < individu + 1; j++) {
-                System.out.print(df.format(offspringM[y][j]) + " ");
-            }
-            System.out.println();
-        }
-            System.out.println("//============================================================//");
+//            System.out.println("");
+//            System.out.println("Mutasi dan fitness");
+//            for (int y = 0; y < mutasi; y++) {
+//            for (int j = 0; j < individu + 1; j++) {
+//                System.out.print(df.format(offspringM[y][j]) + " ");
+//            }
+//            System.out.println();
+//            }
+//            System.out.println();
         }
         
     }
@@ -1365,22 +1365,21 @@ public class GenetikController {
         double p_rw[][];
         p_rw = elitism(popSeleksi);
         
-        System.out.println("** Hasil ELITISM SELECTION **");
+        
         
         panel_sel.getTextSeleksi().append("** Hasil ELITISM SELECTION **"+"\n");
         panel_sel.getTextSeleksi().append("\n");
         
         for (int i = 0; i <popSize; i++) {
-            feed.getAreaKromosom().append("Ranking Ke-"+(i+1)+"\n");
             panel_sel.getTextSeleksi().append("Ranking Ke-"+(i+1)+"\n");
+            
             for (int j = 0; j < individu + 1; j++) {
-                System.out.println("- "+df.format(p_rw[i][j]));
-                
                 panel_sel.getTextSeleksi().append("- "+df.format(p_rw[i][j])+"\n");
                 panel_sel.getTextSeleksi().append("\n");
             }
         }
-        
+        System.out.println("\n");
+        System.out.println("** Hasil ELITISM SELECTION **");
         for (double[] p_rw1 : p_rw) {
             for (int j = 0; j < p_rw1.length; j++) {
                 System.out.print(df.format(p_rw1[j]) + " ");
@@ -1665,7 +1664,7 @@ public class GenetikController {
         double kebNutPr = (b / 100)*konsumsi;
         double kebNutLe = (c / 100)*konsumsi;
         double kebNutSe = (d / 100)*konsumsi;
-        double kebNutKa = Math.round(e / 100)*konsumsi;
+        double kebNutKa = (e / 100)*konsumsi;
         double kebNutFo = (f / 100)*konsumsi;
         
             double p1 = pTerbaik[0];
@@ -1807,6 +1806,12 @@ public class GenetikController {
             panel_hasil.getTexthasil().append("Total Fosfor : "+totalFosfor+"\n");
             panel_hasil.getTexthasil().append(" "+"\n");
             
+            System.out.println("Kebnut ME: "+kebNutMe);
+            System.out.println("Kebnut Protein: "+kebNutPr);
+            System.out.println("Kebnut Lemak: "+kebNutLe);
+            System.out.println("Kebnut Serat: "+kebNutSe);
+            System.out.println("Kebnut Kalsium: "+kebNutKa);
+            System.out.println("Kebnut Fosfor: "+kebNutFo);
 //            hitung penalty
             double penalty1=0;
             double penalty2=0;
@@ -1878,7 +1883,7 @@ public class GenetikController {
                 panel_hasil.getTexthasil().append("  Kekurangan Nutrisi Fosfor :"+penalty6+"\n");
             }
             double totalPenalty = penalty1+penalty2+penalty3+penalty4+penalty5+penalty6;
-            panel_hasil.getTexthasil().append("Total Penalty : "+totalPenalty+"\n");
+            panel_hasil.getTexthasil().append("Total Penalty : "+df.format(totalPenalty)+"\n");
             
 //            hitung Fitness
             panel_hasil.getTexthasil().append(" "+"\n");
