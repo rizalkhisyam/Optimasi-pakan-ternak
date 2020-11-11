@@ -84,7 +84,7 @@ public class GenetikController {
     genModel.getIkan();
     genModel.getUdang();
     
-//    home.getButton_Ga().setVisible(false);
+    home.getButton_Ga().setVisible(false);
 
     home.setVisible(true);
     home.getDynamicPanel().setLayout(layout);
@@ -138,7 +138,6 @@ public class GenetikController {
         }catch (Exception e){
             System.out.println(e);
         }
-        
     }
     
     public void evaluasiKromosom(){
@@ -1270,7 +1269,7 @@ public class GenetikController {
         for (int y = 0; y < mutasi; y++) {
                 panel_fit.getTextFitness().append("Offspring : "+"\n");
             for (int j = 0; j < individu + 1; j++) {
-                System.out.print(df.format(offspringM[y][j]) + " ");
+//                System.out.print(df.format(offspringM[y][j]) + " ");
                 panel_fit.getTextFitness().append("- "+df.format(offspringM[y][j]) +"\n");
             }
         }
@@ -2188,6 +2187,7 @@ public class GenetikController {
         panel_sel.getTextSeleksi().setText("");
         panel_fit.getTextFitness().setText("");
         panel_hasil.getTexthasil().setText("");
+        home.getButton_Ga().setVisible(false);
     }
 
     private class ClearMouseListener implements MouseListener {
@@ -2331,7 +2331,7 @@ public class GenetikController {
                 genModel.insertDataAlgo(popSize, iterasi, pc, pm, seleksi, konsumsi, ayam);
                 JOptionPane.showMessageDialog(home, "Berhasil disimpan, klik Perhitungan Algoritma");
                 genModel.getAlgo();
-//                home.getButton_Ga().setVisible(true);
+                home.getButton_Ga().setVisible(true);
             } catch (SQLException ex) {
                 Logger.getLogger(GenetikController.class.getName()).log(Level.SEVERE, null, ex);
             }

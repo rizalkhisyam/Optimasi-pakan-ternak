@@ -17,6 +17,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import com.mysql.jdbc.Util;
+import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -35,7 +36,6 @@ public class HomeView extends javax.swing.JFrame {
     public HomeView() {
         initComponents();
         this.setLocationRelativeTo(this);
-        
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -148,7 +148,7 @@ public class HomeView extends javax.swing.JFrame {
                 inputPopulasiKeyTyped(evt);
             }
         });
-        getContentPane().add(inputPopulasi, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, 100, 20));
+        getContentPane().add(inputPopulasi, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 120, 90, 20));
 
         inputGenerasi.setBorder(null);
         inputGenerasi.setOpaque(false);
@@ -157,7 +157,7 @@ public class HomeView extends javax.swing.JFrame {
                 inputGenerasiKeyTyped(evt);
             }
         });
-        getContentPane().add(inputGenerasi, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 170, 100, 30));
+        getContentPane().add(inputGenerasi, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 180, 90, 20));
 
         inputProbCross.setBorder(null);
         inputProbCross.setOpaque(false);
@@ -166,7 +166,7 @@ public class HomeView extends javax.swing.JFrame {
                 inputProbCrossKeyTyped(evt);
             }
         });
-        getContentPane().add(inputProbCross, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 230, 100, 30));
+        getContentPane().add(inputProbCross, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 230, 90, 30));
 
         inputProbMut.setBorder(null);
         inputProbMut.setOpaque(false);
@@ -175,7 +175,7 @@ public class HomeView extends javax.swing.JFrame {
                 inputProbMutKeyTyped(evt);
             }
         });
-        getContentPane().add(inputProbMut, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 290, 100, 20));
+        getContentPane().add(inputProbMut, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 290, 90, 20));
 
         konsumsi.setBorder(null);
         konsumsi.setOpaque(false);
@@ -195,10 +195,10 @@ public class HomeView extends javax.swing.JFrame {
         });
         getContentPane().add(ayam, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 530, 60, 30));
 
-        inputAlgoritma.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Home/parameter-input-1.png"))); // NOI18N
+        inputAlgoritma.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Home/param_input.png"))); // NOI18N
         getContentPane().add(inputAlgoritma, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 320, 610));
 
-        header.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Home/header.png"))); // NOI18N
+        header.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Home/header_new.png"))); // NOI18N
         getContentPane().add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1100, -1));
 
         Button_Pakan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Button/btn-feed.png"))); // NOI18N
@@ -488,4 +488,5 @@ public class HomeView extends javax.swing.JFrame {
     private javax.swing.JTable tableBahan;
     private javax.swing.JLabel tesData;
     // End of variables declaration//GEN-END:variables
+
 }

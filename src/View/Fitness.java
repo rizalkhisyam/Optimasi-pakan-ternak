@@ -36,6 +36,7 @@ public class Fitness extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         txt_fitness = new javax.swing.JTextArea();
 
+        txt_fitness.setEditable(false);
         txt_fitness.setColumns(20);
         txt_fitness.setRows(5);
         jScrollPane1.setViewportView(txt_fitness);
