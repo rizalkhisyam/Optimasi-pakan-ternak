@@ -11,17 +11,17 @@ import javax.swing.JTextArea;
  *
  * @author Muhammad Rizal
  */
-public class Hasil extends javax.swing.JPanel {
+public class Harga extends javax.swing.JPanel {
 
     /**
-     * Creates new form Hasil
+     * Creates new form Harga
      */
-    public Hasil() {
+    public Harga() {
         initComponents();
     }
     
-    public JTextArea getTexthasil(){
-        return txt_hasil;
+    public JTextArea getArea_harga(){
+        return text_harga;
     }
 
     /**
@@ -34,13 +34,13 @@ public class Hasil extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        txt_hasil = new javax.swing.JTextArea();
+        text_harga = new javax.swing.JTextArea();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txt_hasil.setColumns(20);
-        txt_hasil.setRows(5);
-        jScrollPane1.setViewportView(txt_hasil);
+        text_harga.setColumns(20);
+        text_harga.setRows(5);
+        jScrollPane1.setViewportView(text_harga);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, 410));
     }// </editor-fold>//GEN-END:initComponents
@@ -48,6 +48,6 @@ public class Hasil extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea txt_hasil;
+    private javax.swing.JTextArea text_harga;
     // End of variables declaration//GEN-END:variables
 }

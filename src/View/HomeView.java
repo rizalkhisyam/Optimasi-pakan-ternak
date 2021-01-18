@@ -52,7 +52,19 @@ public class HomeView extends javax.swing.JFrame {
         Button_clear = new javax.swing.JButton();
         elitism = new javax.swing.JRadioButton();
         roullete = new javax.swing.JRadioButton();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        editHarga = new javax.swing.JButton();
+        hargaIkan = new javax.swing.JLabel();
+        hargaUdang = new javax.swing.JLabel();
+        hargaKacang = new javax.swing.JLabel();
+        hargaKelapa = new javax.swing.JLabel();
+        hargaKedelai = new javax.swing.JLabel();
         DynamicPanel = new javax.swing.JPanel();
         tesData = new javax.swing.JLabel();
         scrollPane = new javax.swing.JScrollPane();
@@ -108,9 +120,51 @@ public class HomeView extends javax.swing.JFrame {
         roullete.setContentAreaFilled(false);
         getContentPane().add(roullete, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 380, 120, -1));
 
+        jLabel8.setFont(new java.awt.Font("Poppins", 0, 11)); // NOI18N
+        jLabel8.setText("5. Limbah udang :");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 420, -1, -1));
+
+        jLabel7.setFont(new java.awt.Font("Poppins", 0, 11)); // NOI18N
+        jLabel7.setText("4. Tepung ikan :");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 400, -1, -1));
+
+        jLabel6.setFont(new java.awt.Font("Poppins", 0, 11)); // NOI18N
+        jLabel6.setText("3. Bungkil kacang :");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 380, -1, -1));
+
+        jLabel5.setFont(new java.awt.Font("Poppins", 0, 11)); // NOI18N
+        jLabel5.setText("2. Bungkil kelapa :");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 360, -1, -1));
+
+        jLabel4.setFont(new java.awt.Font("Poppins", 0, 11)); // NOI18N
+        jLabel4.setText("1. Kedelai :");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 340, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        jLabel3.setText("Harga bahan pakan :");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 310, -1, -1));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Home/Metode Seleksi _.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 350, 100, 20));
-        getContentPane().add(DynamicPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 160, 690, 470));
+
+        editHarga.setText("Ubah Harga");
+        getContentPane().add(editHarga, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 450, -1, -1));
+
+        hargaIkan.setText("Rp. ");
+        getContentPane().add(hargaIkan, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 400, 80, 20));
+
+        hargaUdang.setText("Rp. ");
+        getContentPane().add(hargaUdang, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 420, 70, 20));
+
+        hargaKacang.setText("Rp. ");
+        getContentPane().add(hargaKacang, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 380, 60, 20));
+
+        hargaKelapa.setText("Rp. ");
+        getContentPane().add(hargaKelapa, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 360, 60, 20));
+
+        hargaKedelai.setText("Rp.");
+        getContentPane().add(hargaKedelai, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 340, 90, 20));
+        getContentPane().add(DynamicPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 650, 690, 470));
         getContentPane().add(tesData, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 660, -1, -1));
 
         scrollPane.setFont(new java.awt.Font("Poppins", 1, 11)); // NOI18N
@@ -129,6 +183,7 @@ public class HomeView extends javax.swing.JFrame {
             }
         ));
         tableBahan.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        tableBahan.setRowSelectionAllowed(false);
         scrollPane.setViewportView(tableBahan);
 
         getContentPane().add(scrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 180, 650, 110));
@@ -230,6 +285,26 @@ public class HomeView extends javax.swing.JFrame {
     
     public JRadioButton getRoullete(){
         return roullete;
+    }
+    
+    public JLabel getHargaKed(){
+        return hargaKedelai;
+    }
+    
+    public JLabel getHargaKel(){
+        return hargaKelapa;
+    }
+    
+    public JLabel getHargaKac(){
+        return hargaKacang;
+    }
+    
+    public JLabel getHargaIkan(){
+        return hargaIkan;
+    }
+    
+    public JLabel getHargaUdang(){
+        return hargaUdang;
     }
 
 //button menu Optimasi=========================
@@ -473,7 +548,13 @@ public class HomeView extends javax.swing.JFrame {
     private javax.swing.JTextField ayam;
     private javax.swing.JLabel background;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JButton editHarga;
     private javax.swing.JRadioButton elitism;
+    private javax.swing.JLabel hargaIkan;
+    private javax.swing.JLabel hargaKacang;
+    private javax.swing.JLabel hargaKedelai;
+    private javax.swing.JLabel hargaKelapa;
+    private javax.swing.JLabel hargaUdang;
     private javax.swing.JLabel header;
     private javax.swing.JLabel inputAlgoritma;
     private javax.swing.JTextField inputGenerasi;
@@ -482,6 +563,12 @@ public class HomeView extends javax.swing.JFrame {
     private javax.swing.JTextField inputProbMut;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JTextField konsumsi;
     private javax.swing.JRadioButton roullete;
     private javax.swing.JScrollPane scrollPane;

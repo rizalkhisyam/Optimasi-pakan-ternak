@@ -132,10 +132,12 @@ public class PanelOptimasi extends javax.swing.JPanel {
         hargaUdang = new javax.swing.JLabel();
         totalHarga = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
@@ -160,187 +162,195 @@ public class PanelOptimasi extends javax.swing.JPanel {
 
         persenKedelai.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         persenKedelai.setText("Komposisi :");
-        add(persenKedelai, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, -1, 20));
+        add(persenKedelai, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, -1, 20));
 
         persenKelapa.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         persenKelapa.setText("Komposisi :");
-        add(persenKelapa, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, -1, 30));
+        add(persenKelapa, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, -1, 30));
 
         persenKacang.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         persenKacang.setText("Komposisi :");
-        add(persenKacang, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, -1, 30));
+        add(persenKacang, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 240, -1, 30));
 
         persenIkan.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         persenIkan.setText("Komposisi :");
-        add(persenIkan, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 300, -1, 30));
+        add(persenIkan, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 330, -1, 30));
 
         persenUdang.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         persenUdang.setText("Komposisi :");
-        add(persenUdang, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 390, -1, 40));
+        add(persenUdang, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 420, -1, 40));
 
         beratKedelai.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         beratKedelai.setText("Berat : ");
-        add(beratKedelai, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 50, -1, 30));
+        add(beratKedelai, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, -1, 30));
 
         beratKelapa.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         beratKelapa.setText("Berat : ");
-        add(beratKelapa, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 150, -1, 20));
+        add(beratKelapa, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, -1, 20));
 
         beratKacang.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         beratKacang.setText("Berat : ");
-        add(beratKacang, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, -1, 40));
+        add(beratKacang, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 210, -1, 40));
 
         beratIkan.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         beratIkan.setText("Berat : ");
-        add(beratIkan, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 320, -1, 40));
+        add(beratIkan, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 300, -1, 40));
 
         beratUdang.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         beratUdang.setText("Berat : ");
-        add(beratUdang, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 420, -1, 30));
+        add(beratUdang, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 400, -1, 30));
 
         beratPakan.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         beratPakan.setText("konsumsi");
-        add(beratPakan, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 50, -1, 20));
+        add(beratPakan, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 40, -1, 20));
 
         banyakAyam.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         banyakAyam.setText("Banyak Ayam : ");
-        add(banyakAyam, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 70, -1, 20));
+        add(banyakAyam, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 60, -1, 20));
 
-        hargaKedelai.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        hargaKedelai.setFont(new java.awt.Font("Poppins", 0, 10)); // NOI18N
         hargaKedelai.setText("Kedelai : ");
-        add(hargaKedelai, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 250, -1, 20));
+        add(hargaKedelai, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 260, -1, 20));
 
-        totalKelapa.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        totalKelapa.setFont(new java.awt.Font("Poppins", 0, 10)); // NOI18N
         totalKelapa.setText("Bungkil kelapa : ");
-        add(totalKelapa, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 140, -1, 20));
+        add(totalKelapa, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 150, -1, 20));
 
-        totalKacang.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        totalKacang.setFont(new java.awt.Font("Poppins", 0, 10)); // NOI18N
         totalKacang.setText("Bungkil kacang : ");
-        add(totalKacang, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 160, -1, 20));
+        add(totalKacang, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 170, -1, 20));
 
-        totalIkan.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        totalIkan.setFont(new java.awt.Font("Poppins", 0, 10)); // NOI18N
         totalIkan.setText("Tepung ikan : ");
-        add(totalIkan, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 180, -1, 20));
+        add(totalIkan, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 190, -1, 20));
 
-        totalUdang.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        totalUdang.setFont(new java.awt.Font("Poppins", 0, 10)); // NOI18N
         totalUdang.setText("Limbah udang : ");
-        add(totalUdang, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 200, -1, 20));
+        add(totalUdang, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 210, -1, 20));
 
-        totalKedelai.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        totalKedelai.setFont(new java.awt.Font("Poppins", 0, 10)); // NOI18N
         totalKedelai.setText("Kedelai : ");
-        add(totalKedelai, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 120, -1, 20));
+        add(totalKedelai, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 130, -1, 20));
 
-        hargaKelapa.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        hargaKelapa.setFont(new java.awt.Font("Poppins", 0, 10)); // NOI18N
         hargaKelapa.setText("Bungkil kelapa : ");
-        add(hargaKelapa, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 270, -1, 20));
+        add(hargaKelapa, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 280, -1, 20));
 
-        hargaKacang.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        hargaKacang.setFont(new java.awt.Font("Poppins", 0, 10)); // NOI18N
         hargaKacang.setText("Bungkil kacang : ");
-        add(hargaKacang, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 290, -1, 20));
+        add(hargaKacang, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 300, -1, 20));
 
-        hargaIkan.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        hargaIkan.setFont(new java.awt.Font("Poppins", 0, 10)); // NOI18N
         hargaIkan.setText("Tepung ikan : ");
-        add(hargaIkan, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 310, -1, 20));
+        add(hargaIkan, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 320, -1, 20));
 
-        hargaUdang.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        hargaUdang.setFont(new java.awt.Font("Poppins", 0, 10)); // NOI18N
         hargaUdang.setText("Limbah udang : ");
-        add(hargaUdang, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 330, -1, 20));
+        add(hargaUdang, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 340, -1, 20));
 
         totalHarga.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         totalHarga.setText("Total Biaya Ransum Pakan :");
-        add(totalHarga, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 390, -1, 20));
+        add(totalHarga, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 410, -1, 20));
 
-        jLabel24.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        jLabel24.setText("Total Biaya Ransum Pakan :");
-        add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 370, -1, 20));
+        jLabel24.setFont(new java.awt.Font("Poppins", 1, 12)); // NOI18N
+        jLabel24.setText("Total Harga Bahan pakan");
+        add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 240, -1, 20));
 
-        jLabel23.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        jLabel25.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        jLabel25.setText("Total Biaya Ransum Pakan :");
+        add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 390, -1, 20));
+
+        jLabel23.setFont(new java.awt.Font("Poppins", 0, 10)); // NOI18N
         jLabel23.setText("Harga Limbah Udang : ");
-        add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 330, -1, 20));
+        add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 340, -1, 20));
 
-        jLabel22.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        jLabel22.setFont(new java.awt.Font("Poppins", 0, 10)); // NOI18N
         jLabel22.setText("Harga Tepung Ikan : ");
-        add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 310, -1, 20));
+        add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 320, -1, 20));
 
-        jLabel21.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        jLabel21.setFont(new java.awt.Font("Poppins", 0, 10)); // NOI18N
         jLabel21.setText("Harga Bungkil Kacang : ");
-        add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 290, -1, 20));
+        add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 300, -1, 20));
 
-        jLabel20.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        jLabel20.setFont(new java.awt.Font("Poppins", 0, 10)); // NOI18N
         jLabel20.setText("Harga Bungkil Kelapa : ");
-        add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 270, -1, 20));
+        add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 280, -1, 20));
 
-        jLabel19.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        jLabel26.setFont(new java.awt.Font("Poppins", 1, 12)); // NOI18N
+        jLabel26.setText("Total Bobot Bahan pakan");
+        add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 100, -1, 20));
+
+        jLabel19.setFont(new java.awt.Font("Poppins", 0, 10)); // NOI18N
         jLabel19.setText("Harga Kedelai : ");
-        add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 250, -1, 20));
+        add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 260, -1, 20));
 
-        jLabel18.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        jLabel18.setFont(new java.awt.Font("Poppins", 0, 10)); // NOI18N
         jLabel18.setText("Limbah udang : ");
-        add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 200, -1, 20));
+        add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 210, -1, 20));
 
-        jLabel17.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        jLabel17.setFont(new java.awt.Font("Poppins", 0, 10)); // NOI18N
         jLabel17.setText("Tepung ikan : ");
-        add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 180, -1, 20));
+        add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 190, -1, 20));
 
-        jLabel16.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        jLabel16.setFont(new java.awt.Font("Poppins", 0, 10)); // NOI18N
         jLabel16.setText("Bungkil kacang : ");
-        add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 160, -1, 20));
+        add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 170, -1, 20));
 
-        jLabel15.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Poppins", 0, 10)); // NOI18N
         jLabel15.setText("Bungkil kelapa : ");
-        add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 140, -1, 20));
+        add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 150, -1, 20));
 
-        jLabel14.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        jLabel14.setFont(new java.awt.Font("Poppins", 0, 10)); // NOI18N
         jLabel14.setText("Kedelai : ");
-        add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 120, -1, 20));
+        add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 130, -1, 20));
 
         jLabel13.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         jLabel13.setText("Banyak Ayam : ");
-        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 70, -1, 20));
+        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 60, -1, 20));
 
         jLabel12.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         jLabel12.setText("Kemampuan Konsumsi Pakan : ");
-        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 50, -1, 20));
+        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 40, -1, 20));
 
         jLabel11.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        jLabel11.setText("Berat : ");
-        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 420, -1, 30));
+        jLabel11.setText("Komposisi : ");
+        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 400, -1, 30));
 
         jLabel10.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        jLabel10.setText("Berat : ");
-        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, -1, 40));
+        jLabel10.setText("Komposisi : ");
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 300, -1, 40));
 
         jLabel9.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        jLabel9.setText("Berat : ");
-        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 230, -1, 40));
+        jLabel9.setText("Komposisi : ");
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 210, -1, 40));
 
         jLabel8.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        jLabel8.setText("Berat : ");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, -1, 20));
+        jLabel8.setText("Komposisi : ");
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, -1, 20));
 
         jLabel7.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        jLabel7.setText("Berat : ");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, -1, 30));
+        jLabel7.setText("Komposisi : ");
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, -1, 30));
 
         jLabel6.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        jLabel6.setText("Komposisi :");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 390, -1, 40));
+        jLabel6.setText("Biaya  :");
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 420, -1, 40));
 
         jLabel5.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        jLabel5.setText("Komposisi :");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 300, -1, 30));
+        jLabel5.setText("Biaya  :");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 330, -1, 30));
 
         jLabel4.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        jLabel4.setText("Komposisi :");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 210, -1, 30));
+        jLabel4.setText("Biaya  :");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, -1, 30));
 
         jLabel3.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        jLabel3.setText("Komposisi :");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, -1, 30));
+        jLabel3.setText("Biaya  :");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, -1, 30));
 
         jLabel2.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        jLabel2.setText("Komposisi :");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, -1, 20));
+        jLabel2.setText("Biaya  :");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, -1, 20));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Home/hasil_fix.png"))); // NOI18N
@@ -378,6 +388,8 @@ public class PanelOptimasi extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

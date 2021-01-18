@@ -25,6 +25,17 @@ public class PanelPakan extends javax.swing.JPanel {
         initComponents();
     }
     
+    public void HargaMouseListener(MouseListener l){
+        this.btn_harga.addMouseListener(l);
+    }
+    
+    public JButton getButton_harga() {
+        return btn_harga;
+    }
+
+    public void setButton_harga(JButton btn_harga) {
+        this.btn_harga = btn_harga;
+    }
     
     public void BestMouseListener(MouseListener l){
         this.btn_hasil.addMouseListener(l);
@@ -134,6 +145,7 @@ public class PanelPakan extends javax.swing.JPanel {
         btn_sel = new javax.swing.JButton();
         btn_fit = new javax.swing.JButton();
         btn_hasil = new javax.swing.JButton();
+        btn_harga = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(690, 470));
@@ -156,37 +168,42 @@ public class PanelPakan extends javax.swing.JPanel {
         btn_pop.setBorderPainted(false);
         btn_pop.setContentAreaFilled(false);
         btn_pop.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        add(btn_pop, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 190, -1));
+        add(btn_pop, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 190, -1));
 
         btn_cros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Button/btn_crossover.png"))); // NOI18N
         btn_cros.setBorderPainted(false);
         btn_cros.setContentAreaFilled(false);
         btn_cros.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        add(btn_cros, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 190, -1));
+        add(btn_cros, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 190, -1));
 
         btn_mut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Button/btn_mutasi.png"))); // NOI18N
         btn_mut.setBorderPainted(false);
         btn_mut.setContentAreaFilled(false);
         btn_mut.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        add(btn_mut, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 190, -1));
+        add(btn_mut, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 190, -1));
 
         btn_sel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Button/btn_seleksi.png"))); // NOI18N
         btn_sel.setBorderPainted(false);
         btn_sel.setContentAreaFilled(false);
         btn_sel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        add(btn_sel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 190, -1));
+        add(btn_sel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 190, -1));
 
         btn_fit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Button/btn_fitness.png"))); // NOI18N
         btn_fit.setBorderPainted(false);
         btn_fit.setContentAreaFilled(false);
         btn_fit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        add(btn_fit, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 190, -1));
+        add(btn_fit, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 190, -1));
 
         btn_hasil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Button/btn_hasil.png"))); // NOI18N
         btn_hasil.setBorderPainted(false);
         btn_hasil.setContentAreaFilled(false);
         btn_hasil.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        add(btn_hasil, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 340, 190, -1));
+        add(btn_hasil, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, 190, -1));
+
+        btn_harga.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Button/btn_harga.png"))); // NOI18N
+        btn_harga.setBorderPainted(false);
+        btn_harga.setContentAreaFilled(false);
+        add(btn_harga, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 190, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Home/bg-hitung.png"))); // NOI18N
         jLabel2.setText("jLabel2");
@@ -197,6 +214,7 @@ public class PanelPakan extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_cros;
     private javax.swing.JButton btn_fit;
+    private javax.swing.JButton btn_harga;
     private javax.swing.JButton btn_hasil;
     private javax.swing.JButton btn_mut;
     private javax.swing.JButton btn_pop;
