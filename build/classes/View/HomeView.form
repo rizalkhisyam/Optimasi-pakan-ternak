@@ -126,6 +126,29 @@
         </Constraint>
       </Constraints>
     </Component>
+    <Container class="javax.swing.JPanel" name="DynamicPanel">
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="380" y="160" width="690" height="470"/>
+        </Constraint>
+      </Constraints>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
+    </Container>
+    <Container class="javax.swing.JPanel" name="panelEdit">
+      <Properties>
+        <Property name="opaque" type="boolean" value="false"/>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="720" y="300" width="270" height="300"/>
+        </Constraint>
+      </Constraints>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+        <Property name="useNullLayout" type="boolean" value="false"/>
+      </Layout>
+    </Container>
     <Component class="javax.swing.JLabel" name="jLabel8">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -216,9 +239,16 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JButton" name="editHarga">
+    <Component class="javax.swing.JButton" name="button_edit">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Ubah Harga"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/View/Button/btn_edit.png"/>
+        </Property>
+        <Property name="borderPainted" type="boolean" value="false"/>
+        <Property name="contentAreaFilled" type="boolean" value="false"/>
+        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+          <Color id="Hand Cursor"/>
+        </Property>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -276,15 +306,6 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Container class="javax.swing.JPanel" name="DynamicPanel">
-      <Constraints>
-        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="380" y="650" width="690" height="470"/>
-        </Constraint>
-      </Constraints>
-
-      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
-    </Container>
     <Component class="javax.swing.JLabel" name="tesData">
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">

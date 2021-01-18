@@ -152,6 +152,52 @@ public class GenetikModel {
         }
     }
     
+    public void updateHarga(double harga1){
+        try {
+            String query = "UPDATE `data_pakan` SET `harga`='" + harga1 + "' WHERE id_pakan = 2";
+            System.out.println(query);
+            koneksi.execute(query);
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    }
+    public void updateHarga2(double harga2){
+        try {
+            String query = "UPDATE `data_pakan` SET `harga`='" + harga2 + "' WHERE id_pakan = 3";
+            System.out.println(query);
+            koneksi.execute(query);
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    }
+    public void updateHarga3(double harga3){
+        try {
+            String query = "UPDATE `data_pakan` SET `harga`='" + harga3 + "' WHERE id_pakan = 4";
+            System.out.println(query);
+            koneksi.execute(query);
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    }
+    public void updateHarga4(double harga4){
+        try {
+            String query = "UPDATE `data_pakan` SET `harga`='" + harga4 + "' WHERE id_pakan = 5";
+            System.out.println(query);
+            koneksi.execute(query);
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    }
+    public void updateHarga5(double harga5){
+        try {
+            String query = "UPDATE `data_pakan` SET `harga`='" + harga5 + "' WHERE id_pakan = 6";
+            System.out.println(query);
+            koneksi.execute(query);
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    }
+    
     public void getAlgo(){
         try{
             String query = "SELECT * from data_algoritma ORDER BY id_algo DESC limit 1";

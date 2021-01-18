@@ -15,6 +15,7 @@ import View.PanelOptimasi;
 import View.PanelPakan;
 import View.Populasi;
 import View.Seleksi;
+import View.editHarga;
 import java.awt.GridBagLayout;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -44,6 +45,8 @@ public class GenetikController {
     static PanelPakan feed = new PanelPakan();
     static PanelOptimasi result = new PanelOptimasi();
     
+    static GridBagLayout layoutEdit = new GridBagLayout();
+    
     static GridBagLayout layout2 = new GridBagLayout();
     static Populasi panel_pop = new Populasi();
     static Mutasi panel_mut = new Mutasi();
@@ -51,6 +54,7 @@ public class GenetikController {
     static Fitness panel_fit = new Fitness();
     static Hasil panel_hasil = new Hasil();
     static Harga panel_harga = new Harga();
+    static editHarga panel_edit = new editHarga();
     
     private GenetikModel genModel;
     private DefaultTableModel model;
@@ -96,6 +100,10 @@ public class GenetikController {
     home.getDynamicPanel().add(result);
     home.getDynamicPanel().setVisible(false);
     
+    home.getPanelEdit().setLayout(layoutEdit);
+    home.getPanelEdit().add(panel_edit);
+    home.getPanelEdit().setVisible(false);
+    
     feed.getDynamicPanel2().setLayout(layout2);
     feed.getDynamicPanel2().add(panel_pop);
     feed.getDynamicPanel2().add(panel_mut);
@@ -108,6 +116,9 @@ public class GenetikController {
     home.OptimasiMouseListener(new OptimasiMouseListener());
     home.RunMouseListener(new RunMouseListener());
     home.ClearMouseListener(new ClearMouseListener());
+    
+    home.EditMouseListener(new EditMouseListener());
+    panel_edit.SaveMouseListener(new SaveMouseListener());
     
     home.AlgoMouseListener(new AlgoMouseListener());
     home.HasilMouseListener(new HasilMouseListener());
@@ -1829,6 +1840,92 @@ public class GenetikController {
             }
     }
 
+    private class EditMouseListener implements MouseListener {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            home.getPanelEdit().setVisible(true);
+            panel_edit.setVisible(true);
+            
+            double hargaKedelai = genModel.getHarga1();
+            double hargaKelapa = genModel.getHarga2();
+            double hargaKacang = genModel.getHarga3();
+            double hargaIkan = genModel.getHarga4();
+            double hargaUdang = genModel.getHarga5();
+            
+            String harga1 = String.valueOf(hargaKedelai);
+            String harga2 = String.valueOf(hargaKelapa);
+            String harga3 = String.valueOf(hargaKacang);
+            String harga4 = String.valueOf(hargaIkan);
+            String harga5 = String.valueOf(hargaUdang);
+            panel_edit.setHarga1(harga1);
+            panel_edit.setHarga2(harga2);
+            panel_edit.setHarga3(harga3);
+            panel_edit.setHarga4(harga4);
+            panel_edit.setHarga5(harga5);
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+            }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+            }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+            }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+            }
+    }
+
+    private class SaveMouseListener implements MouseListener {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            double hargaKedelai = Double.parseDouble(panel_edit.getInputHarga1());
+            double hargaKelapa = Double.parseDouble(panel_edit.getInputHarga2());
+            double hargaKacang = Double.parseDouble(panel_edit.getInputHarga3());
+            double hargaIkan = Double.parseDouble(panel_edit.getInputHarga4());
+            double hargaUdang = Double.parseDouble(panel_edit.getInputHarga5());
+            
+            genModel.updateHarga(hargaKedelai);
+            genModel.updateHarga2(hargaKelapa);
+            genModel.updateHarga3(hargaKacang);
+            genModel.updateHarga4(hargaIkan);
+            genModel.updateHarga5(hargaUdang);
+            JOptionPane.showMessageDialog(home, "Harga baru berhasil disimpan");
+            
+            genModel.getKedelai();
+            genModel.getKelapa();
+            genModel.getKacang();
+            genModel.getIkan();
+            genModel.getUdang();
+            
+            showHarga();
+            home.getPanelEdit().setVisible(false);
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+            }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+            }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+            }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+            }
+    }
+
     private class BestMouseListener implements MouseListener {
 
         public BestMouseListener() {
@@ -2161,12 +2258,11 @@ public class GenetikController {
 
     private class PakanMouseListener implements MouseListener {
 
-        public PakanMouseListener() {
-        }
-
         @Override
         public void mouseClicked(MouseEvent e) {
             home.getDynamicPanel().setVisible(false);
+            home.getButton_Edit().setVisible(true);
+            home.getScroll().setVisible(true);
             }
 
         @Override
@@ -2190,14 +2286,14 @@ public class GenetikController {
 
     private class HasilMouseListener implements MouseListener {
 
-        public HasilMouseListener() {
-        }
-
         @Override
         public void mouseClicked(MouseEvent e) {
             home.getDynamicPanel().setVisible(true);
+            home.getPanelEdit().setVisible(false);
             feed.setVisible(false);
             result.setVisible(true);
+            home.getButton_Edit().setVisible(false);
+            home.getScroll().setVisible(false);
 //            hasilOptimasi();
             }
 
@@ -2225,8 +2321,11 @@ public class GenetikController {
         @Override
         public void mouseClicked(MouseEvent e) {
             home.getDynamicPanel().setVisible(true);
+            home.getPanelEdit().setVisible(false);
             feed.setVisible(true);
             result.setVisible(false);
+            home.getButton_Edit().setVisible(false);
+            home.getScroll().setVisible(false);
             
             }
 

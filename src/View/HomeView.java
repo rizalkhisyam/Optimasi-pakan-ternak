@@ -52,6 +52,8 @@ public class HomeView extends javax.swing.JFrame {
         Button_clear = new javax.swing.JButton();
         elitism = new javax.swing.JRadioButton();
         roullete = new javax.swing.JRadioButton();
+        DynamicPanel = new javax.swing.JPanel();
+        panelEdit = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -59,13 +61,12 @@ public class HomeView extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        editHarga = new javax.swing.JButton();
+        button_edit = new javax.swing.JButton();
         hargaIkan = new javax.swing.JLabel();
         hargaUdang = new javax.swing.JLabel();
         hargaKacang = new javax.swing.JLabel();
         hargaKelapa = new javax.swing.JLabel();
         hargaKedelai = new javax.swing.JLabel();
-        DynamicPanel = new javax.swing.JPanel();
         tesData = new javax.swing.JLabel();
         scrollPane = new javax.swing.JScrollPane();
         tableBahan = new javax.swing.JTable();
@@ -119,6 +120,11 @@ public class HomeView extends javax.swing.JFrame {
         roullete.setText("Roullete Wheel");
         roullete.setContentAreaFilled(false);
         getContentPane().add(roullete, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 380, 120, -1));
+        getContentPane().add(DynamicPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 160, 690, 470));
+
+        panelEdit.setOpaque(false);
+        panelEdit.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(panelEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 300, 270, 300));
 
         jLabel8.setFont(new java.awt.Font("Poppins", 0, 11)); // NOI18N
         jLabel8.setText("5. Limbah udang :");
@@ -147,8 +153,11 @@ public class HomeView extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Home/Metode Seleksi _.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 350, 100, 20));
 
-        editHarga.setText("Ubah Harga");
-        getContentPane().add(editHarga, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 450, -1, -1));
+        button_edit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Button/btn_edit.png"))); // NOI18N
+        button_edit.setBorderPainted(false);
+        button_edit.setContentAreaFilled(false);
+        button_edit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(button_edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 450, -1, -1));
 
         hargaIkan.setText("Rp. ");
         getContentPane().add(hargaIkan, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 400, 80, 20));
@@ -164,7 +173,6 @@ public class HomeView extends javax.swing.JFrame {
 
         hargaKedelai.setText("Rp.");
         getContentPane().add(hargaKedelai, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 340, 90, 20));
-        getContentPane().add(DynamicPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 650, 690, 470));
         getContentPane().add(tesData, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 660, -1, -1));
 
         scrollPane.setFont(new java.awt.Font("Poppins", 1, 11)); // NOI18N
@@ -308,17 +316,29 @@ public class HomeView extends javax.swing.JFrame {
     }
 
 //button menu Optimasi=========================
-//    public JScrollPane getScroll(){
-//        return scrollPane;
-//    }
+    public JScrollPane getScroll(){
+        return scrollPane;
+    }
 //    
 //    public JLabel getData(){
 //        return tesData;
 //    }
 //    
-//    public JTable getTable(){
-//        return tableBahan;
-//    }
+    public JTable getTable(){
+        return tableBahan;
+    }
+    
+    public void EditMouseListener(MouseListener l){
+        this.button_edit.addMouseListener(l);
+    }
+    
+    public JButton getButton_Edit(){
+        return button_edit;
+    }
+    
+    public void setButton_edit(JButton button_edit){
+        this.button_edit = button_edit;
+    }
     
 //    Button clear =============
     public void ClearMouseListener(MouseListener l){
@@ -406,6 +426,14 @@ public class HomeView extends javax.swing.JFrame {
     
     public JPanel getDynamicPanel(){
         return DynamicPanel;
+    }
+    
+    public void setPanelEdit(JPanel panelEdit){
+        this.panelEdit = panelEdit;
+    }
+    
+    public JPanel getPanelEdit(){
+        return panelEdit;
     }
     
     public String getInputPopulasi(){
@@ -548,7 +576,7 @@ public class HomeView extends javax.swing.JFrame {
     private javax.swing.JTextField ayam;
     private javax.swing.JLabel background;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JButton editHarga;
+    private javax.swing.JButton button_edit;
     private javax.swing.JRadioButton elitism;
     private javax.swing.JLabel hargaIkan;
     private javax.swing.JLabel hargaKacang;
@@ -570,6 +598,7 @@ public class HomeView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JTextField konsumsi;
+    private javax.swing.JPanel panelEdit;
     private javax.swing.JRadioButton roullete;
     private javax.swing.JScrollPane scrollPane;
     private javax.swing.JTable tableBahan;
